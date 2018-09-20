@@ -1,49 +1,112 @@
 package com.example.laura.quiz;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Preguntas {
 
-    private String[] preguntas = {
-
-        "¿Cuánto quiere Laura a Kevin?"
-
-
-
-
+    private static String[] preguntas = {
+        "¿Quién disparó al señor Burns?",
+        "¿Cuál es el nombre completo de Homer?",
+        "¿De qué están hechas la barritas energéticas que toma Homer?",
+        "¿Quiénes salvan de la quiebra a la Rasca y Pica?",
+        "¿De qué estado norteamericano es el disfraz que le hace Homer a Lisa?",
+        "¿Cuántos dedos tienen los Simpsons?",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
     };
 
-    private String[][] respuestas = {
+    private static String[][] respuestas = {
 
-            {"Mucho", "Poco", "Nada", "Hasta el infinito"},
-            {},
-            {},
-            {},
-            {}
-
+        {"Homer", "Tito Puente", "Maggie", "Lisa"},
+        {"Homer Josh Simpson", "Homer Guasón Simpson", "Homer Jeff Simpson", "Homer Jay Simpson"},
+        {"Pipas y periódicos chinos", "Chicles de menta", "Trocitos de fruta y libros viejos", "Chocolate y espaguettis"},
+        {"Bart y Lisa", "Lester y Eliza", "Krusty y Bob", "Ralph y Vomitron"},
+        {"California", "Alabama", "Nevada", "Florida"},
+        {"2", "3", "4", "5"},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
     };
 
-    private String[] respuestaCorrecta = {
+    private static String[] respuestaCorrecta = {
 
-            "Hasta el infinito"
-
-
-
+        "Maggie",
+        "Homer Jay Simpson",
+        "Pipas y periódicos chinos",
+        "Lester y Eliza",
+        "Florida",
+        "4",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
     };
 
-    public String GetPregunta(int id){
+    private static List<Integer> ordenPreguntas;
 
-        return this.preguntas[id];
+    public static void startPreguntas(int numPreg){
+
+        ordenPreguntas = new ArrayList<>();
+
+        for(int i = 0; i < numPreg; i++){
+            ordenPreguntas.add(i+1);
+        }
+
+        Collections.shuffle(ordenPreguntas);
+    }
+
+    public static String GetPregunta(int id){
+
+        return preguntas[ordenPreguntas.get(id)];
 
     }
 
-    public String GetRespuesta(int idPregunta, int idRespuesta){
+    public static String GetRespuesta(int idPregunta, int idRespuesta){
 
-        return this.respuestas[idPregunta][idRespuesta];
+        String[] respuestaAct = respuestas[ordenPreguntas.get(idPregunta)];
+
+        return respuestaAct[idRespuesta];
 
     }
 
-    public String getRespuestaCorrecta(int idPregunta) {
+    public static String getRespuestaCorrecta(int idPregunta) {
 
-        return this.respuestaCorrecta[idPregunta];
+        return respuestaCorrecta[ordenPreguntas.get(idPregunta)];
 
     }
 }

@@ -14,7 +14,7 @@ public class Quiz extends AppCompatActivity {
     Button respuesta1, respuesta2, respuesta3, respuesta4;
     TextView pregunta, puntuacion;
 
-    private Preguntas preguntas = new Preguntas();
+    //private Preguntas preguntas = new Preguntas();
     private String respuestaCorrecta;
     private int miPuntuacion = 0;
     private int numPregunta = 0;
@@ -23,6 +23,8 @@ public class Quiz extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
+        Preguntas.startPreguntas(5);
 
         respuesta1 = (Button) findViewById(R.id.respuesta1);
         respuesta2 = (Button) findViewById(R.id.respuesta2);
@@ -126,13 +128,13 @@ public class Quiz extends AppCompatActivity {
 
     public void SiguientePregunta(int id){
 
-        pregunta.setText(preguntas.GetPregunta(id));
-        respuesta1.setText(preguntas.GetRespuesta(id,0));
-        respuesta2.setText(preguntas.GetRespuesta(id,1));
-        respuesta3.setText(preguntas.GetRespuesta(id,2));
-        respuesta4.setText(preguntas.GetRespuesta(id,3));
+        pregunta.setText(Preguntas.GetPregunta(id));
+        respuesta1.setText(Preguntas.GetRespuesta(id,0));
+        respuesta2.setText(Preguntas.GetRespuesta(id,1));
+        respuesta3.setText(Preguntas.GetRespuesta(id,2));
+        respuesta4.setText(Preguntas.GetRespuesta(id,3));
 
-        respuestaCorrecta = preguntas.getRespuestaCorrecta(id);
+        respuestaCorrecta = Preguntas.getRespuestaCorrecta(id);
 
     }
 
