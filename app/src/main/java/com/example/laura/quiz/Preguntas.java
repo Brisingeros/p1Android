@@ -13,20 +13,20 @@ public class Preguntas {
         "¿Quiénes salvan de la quiebra a la Rasca y Pica?",
         "¿De qué estado norteamericano es el disfraz que le hace Homer a Lisa?",
         "¿Cuántos dedos tienen los Simpsons?",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "¿Cuál es el precio de Maggie?",
+        "¿Cómo se llama el perro de la familia?",
+        "¿Qué edad tiene Bart?",
+        "¿Cómo se llama la madre de Homer?",
+        "¿Cuál es el verdadero nombre de Snake?",
+        "¿Quién no tiene ningún hijo?",
+        "¿Cuál de estos famosos nunca ha aparecido en la serie?",
+        "¿A qué se dedicaba Moe antes de tener la taberna?",
+        "¿Cómo se llama el cóctel que inventa Homer?",
+        "¿Cuál de los siguientes cantantes no ha aparecido en la serie?",
+        "¿Cuál es el nombre de la cocinera del colegio?",
+        "¿Quién es Joe Quimby?",
+        "¿Quién es Troy Mclure?",
+        "¿Quién es Bart Simpson?"
     };
 
     private static String[][] respuestas = {
@@ -37,20 +37,20 @@ public class Preguntas {
         {"Bart y Lisa", "Lester y Eliza", "Krusty y Bob", "Ralph y Vomitron"},
         {"California", "Alabama", "Nevada", "Florida"},
         {"2", "3", "4", "5"},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {}
+        {"240.34", "1347.65", "847.63", "76.98"},
+        {"Ayudante de Santa", "Ayudante de Satán", "Ayudante de Jesús", "Ayudante de Deadpool"},
+        {"11", "12", "13", "10"},
+        {"Mona", "Mino", "Eleine", "Jude"},
+        {"Krustofsky", "Hans Moleman", "Joe Quimby", "Chester Turley"},
+        {"Patty", "Selma", "Apu", "Ned Flanders"},
+        {"Ronaldo Nazario", "Cristiano Ronaldo", "Andrés Iniesta", "Leo Messi"},
+        {"Modelo", "Boxeador", "Tenista", "Actor"},
+        {"El flameado de Moe", "El flameado de Homer", "El flameado de Peter", "El flameado de Apu"},
+        {"Madonna", "Katy Perry", "Lady Gaga", "Britney Spears"},
+        {"Anna", "Doris", "Boris", "Trudis"},
+        {"imagen1", "imagen2", "imagen3", "imagen4"},
+        {"imagen1", "imagen2", "imagen3", "imagen4"},
+        {"imagen1", "imagen2", "imagen3", "imagen4"}
     };
 
     private static String[] respuestaCorrecta = {
@@ -61,52 +61,83 @@ public class Preguntas {
         "Lester y Eliza",
         "Florida",
         "4",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "847.63",
+        "Ayudante de Santa",
+        "10",
+        "Mona",
+        "Chester Turley",
+        "Patty",
+        "Andrés Iniesta",
+        "Boxeador",
+        "El flameado de Moe",
+        "Madonna",
+        "Doris",
+        "imagen1",
+        "imagen3",
+        "imagen2"
     };
 
-    private static List<Integer> ordenPreguntas;
+    private static String[] tipoPregunta = {
+        "texto",
+        "texto",
+        "texto",
+        "texto",
+        "texto",
+        "texto",
+        "texto",
+        "texto",
+        "texto",
+        "texto",
+        "texto",
+        "texto",
+        "texto",
+        "texto",
+        "texto",
+        "texto",
+        "texto",
+        "imagen",
+        "imagen",
+        "imagen"
+    };
 
-    public static void startPreguntas(int numPreg){
+    private static List<Pregunta> quizPreguntas;
 
-        ordenPreguntas = new ArrayList<>();
+    public static void startPreguntas(boolean img){
 
-        for(int i = 0; i < numPreg; i++){
-            ordenPreguntas.add(i+1);
+        quizPreguntas = new ArrayList<>();
+
+        for(int i = 0; i < preguntas.length; i++){
+            if(tipoPregunta[i] == "texto") {
+                quizPreguntas.add(new PreguntaTexto(preguntas[i], respuestas[i], respuestaCorrecta[i]));
+            } else if(tipoPregunta[i] == "imagen" && img) {
+                quizPreguntas.add(new PreguntaImagen(preguntas[i], respuestas[i], respuestaCorrecta[i]));
+            }
         }
 
-        Collections.shuffle(ordenPreguntas);
+        desordenar();
+    }
+
+    private static void desordenar(){
+        Collections.shuffle(quizPreguntas);
     }
 
     public static String GetPregunta(int id){
 
-        return preguntas[ordenPreguntas.get(id)];
+        return quizPreguntas.get(id).getPregunta();
 
     }
 
     public static String GetRespuesta(int idPregunta, int idRespuesta){
 
-        String[] respuestaAct = respuestas[ordenPreguntas.get(idPregunta)];
 
-        return respuestaAct[idRespuesta];
+        return quizPreguntas.get(idPregunta).getRespuesta(idRespuesta);
 
     }
 
-    public static String getRespuestaCorrecta(int idPregunta) {
+    public static boolean isRespuestaCorrecta(int idPregunta, String respuesta) {
 
-        return respuestaCorrecta[ordenPreguntas.get(idPregunta)];
+        //return quizPreguntas.get(idPregunta).getRespuestaCorrecta();
+        return quizPreguntas.get(idPregunta).getRespuestaCorrecta(respuesta);
 
     }
 }
