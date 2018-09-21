@@ -23,7 +23,7 @@ public class Quiz extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz);
+        setContentView(R.layout.activity_quiz_imagentexto);
 
         //A quitar y dejar en menú
         Preguntas.startPreguntas(false);

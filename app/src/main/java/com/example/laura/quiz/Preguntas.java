@@ -10,7 +10,7 @@ public class Preguntas {
         "¿Quién disparó al señor Burns?",
         "¿Cuál es el nombre completo de Homer?",
         "¿De qué están hechas la barritas energéticas que toma Homer?",
-        "¿Quiénes salvan de la quiebra a la Rasca y Pica?",
+        "¿Quiénes salvan de la quiebra a la compañía de Rasca y Pica?",
         "¿De qué estado norteamericano es el disfraz que le hace Homer a Lisa?",
         "¿Cuántos dedos tienen los Simpsons?",
         "¿Cuál es el precio de Maggie?",
@@ -100,6 +100,29 @@ public class Preguntas {
         "imagen"
     };
 
+    private static String[] rutasImg = {
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+    };
+
     private static List<Pregunta> quizPreguntas;
 
     public static void startPreguntas(boolean img){
@@ -108,9 +131,9 @@ public class Preguntas {
 
         for(int i = 0; i < preguntas.length; i++){
             if(tipoPregunta[i] == "texto") {
-                quizPreguntas.add(new PreguntaTexto(preguntas[i], respuestas[i], respuestaCorrecta[i]));
+                quizPreguntas.add(new PreguntaTextoTexto(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
             } else if(tipoPregunta[i] == "imagen" && img) {
-                quizPreguntas.add(new PreguntaImagen(preguntas[i], respuestas[i], respuestaCorrecta[i]));
+                quizPreguntas.add(new PreguntaTextoImagen(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
             }
         }
 
