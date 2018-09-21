@@ -6,7 +6,9 @@ public abstract class Pregunta {
     protected String[] respuestas;
     protected String respuestaCorrecta;
 
-    public Pregunta(String preg, String[] resp, String correct){
+    protected String imgPreg;
+
+    public Pregunta(String preg, String[] resp, String correct, String rutaImg){
         this.pregunta = preg;
         this.respuestas = new String[resp.length];
 
@@ -15,6 +17,7 @@ public abstract class Pregunta {
         }
 
         this.respuestaCorrecta = correct;
+        this.imgPreg = rutaImg;
     }
 
     public String getPregunta() {
