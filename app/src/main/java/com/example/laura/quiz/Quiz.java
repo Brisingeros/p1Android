@@ -14,15 +14,20 @@ public class Quiz extends AppCompatActivity {
     Button respuesta1, respuesta2, respuesta3, respuesta4;
     TextView pregunta, puntuacion;
 
-    private Preguntas preguntas = new Preguntas();
-    private String respuestaCorrecta;
+    //private Preguntas preguntas = new Preguntas();
     private int miPuntuacion = 0;
     private int numPregunta = 0;
+
+    private int totalPreguntas = 15;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
+        //A quitar y dejar en menú
+        Preguntas.startPreguntas(false);
+        //Preguntas.desordenar();
 
         respuesta1 = (Button) findViewById(R.id.respuesta1);
         respuesta2 = (Button) findViewById(R.id.respuesta2);
@@ -39,7 +44,7 @@ public class Quiz extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(respuesta1.getText().equals(respuestaCorrecta)){
+                if(Preguntas.isRespuestaCorrecta(numPregunta, respuesta1.getText().toString())){
 
                     miPuntuacion++;
                     puntuacion.setText("Puntuación: " + miPuntuacion);
@@ -60,7 +65,7 @@ public class Quiz extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(respuesta2.getText().equals(respuestaCorrecta)){
+                if(Preguntas.isRespuestaCorrecta(numPregunta, respuesta2.getText().toString())){
 
                     miPuntuacion++;
                     puntuacion.setText("Puntuación: " + miPuntuacion);
@@ -82,7 +87,7 @@ public class Quiz extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(respuesta3.getText().equals(respuestaCorrecta)){
+                if(Preguntas.isRespuestaCorrecta(numPregunta, respuesta3.getText().toString())){
 
                     miPuntuacion++;
                     puntuacion.setText("Puntuación: " + miPuntuacion);
@@ -104,7 +109,7 @@ public class Quiz extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(respuesta4.getText().equals(respuestaCorrecta)){
+                if(Preguntas.isRespuestaCorrecta(numPregunta, respuesta4.getText().toString())){
 
                     miPuntuacion++;
                     puntuacion.setText("Puntuación: " + miPuntuacion);
@@ -126,13 +131,11 @@ public class Quiz extends AppCompatActivity {
 
     public void SiguientePregunta(int id){
 
-        pregunta.setText(preguntas.GetPregunta(id));
-        respuesta1.setText(preguntas.GetRespuesta(id,0));
-        respuesta2.setText(preguntas.GetRespuesta(id,1));
-        respuesta3.setText(preguntas.GetRespuesta(id,2));
-        respuesta4.setText(preguntas.GetRespuesta(id,3));
-
-        respuestaCorrecta = preguntas.getRespuestaCorrecta(id);
+        pregunta.setText(Preguntas.GetPregunta(id));
+        respuesta1.setText(Preguntas.GetRespuesta(id,0));
+        respuesta2.setText(Preguntas.GetRespuesta(id,1));
+        respuesta3.setText(Preguntas.GetRespuesta(id,2));
+        respuesta4.setText(Preguntas.GetRespuesta(id,3));
 
     }
 
