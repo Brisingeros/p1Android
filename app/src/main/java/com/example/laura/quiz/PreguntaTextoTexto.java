@@ -8,10 +8,11 @@ import java.util.List;
 
 public class PreguntaTextoTexto extends Pregunta {
 
-    public PreguntaTextoTexto(String pregunta, String[] respuesta, String s, String ruta) {
-        super(pregunta, respuesta, s, ruta);
+    public PreguntaTextoTexto(String pregunta, String[] respuesta, String s, int[] rutas) {
+        super(pregunta, respuesta, s, rutas);
 
         layout = R.layout.activity_quiz_textotexto;
+
     }
 
     @Override

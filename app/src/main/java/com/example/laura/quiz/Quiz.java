@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -14,11 +15,10 @@ import java.util.List;
 public class Quiz extends AppCompatActivity {
 
     Button respuesta1, respuesta2, respuesta3, respuesta4;
-    TextView puntuacion;
-
+    TextView puntuacion, pregunta;
+    ImageView imagenPregunta;
     private int miPuntuacion = 0;
     private int numPregunta = -1;
-
     private int totalPreguntas = 15;
 
     private Pregunta pregActual;
@@ -27,7 +27,7 @@ public class Quiz extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
 
-        Preguntas.startPreguntas(false);
+        Preguntas.startPreguntas();
 
         SiguientePregunta();
 
@@ -37,64 +37,130 @@ public class Quiz extends AppCompatActivity {
 
         numPregunta++;
 
-        pregActual = Preguntas.GetPregunta(numPregunta);
+        if(numPregunta <= totalPreguntas-1) {
 
-        render();
+            pregActual = Preguntas.GetPregunta(numPregunta);
+            render();
+
+        }else{
+
+            Intent in = new Intent(this, PantallaPuntuacion.class);
+            in.putExtra("puntuacionFinal", String.valueOf(miPuntuacion));
+            startActivity(in);
+
+        }
+
     }
 
     public void render(){
 
         setContentView(pregActual.getLayout());
 
+        respuesta1 = (Button) findViewById(R.id.respuesta1);
+        respuesta2 = (Button) findViewById(R.id.respuesta2);
+        respuesta3 = (Button) findViewById(R.id.respuesta3);
+        respuesta4 = (Button) findViewById(R.id.respuesta4);
+
+        ButtonsConfig();
+
+        pregunta = (TextView) findViewById(R.id.pregunta);
+
+        puntuacion = (TextView) findViewById(R.id.puntuacion);
+
+        puntuacion.setText("Puntuación: " + (miPuntuacion < 0? 0: miPuntuacion));
+
         List<Group> renderers = pregActual.render();
 
         for (Group g: renderers) {
-            switch (g.getTipo()){
+
+            switch (g.getTipo()) {
                 case "textview":
+
+                    TextView view = (TextView) findViewById(g.getId());
+                    view.setText(g.getValue());
+
                     break;
 
                 case "button":
+
+                    if (g.getId() == R.id.respuesta1) {
+
+
+                        if(g.getIdImg() != -1) {
+
+                            respuesta1.setBackgroundResource(g.getIdImg());
+                            respuesta1.setTextSize(0);
+
+                        }else
+
+                            respuesta1.setTextSize(14);
+
+                        respuesta1.setText(g.getValue());
+
+                    } else if (g.getId() == R.id.respuesta2) {
+
+                        if(g.getIdImg() != -1) {
+
+                            respuesta2.setBackgroundResource(g.getIdImg());
+                            respuesta2.setTextSize(0);
+
+                        }else
+
+                            respuesta2.setTextSize(14);
+
+                        respuesta2.setText(g.getValue());
+
+                    } else if (g.getId() == R.id.respuesta3) {
+
+                        if(g.getIdImg() != -1) {
+
+                            respuesta3.setBackgroundResource(g.getIdImg());
+                            respuesta3.setTextSize(0);
+
+                        }else
+
+                            respuesta3.setTextSize(14);
+
+                        respuesta3.setText(g.getValue());
+
+                    } else if (g.getId() == R.id.respuesta4) {
+
+                        if(g.getIdImg() != -1) {
+
+                            respuesta4.setBackgroundResource(g.getIdImg());
+                            respuesta4.setTextSize(0);
+
+                        }else
+
+                            respuesta4.setTextSize(14);
+
+                        respuesta4.setText(g.getValue());
+
+                    }
+
                     break;
 
                 case "imgview":
+
+                    //imagenPregunta.setImageDrawable(g.getId());
+
                     break;
             }
         }
 
     }
 
-    /*
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz_imagentexto);
-
-        //A quitar y dejar en menú
-        Preguntas.startPreguntas(false);
-
-        pregActual = Preguntas.GetPregunta(numPregunta);
-
-        respuesta1 = (Button) findViewById(R.id.respuesta1);
-        respuesta2 = (Button) findViewById(R.id.respuesta2);
-        respuesta3 = (Button) findViewById(R.id.respuesta3);
-        respuesta4 = (Button) findViewById(R.id.respuesta4);
-
-        pregunta = (TextView) findViewById(R.id.pregunta);
-        puntuacion = (TextView) findViewById(R.id.puntuacion);
-
-        puntuacion.setText("Puntuación: " + miPuntuacion);
+    public void ButtonsConfig(){
 
         respuesta1.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
 
-                if(Preguntas.isRespuestaCorrecta(numPregunta, respuesta1.getText().toString())){
+                if(pregActual.getRespuestaCorrecta(respuesta1.getText().toString())){
 
                     miPuntuacion++;
-                    puntuacion.setText("Puntuación: " + miPuntuacion);
-                    numPregunta++;
-                    SiguientePregunta(numPregunta);
+                    SiguientePregunta();
 
                 }else {
 
@@ -110,19 +176,16 @@ public class Quiz extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(Preguntas.isRespuestaCorrecta(numPregunta, respuesta2.getText().toString())){
+                if(pregActual.getRespuestaCorrecta(respuesta2.getText().toString())){
 
                     miPuntuacion++;
-                    puntuacion.setText("Puntuación: " + miPuntuacion);
-                    numPregunta++;
-                    SiguientePregunta(numPregunta);
+                    SiguientePregunta();
 
                 }else {
 
                     GameOver();
 
                 }
-
             }
 
         });
@@ -132,19 +195,16 @@ public class Quiz extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(Preguntas.isRespuestaCorrecta(numPregunta, respuesta3.getText().toString())){
+                if(pregActual.getRespuestaCorrecta(respuesta3.getText().toString())){
 
                     miPuntuacion++;
-                    puntuacion.setText("Puntuación: " + miPuntuacion);
-                    numPregunta++;
-                    SiguientePregunta(numPregunta);
+                    SiguientePregunta();
 
                 }else {
 
                     GameOver();
 
                 }
-
             }
 
         });
@@ -154,35 +214,21 @@ public class Quiz extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(Preguntas.isRespuestaCorrecta(numPregunta, respuesta4.getText().toString())){
+                if(pregActual.getRespuestaCorrecta(respuesta4.getText().toString())){
 
                     miPuntuacion++;
-                    puntuacion.setText("Puntuación: " + miPuntuacion);
-                    numPregunta++;
-                    SiguientePregunta(numPregunta);
+                    SiguientePregunta();
 
                 }else {
 
                     GameOver();
 
                 }
-
             }
 
         });
-
-        SiguientePregunta(numPregunta);
     }
 
-    public void SiguientePregunta(int id){
-
-        pregunta.setText(Preguntas.GetPregunta(id));
-        respuesta1.setText(Preguntas.GetRespuesta(id,0));
-        respuesta2.setText(Preguntas.GetRespuesta(id,1));
-        respuesta3.setText(Preguntas.GetRespuesta(id,2));
-        respuesta4.setText(Preguntas.GetRespuesta(id,3));
-
-    }
 
     public void GameOver(){
 
@@ -196,9 +242,7 @@ public class Quiz extends AppCompatActivity {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
                                 miPuntuacion-=2;
-                                puntuacion.setText("Puntuación: " + miPuntuacion);
-                                numPregunta++;
-                                SiguientePregunta(numPregunta);
+                                SiguientePregunta();
                             }
                         }
                 )
@@ -214,5 +258,5 @@ public class Quiz extends AppCompatActivity {
         AlertDialog dialogo = alerta.create();
         dialogo.show();
     }
-    */
+
 }
