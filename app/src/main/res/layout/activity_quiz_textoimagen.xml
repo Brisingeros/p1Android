@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/puntuacion"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="22dp"
         android:layout_marginEnd="150dp"
         android:layout_marginLeft="150dp"
@@ -40,13 +40,14 @@
 
     <Button
         android:id="@+id/respuesta1"
-        android:layout_width="0dp"
+        android:layout_width="134dp"
         android:layout_height="100dp"
         android:layout_marginBottom="190dp"
         android:layout_marginEnd="200dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="200dp"
         android:layout_marginStart="50dp"
+        android:background="@drawable/joseph_quimby"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,14 +56,16 @@
 
     <Button
         android:id="@+id/respuesta2"
-        android:layout_width="0dp"
+        android:layout_width="134dp"
         android:layout_height="100dp"
         android:layout_marginBottom="190dp"
         android:layout_marginEnd="50dp"
         android:layout_marginLeft="200dp"
         android:layout_marginRight="50dp"
         android:layout_marginStart="200dp"
+        android:background="@drawable/seymour_skinner_"
         android:text="Button"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -70,13 +73,14 @@
 
     <Button
         android:id="@+id/respuesta3"
-        android:layout_width="0dp"
+        android:layout_width="134dp"
         android:layout_height="100dp"
         android:layout_marginBottom="70dp"
         android:layout_marginEnd="200dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="200dp"
         android:layout_marginStart="50dp"
+        android:background="@drawable/mr_muntz"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,13 +89,14 @@
 
     <Button
         android:id="@+id/respuesta4"
-        android:layout_width="0dp"
+        android:layout_width="134dp"
         android:layout_height="100dp"
         android:layout_marginBottom="70dp"
         android:layout_marginEnd="50dp"
         android:layout_marginLeft="200dp"
         android:layout_marginRight="50dp"
         android:layout_marginStart="200dp"
+        android:background="@drawable/bill_gates"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

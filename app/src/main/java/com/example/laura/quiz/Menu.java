@@ -10,6 +10,6 @@ public class Menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        Preguntas.startPreguntas(false);
+        Preguntas.startPreguntas();
     }
 }

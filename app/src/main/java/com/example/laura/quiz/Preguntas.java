@@ -100,39 +100,40 @@ public class Preguntas {
         "imagen"
     };
 
-    private static String[] rutasImg = {
-        "null",
-        "null",
-        "null",
-        "null",
-        "null",
-        "null",
-        "null",
-        "null",
-        "null",
-        "null",
-        "null",
-        "null",
-        "null",
-        "null",
-        "null",
-        "null",
-        "null",
-        "null",
-        "null",
-        "null"
+    private static int[][] rutasImg = {
+            {-1},
+            {-1},
+            {-1},
+            {-1},
+            {-1},
+            {-1},
+            {-1},
+            {-1},
+            {-1},
+            {-1},
+            {-1},
+            {-1},
+            {-1},
+            {-1},
+            {-1},
+            {-1},
+            {-1},
+            {R.drawable.joseph_quimby,R.drawable.seymour_skinner_,R.drawable.mr_muntz,R.drawable.bill_gates},
+            {R.drawable.toni_el_gordo, R.drawable.wiggum, R.drawable.troy_mcclure, R.drawable.sii},
+            {R.drawable.milhouse, R.drawable.bart, R.drawable.nelson, R.drawable.simon}
     };
 
     private static List<Pregunta> quizPreguntas;
 
-    public static void startPreguntas(boolean img){
+
+    public static void startPreguntas(){
 
         quizPreguntas = new ArrayList<>();
 
         for(int i = 0; i < preguntas.length; i++){
             if(tipoPregunta[i] == "texto") {
                 quizPreguntas.add(new PreguntaTextoTexto(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
-            } else if(tipoPregunta[i] == "imagen" && img) {
+            } else if(tipoPregunta[i] == "imagen") {
                 quizPreguntas.add(new PreguntaTextoImagen(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
             }
         }

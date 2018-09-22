@@ -8,11 +8,11 @@ public abstract class Pregunta {
     protected String[] respuestas;
     protected String respuestaCorrecta;
 
-    protected String imgPreg;
+    protected int[] imgPreg;
 
     protected  int layout;
 
-    public Pregunta(String preg, String[] resp, String correct, String rutaImg){
+    public Pregunta(String preg, String[] resp, String correct, int[] rutasImg){
         this.pregunta = preg;
         this.respuestas = new String[resp.length];
 
@@ -21,7 +21,7 @@ public abstract class Pregunta {
         }
 
         this.respuestaCorrecta = correct;
-        this.imgPreg = rutaImg;
+        this.imgPreg = rutasImg;
     }
 
     public String getPregunta() {
@@ -36,6 +36,7 @@ public abstract class Pregunta {
         return respuestas[i];
     }
 
+    public int[] getImgPreg() { return this.imgPreg; }
     public int getLayout() {
         return layout;
     }
