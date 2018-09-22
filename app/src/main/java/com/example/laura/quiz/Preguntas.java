@@ -144,23 +144,10 @@ public class Preguntas {
         Collections.shuffle(quizPreguntas);
     }
 
-    public static String GetPregunta(int id){
+    public static Pregunta GetPregunta(int id){
 
-        return quizPreguntas.get(id).getPregunta();
-
-    }
-
-    public static String GetRespuesta(int idPregunta, int idRespuesta){
-
-
-        return quizPreguntas.get(idPregunta).getRespuesta(idRespuesta);
+        return quizPreguntas.get(id);
 
     }
 
-    public static boolean isRespuestaCorrecta(int idPregunta, String respuesta) {
-
-        //return quizPreguntas.get(idPregunta).getRespuestaCorrecta();
-        return quizPreguntas.get(idPregunta).getRespuestaCorrecta(respuesta);
-
-    }
 }

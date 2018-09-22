@@ -9,17 +9,61 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class Quiz extends AppCompatActivity {
 
     Button respuesta1, respuesta2, respuesta3, respuesta4;
-    TextView pregunta, puntuacion;
+    TextView puntuacion;
 
-    //private Preguntas preguntas = new Preguntas();
     private int miPuntuacion = 0;
-    private int numPregunta = 0;
+    private int numPregunta = -1;
 
     private int totalPreguntas = 15;
 
+    private Pregunta pregActual;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+
+        Preguntas.startPreguntas(false);
+
+        SiguientePregunta();
+
+    }
+
+    public void SiguientePregunta(){
+
+        numPregunta++;
+
+        pregActual = Preguntas.GetPregunta(numPregunta);
+
+        render();
+    }
+
+    public void render(){
+
+        setContentView(pregActual.getLayout());
+
+        List<Group> renderers = pregActual.render();
+
+        for (Group g: renderers) {
+            switch (g.getTipo()){
+                case "textview":
+                    break;
+
+                case "button":
+                    break;
+
+                case "imgview":
+                    break;
+            }
+        }
+
+    }
+
+    /*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +71,8 @@ public class Quiz extends AppCompatActivity {
 
         //A quitar y dejar en menú
         Preguntas.startPreguntas(false);
-        //Preguntas.desordenar();
+
+        pregActual = Preguntas.GetPregunta(numPregunta);
 
         respuesta1 = (Button) findViewById(R.id.respuesta1);
         respuesta2 = (Button) findViewById(R.id.respuesta2);
@@ -169,4 +214,5 @@ public class Quiz extends AppCompatActivity {
         AlertDialog dialogo = alerta.create();
         dialogo.show();
     }
+    */
 }
