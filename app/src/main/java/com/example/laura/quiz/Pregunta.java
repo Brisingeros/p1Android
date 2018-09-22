@@ -1,5 +1,7 @@
 package com.example.laura.quiz;
 
+import java.util.List;
+
 public abstract class Pregunta {
 
     protected String pregunta;
@@ -7,6 +9,8 @@ public abstract class Pregunta {
     protected String respuestaCorrecta;
 
     protected String imgPreg;
+
+    protected  int layout;
 
     public Pregunta(String preg, String[] resp, String correct, String rutaImg){
         this.pregunta = preg;
@@ -32,5 +36,11 @@ public abstract class Pregunta {
         return respuestas[i];
     }
 
+    public int getLayout() {
+        return layout;
+    }
+
     public abstract boolean getRespuestaCorrecta(String respuesta);
+
+    public abstract List<Group> render();
 }
