@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -17,15 +18,23 @@ public class Quiz extends AppCompatActivity {
     Button respuesta1, respuesta2, respuesta3, respuesta4;
     TextView puntuacion, pregunta;
     ImageView imagenPregunta;
-    private int miPuntuacion = 0;
-    private int numPregunta = -1;
-    private int totalPreguntas = 15;
+    private int miPuntuacion;
+    private int numPregunta;
+    private int totalPreguntas;
 
     private Pregunta pregActual;
+
+    private Toast acierto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+
+        miPuntuacion = 0;
+        numPregunta = -1;
+        totalPreguntas = Opciones.getNumPreg();
+
+        acierto = Toast.makeText(getApplicationContext(), "¡Has acertado!", Toast.LENGTH_SHORT);
 
         Preguntas.startPreguntas();
 
@@ -159,7 +168,8 @@ public class Quiz extends AppCompatActivity {
 
                 if(pregActual.getRespuestaCorrecta(respuesta1.getText().toString())){
 
-                    miPuntuacion++;
+                    miPuntuacion += 3;
+                    acierto.show();
                     SiguientePregunta();
 
                 }else {
@@ -178,7 +188,8 @@ public class Quiz extends AppCompatActivity {
 
                 if(pregActual.getRespuestaCorrecta(respuesta2.getText().toString())){
 
-                    miPuntuacion++;
+                    miPuntuacion += 3;
+                    acierto.show();
                     SiguientePregunta();
 
                 }else {
@@ -197,7 +208,8 @@ public class Quiz extends AppCompatActivity {
 
                 if(pregActual.getRespuestaCorrecta(respuesta3.getText().toString())){
 
-                    miPuntuacion++;
+                    miPuntuacion += 3;
+                    acierto.show();
                     SiguientePregunta();
 
                 }else {
@@ -216,7 +228,8 @@ public class Quiz extends AppCompatActivity {
 
                 if(pregActual.getRespuestaCorrecta(respuesta4.getText().toString())){
 
-                    miPuntuacion++;
+                    miPuntuacion += 3;
+                    acierto.show();
                     SiguientePregunta();
 
                 }else {
@@ -250,7 +263,7 @@ public class Quiz extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                startActivity(new Intent(getApplicationContext(), Quiz.class));
+                                startActivity(new Intent(getApplicationContext(), Menu.class));
                             }
                         }
                 );

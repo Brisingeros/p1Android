@@ -32,7 +32,7 @@ public class PantallaPuntuacion extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(getApplicationContext(), Quiz.class));
+                startActivity(new Intent(getApplicationContext(), Menu.class));
 
             }
 

@@ -78,26 +78,26 @@ public class Preguntas {
     };
 
     private static String[] tipoPregunta = {
-        "texto",
-        "texto",
-        "texto",
-        "texto",
-        "texto",
-        "texto",
-        "texto",
-        "texto",
-        "texto",
-        "texto",
-        "texto",
-        "texto",
-        "texto",
-        "texto",
-        "texto",
-        "texto",
-        "texto",
-        "imagen",
-        "imagen",
-        "imagen"
+        "textotexto",
+        "textotexto",
+        "textotexto",
+        "textotexto",
+        "textotexto",
+        "textotexto",
+        "textotexto",
+        "textotexto",
+        "textotexto",
+        "textotexto",
+        "textotexto",
+        "textotexto",
+        "textotexto",
+        "textotexto",
+        "textotexto",
+        "textotexto",
+        "textotexto",
+        "textoimagen",
+        "textoimagen",
+        "textoimagen"
     };
 
     private static int[][] rutasImg = {
@@ -131,9 +131,16 @@ public class Preguntas {
         quizPreguntas = new ArrayList<>();
 
         for(int i = 0; i < preguntas.length; i++){
-            if(tipoPregunta[i] == "texto") {
+            if(tipoPregunta[i] == "textotexto") {
                 quizPreguntas.add(new PreguntaTextoTexto(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
-            } else if(tipoPregunta[i] == "imagen") {
+            }
+            if(tipoPregunta[i] == "textoimagen" && Opciones.isTextoimagen()) {
+                quizPreguntas.add(new PreguntaTextoImagen(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
+            }
+            if(tipoPregunta[i] == "imagentexto" && Opciones.isImagentexto()) {
+                //quizPreguntas.add(new PreguntaTextoImagen(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
+            }
+            if(tipoPregunta[i] == "imagenimagen" && Opciones.isImagenimagen()) {
                 quizPreguntas.add(new PreguntaTextoImagen(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
             }
         }

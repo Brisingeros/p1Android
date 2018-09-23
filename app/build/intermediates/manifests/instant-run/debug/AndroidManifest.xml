@@ -17,15 +17,19 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.example.laura.quiz.Quiz" >
+        <activity android:name="com.example.laura.quiz.Quiz" />
+        <activity android:name="com.example.laura.quiz.Menu" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.laura.quiz.Menu" />
         <activity android:name="com.example.laura.quiz.PantallaPuntuacion" />
+        <activity
+            android:name="com.example.laura.quiz.Options"
+            android:label="@string/title_activity_options"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <provider
             android:name="com.android.tools.ir.server.InstantRunContentProvider"
