@@ -9,15 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Quiz">
+        <activity android:name=".Quiz"></activity>
+        <activity android:name=".Menu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Menu"></activity>
         <activity android:name=".PantallaPuntuacion"></activity>
+        <activity
+            android:name=".Options"
+            android:label="@string/title_activity_options"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
