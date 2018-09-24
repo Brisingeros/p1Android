@@ -26,7 +26,13 @@ public class Preguntas {
         "¿Cuál es el nombre de la cocinera del colegio?",
         "¿Quién es Joe Quimby?",
         "¿Quién es Troy Mclure?",
-        "¿Quién es Bart Simpson?"
+        "¿Quién es Bart Simpson?",
+        "¿Cómo se llama este personaje?",
+        "¿Cómo se llama este personaje?",
+        "¿Cómo se llama este personaje?",
+        "¿Quién es el padre de este personaje?",
+        "¿A quién ama este personaje?",
+        "¿Quién es el jefe de este personaje?"
     };
 
     private static String[][] respuestas = {
@@ -48,6 +54,12 @@ public class Preguntas {
         {"El flameado de Moe", "El flameado de Homer", "El flameado de Peter", "El flameado de Apu"},
         {"Madonna", "Katy Perry", "Lady Gaga", "Britney Spears"},
         {"Anna", "Doris", "Boris", "Trudis"},
+        {"imagen1", "imagen2", "imagen3", "imagen4"},
+        {"imagen1", "imagen2", "imagen3", "imagen4"},
+        {"imagen1", "imagen2", "imagen3", "imagen4"},
+        {"Skinner", "Apu", "Milhouse", "Homer"},
+        {"Bob", "Fausto el portugués", "Simon", "Krusty"},
+        {"Sherri", "Terri", "Lisa", "Marge"},
         {"imagen1", "imagen2", "imagen3", "imagen4"},
         {"imagen1", "imagen2", "imagen3", "imagen4"},
         {"imagen1", "imagen2", "imagen3", "imagen4"}
@@ -74,6 +86,12 @@ public class Preguntas {
         "Doris",
         "imagen1",
         "imagen3",
+        "imagen2",
+        "Milhouse",
+        "Fausto el portugués",
+        "Terri",
+        "imagen1",
+        "imagen3",
         "imagen2"
     };
 
@@ -97,7 +115,13 @@ public class Preguntas {
         "textotexto",
         "textoimagen",
         "textoimagen",
-        "textoimagen"
+        "textoimagen",
+        "imagentexto",
+        "imagentexto",
+        "imagentexto",
+        "imagenimagen",
+        "imagenimagen",
+        "imagenimagen"
     };
 
     private static int[] imgPreguntas = {
@@ -120,7 +144,13 @@ public class Preguntas {
             -1,
             -1,
             -1,
-            -1
+            -1,
+            R.drawable.milhouse,
+            R.drawable.fausto,
+            R.drawable.terri,
+            R.drawable.bart,
+            R.drawable.milhouse,
+            R.drawable.seymour_skinner_
 
     };
     private static int[][] rutasImg = {
@@ -143,7 +173,13 @@ public class Preguntas {
             {-1},
             {R.drawable.joseph_quimby,R.drawable.seymour_skinner_,R.drawable.mr_muntz,R.drawable.bill_gates},
             {R.drawable.toni_el_gordo, R.drawable.wiggum, R.drawable.troy_mcclure, R.drawable.sii},
-            {R.drawable.milhouse, R.drawable.bart, R.drawable.nelson, R.drawable.simon}
+            {R.drawable.milhouse, R.drawable.bart, R.drawable.nelson, R.drawable.simon},
+            {-1},
+            {-1},
+            {-1},
+            {R.drawable.homer, R.drawable.bill_gates, R.drawable.mr_muntz, R.drawable.joseph_quimby},
+            {R.drawable.terri, R.drawable.gatubela, R.drawable.lisa, R.drawable.fausto},
+            {R.drawable.gatubela, R.drawable.chalmers, R.drawable.bart, R.drawable.fausto}
     };
 
     private static List<Pregunta> quizPreguntas;
