@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Sep 23 12:17:32 CEST 2018
+#Mon Sep 24 15:00:41 CEST 2018
 1.base=/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/transforms/dexMerger/debug/14
 2.path=classes.dex
 0.baseType=DIRECTORY
