@@ -100,6 +100,29 @@ public class Preguntas {
         "textoimagen"
     };
 
+    private static int[] imgPreguntas = {
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+
+    };
     private static int[][] rutasImg = {
             {-1},
             {-1},
@@ -132,7 +155,7 @@ public class Preguntas {
 
         for(int i = 0; i < preguntas.length; i++){
             if(tipoPregunta[i] == "textotexto") {
-                quizPreguntas.add(new PreguntaTextoTexto(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
+                quizPreguntas.add(new PreguntaTextoTexto(preguntas[i], respuestas[i], respuestaCorrecta[i]));
             }
             if(tipoPregunta[i] == "textoimagen" && Opciones.isTextoimagen()) {
                 quizPreguntas.add(new PreguntaTextoImagen(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
@@ -141,7 +164,7 @@ public class Preguntas {
                 //quizPreguntas.add(new PreguntaTextoImagen(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
             }
             if(tipoPregunta[i] == "imagenimagen" && Opciones.isImagenimagen()) {
-                quizPreguntas.add(new PreguntaTextoImagen(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
+               quizPreguntas.add(new PreguntaImagenImagen(preguntas[i], imgPreguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
             }
         }
 

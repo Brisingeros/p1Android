@@ -8,11 +8,16 @@ import java.util.List;
 public class PreguntaTextoImagen extends Pregunta {
 
 
-    public PreguntaTextoImagen(String pregunta, String[] respuesta, String s, int[] rutas) {
+    private int[] imgPreg;
 
-        super(pregunta, respuesta, s, rutas);
+    public PreguntaTextoImagen(String pregunta, String[] respuesta, String s, int[] rutasImg) {
+
+        super(pregunta, respuesta, s);
 
         layout = R.layout.activity_quiz_textoimagen;
+
+        this.imgPreg = rutasImg;
+
     }
 
     @Override

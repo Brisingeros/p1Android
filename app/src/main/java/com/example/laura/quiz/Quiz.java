@@ -151,7 +151,8 @@ public class Quiz extends AppCompatActivity {
 
                 case "imgview":
 
-                    //imagenPregunta.setImageDrawable(g.getId());
+                    ImageView img = (ImageView) findViewById(g.getId());
+                    img.setImageResource(g.getIdImg());
 
                     break;
             }
