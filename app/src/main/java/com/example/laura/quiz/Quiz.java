@@ -56,6 +56,7 @@ public class Quiz extends AppCompatActivity {
             Intent in = new Intent(this, PantallaPuntuacion.class);
             in.putExtra("puntuacionFinal", String.valueOf(miPuntuacion));
             startActivity(in);
+            finish();
 
         }
 
@@ -76,7 +77,7 @@ public class Quiz extends AppCompatActivity {
 
         puntuacion = (TextView) findViewById(R.id.puntuacion);
 
-        puntuacion.setText("Puntuación: " + (miPuntuacion < 0? 0: miPuntuacion));
+        puntuacion.setText("Puntuación: " + miPuntuacion);
 
         List<Group> renderers = pregActual.render();
 
@@ -255,7 +256,7 @@ public class Quiz extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
-                                miPuntuacion-=2;
+                                miPuntuacion = miPuntuacion - 2 < 0? 0 : (miPuntuacion-2);
                                 SiguientePregunta();
                             }
                         }
@@ -264,7 +265,9 @@ public class Quiz extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
+
                                 startActivity(new Intent(getApplicationContext(), Menu.class));
+                                finish();
                             }
                         }
                 );

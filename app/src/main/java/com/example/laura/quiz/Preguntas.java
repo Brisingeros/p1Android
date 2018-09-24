@@ -161,7 +161,7 @@ public class Preguntas {
                 quizPreguntas.add(new PreguntaTextoImagen(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
             }
             if(tipoPregunta[i] == "imagentexto" && Opciones.isImagentexto()) {
-                //quizPreguntas.add(new PreguntaTextoImagen(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
+                quizPreguntas.add(new PreguntaImagenTexto(preguntas[i], respuestas[i], respuestaCorrecta[i], imgPreguntas[i]));
             }
             if(tipoPregunta[i] == "imagenimagen" && Opciones.isImagenimagen()) {
                quizPreguntas.add(new PreguntaImagenImagen(preguntas[i], imgPreguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));

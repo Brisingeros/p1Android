@@ -33,6 +33,7 @@ public class PantallaPuntuacion extends AppCompatActivity {
             public void onClick(View view) {
 
                 startActivity(new Intent(getApplicationContext(), Menu.class));
+                finish();
 
             }
 
@@ -44,6 +45,7 @@ public class PantallaPuntuacion extends AppCompatActivity {
             public void onClick(View view) {
 
                 startActivity(new Intent(getApplicationContext(), Quiz.class)); //SALIR AL MENU
+                finish();
 
             }
 

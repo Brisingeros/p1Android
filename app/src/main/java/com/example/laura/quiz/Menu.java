@@ -22,7 +22,10 @@ public class Menu extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+
                 startActivity(new Intent(getApplicationContext(), Quiz.class));
+                finish();
+
             }
         });
 
