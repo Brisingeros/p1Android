@@ -7,10 +7,14 @@ import java.util.List;
 
 public class PreguntaTextoImagen extends Pregunta {
 
+    private int[] imgPreg;
 
-    public PreguntaTextoImagen(String pregunta, String[] respuesta, String s, int[] rutas) {
 
-        super(pregunta, respuesta, s, rutas);
+    public PreguntaTextoImagen(String pregunta, String[] respuesta, String s, int[] rutasImg) {
+
+        super(pregunta, respuesta, s);
+
+        this.imgPreg = rutasImg;
 
         layout = R.layout.activity_quiz_textoimagen;
     }

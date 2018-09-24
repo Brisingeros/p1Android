@@ -56,6 +56,7 @@ public class Quiz extends AppCompatActivity {
             Intent in = new Intent(this, PantallaPuntuacion.class);
             in.putExtra("puntuacionFinal", String.valueOf(miPuntuacion));
             startActivity(in);
+            finish();
 
         }
 
@@ -151,7 +152,8 @@ public class Quiz extends AppCompatActivity {
 
                 case "imgview":
 
-                    //imagenPregunta.setImageDrawable(g.getId());
+                    imagenPregunta = (ImageView) findViewById(g.getId());
+                    imagenPregunta.setImageResource(g.getIdImg());
 
                     break;
             }
@@ -264,6 +266,7 @@ public class Quiz extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 startActivity(new Intent(getApplicationContext(), Menu.class));
+                                finish();
                             }
                         }
                 );

@@ -132,16 +132,16 @@ public class Preguntas {
 
         for(int i = 0; i < preguntas.length; i++){
             if(tipoPregunta[i] == "textotexto") {
-                quizPreguntas.add(new PreguntaTextoTexto(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
+                quizPreguntas.add(new PreguntaTextoTexto(preguntas[i], respuestas[i], respuestaCorrecta[i]));
             }
             if(tipoPregunta[i] == "textoimagen" && Opciones.isTextoimagen()) {
                 quizPreguntas.add(new PreguntaTextoImagen(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
             }
             if(tipoPregunta[i] == "imagentexto" && Opciones.isImagentexto()) {
-                //quizPreguntas.add(new PreguntaTextoImagen(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
+                //quizPreguntas.add(new PreguntaImagenTexto(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
             }
             if(tipoPregunta[i] == "imagenimagen" && Opciones.isImagenimagen()) {
-                quizPreguntas.add(new PreguntaTextoImagen(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
+                //quizPreguntas.add(new PreguntaImagenImagen(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
             }
         }
 

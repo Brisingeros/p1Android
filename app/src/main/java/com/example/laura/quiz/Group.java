@@ -24,6 +24,12 @@ public class Group {
 
     }
 
+    public Group(int i, int v, String t){
+        this.id = i;
+        this.idImg = v;
+        this.tipo = t;
+    }
+
     public int getId() {
         return id;
     }

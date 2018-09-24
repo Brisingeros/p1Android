@@ -1,4 +1,4 @@
-#Mon Sep 24 15:00:41 CEST 2018
+#Mon Sep 24 15:56:02 CEST 2018
 base.0=/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/transforms/dexMerger/debug/6
 path.0=classes.dex
 renamed.0=classes.dex
