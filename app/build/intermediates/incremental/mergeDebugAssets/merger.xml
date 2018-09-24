@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/home/brisin/RepositoriosClase/p1Android/app/src/main/assets"/><source path="/home/brisin/RepositoriosClase/p1Android/app/build/generated/assets/shaders/debug"/></dataSet><dataSet config="debug"><source path="/home/brisin/RepositoriosClase/p1Android/app/src/debug/assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\assets"/><source path="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="E:\Laura\Universidad\Juegos para Android\p1Android\app\src\debug\assets"/></dataSet></merger>

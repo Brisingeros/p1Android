@@ -1,8 +1,11 @@
 package com.example.laura.quiz;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 
@@ -11,6 +14,8 @@ public class Options extends AppCompatActivity {
     Spinner spinner;
 
     CheckBox textoimagen, imagentexto, imagenimagen;
+
+    Button atras, guardar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +29,36 @@ public class Options extends AppCompatActivity {
         imagentexto = (CheckBox) findViewById(R.id.imagentexto);
         imagenimagen = (CheckBox) findViewById(R.id.imagenimagen);
 
+        atras = (Button) findViewById(R.id.exit);
+        guardar = (Button) findViewById(R.id.save);
+
+        atras.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), Menu.class));
+                finish();
+
+            }
+
+        });
+
+        guardar.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+
+                Opciones.setNumPreg((Integer) spinner.getSelectedItem());
+                Opciones.setTextoimagen(textoimagen.isChecked());
+                Opciones.setImagentexto(imagentexto.isChecked());
+                Opciones.setImagenimagen(imagenimagen.isChecked());
+
+                startActivity(new Intent(getApplicationContext(), Menu.class));
+                finish();
+
+            }
+
+        });
 
         ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(this,
                 R.layout.support_simple_spinner_dropdown_item, items);
@@ -36,7 +71,7 @@ public class Options extends AppCompatActivity {
         imagenimagen.setChecked(Opciones.isImagenimagen());
     }
 
-    @Override
+   /* @Override
     protected void onStop() {
         super.onStop();
 
@@ -44,5 +79,5 @@ public class Options extends AppCompatActivity {
         Opciones.setTextoimagen(textoimagen.isChecked());
         Opciones.setImagentexto(imagentexto.isChecked());
         Opciones.setImagenimagen(imagenimagen.isChecked());
-    }
+    }*/
 }
