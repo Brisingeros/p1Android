@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class Menu extends AppCompatActivity {
 
-    Button inicio, opciones;
+    Button inicio, opciones, salir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class Menu extends AppCompatActivity {
 
         inicio = (Button) findViewById(R.id.play);
         opciones = (Button) findViewById(R.id.options);
-
+        salir = (Button) findViewById(R.id.exit);
         inicio.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -36,5 +36,19 @@ public class Menu extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), Options.class));
             }
         });
+
+        salir.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+
+            }
+        });
+
     }
 }
