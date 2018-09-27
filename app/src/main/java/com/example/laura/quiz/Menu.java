@@ -1,6 +1,7 @@
 package com.example.laura.quiz;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,10 +11,19 @@ public class Menu extends AppCompatActivity {
 
     Button inicio, opciones, salir;
 
+    SharedPreferences settings;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        settings = getSharedPreferences("optionsPreferences", 0);
+
+        Opciones.setImagenimagen(settings.getBoolean("imagenimagen", false));
+        Opciones.setImagentexto(settings.getBoolean("imagentexto", false));
+        Opciones.setTextoimagen(settings.getBoolean("textoimagen", false));
+        Opciones.setNumPreg(settings.getInt("numPreg", 10));
 
         inicio = (Button) findViewById(R.id.play);
         opciones = (Button) findViewById(R.id.options);

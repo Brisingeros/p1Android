@@ -2,10 +2,10 @@ package com.example.laura.quiz;
 
 public class Opciones {
 
-    private static int numPreg = 10;
-    private static boolean textoimagen = false;
-    private static boolean imagentexto = false;
-    private static boolean imagenimagen = false;
+    private static int numPreg;
+    private static boolean textoimagen;
+    private static boolean imagentexto;
+    private static boolean imagenimagen;
 
     public static int getNumPreg() {
         return numPreg;
