@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -34,7 +35,13 @@ public class Quiz extends AppCompatActivity {
         numPregunta = -1;
         totalPreguntas = Opciones.getNumPreg();
 
-        acierto = Toast.makeText(getApplicationContext(), "¡Has acertado!", Toast.LENGTH_SHORT);
+
+        //acierto = Toast.makeText(getApplicationContext(), "¡Has acertado!", Toast.LENGTH_SHORT);
+        acierto = new Toast(this);
+
+        View toast_layout = getLayoutInflater().inflate(R.layout.toast, (ViewGroup) findViewById(R.id.lytLayout));
+        acierto.setView(toast_layout);
+        acierto.setDuration(Toast.LENGTH_SHORT);
 
         Preguntas.startPreguntas();
 
@@ -256,7 +263,7 @@ public class Quiz extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
-                                miPuntuacion = miPuntuacion - 2 < 0? 0 : (miPuntuacion-2);
+                                miPuntuacion = miPuntuacion - 2 < 0? 0 : (miPuntuacion - 2);
                                 SiguientePregunta();
                             }
                         }
@@ -266,7 +273,7 @@ public class Quiz extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
 
-                                startActivity(new Intent(getApplicationContext(), Menu.class));
+                                startActivity(new Intent(getApplicationContext(), Quiz.class));
                                 finish();
                             }
                         }

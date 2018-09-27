@@ -60,6 +60,10 @@
         "source": "C:\\Users\\Laura\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\fb609491f2d7384223bf017d4cdc2a38\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_16dp.png"
     },
     {
+        "merged": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_large.jpg.flat",
+        "source": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\src\\main\\res\\drawable\\large.jpg"
+    },
+    {
         "merged": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
         "source": "C:\\Users\\Laura\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\fb609491f2d7384223bf017d4cdc2a38\\res\\drawable-xxxhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
     },
@@ -602,6 +606,10 @@
     {
         "merged": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_primary_text_material_light.xml.flat",
         "source": "C:\\Users\\Laura\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\fb609491f2d7384223bf017d4cdc2a38\\res\\color\\abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_boton.png.flat",
+        "source": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\src\\main\\res\\drawable\\boton.png"
     },
     {
         "merged": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
@@ -1548,6 +1556,10 @@
         "source": "C:\\Users\\Laura\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\fb609491f2d7384223bf017d4cdc2a38\\res\\drawable-ldrtl-hdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
+        "merged": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_fondo_naranja.png.flat",
+        "source": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\src\\main\\res\\drawable\\fondo_naranja.png"
+    },
+    {
         "merged": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
         "source": "C:\\Users\\Laura\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\fb609491f2d7384223bf017d4cdc2a38\\res\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
     },
@@ -1782,6 +1794,10 @@
     {
         "merged": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-mdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "C:\\Users\\Laura\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\fb609491f2d7384223bf017d4cdc2a38\\res\\drawable-ldrtl-mdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_toast.xml.flat",
+        "source": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\src\\main\\res\\layout\\toast.xml"
     },
     {
         "merged": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",

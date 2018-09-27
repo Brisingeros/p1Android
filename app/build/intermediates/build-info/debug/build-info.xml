@@ -6,7 +6,7 @@
     density="420dpi"
     format="10"
     plugin-version="3.1.4"
-    timestamp="1537824218739"
+    timestamp="1538068511156"
     token="-1693665812193788758"
     verifier="COLD_SWAP_REQUESTED" >
 
@@ -23,19 +23,15 @@
         name="verifier"
         duration="0" />
 
-    <artifact
-        location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
-        type="SPLIT" />
-
     <build
         build-mode="FULL"
-        timestamp="1537823181731"
+        timestamp="1538068236562"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
+            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
             location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
@@ -44,10 +40,10 @@
             location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
             location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
@@ -56,10 +52,10 @@
             location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
         <artifact
             location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
@@ -73,35 +69,15 @@
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="R_CLASS_CHANGE"
-        timestamp="1537824000933"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
-            type="SPLIT" />
-        <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
-            type="SPLIT" />
-    </build>
-    <build
-        build-mode="COLD"
-        timestamp="1537824218739"
+        timestamp="1538068429771"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
             type="SPLIT" />
     </build>
+    <build
+        build-mode="COLD"
+        timestamp="1538068511156"
+        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>
