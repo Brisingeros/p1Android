@@ -5,14 +5,17 @@ import java.util.List;
 
 public class PreguntaImagenTexto extends Pregunta{
 
+    //preguntas de tipo imagen con respuestas de tipo texto
+
     private int rutaImg;
 
     public  PreguntaImagenTexto(String pregunta, String[] respuesta, String s, int ruta){
         super(pregunta, respuesta, s);
 
-        rutaImg = ruta;
+        rutaImg = ruta; //guarda la imagen de la pregunta
 
         layout = R.layout.activity_quiz_imagentexto;
+
     }
 
     @Override

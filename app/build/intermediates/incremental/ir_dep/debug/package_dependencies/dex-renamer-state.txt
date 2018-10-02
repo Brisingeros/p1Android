@@ -1,4 +1,4 @@
-#Thu Sep 27 20:33:12 CEST 2018
-base.0=D\:\\Git\\Android\\p1Android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10
+#Tue Oct 02 17:07:35 CEST 2018
+base.0=E\:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10
 path.0=classes.dex
 renamed.0=classes.dex

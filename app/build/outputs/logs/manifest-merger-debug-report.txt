@@ -1,134 +1,132 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:2:1-27:12
-MERGED from [com.android.support:design:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\c5ab8e43ae2f574d2e3c7a52280c8bc2\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\a20b8380f2bea582b7659e4212e7d563\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\958205d7969f5a5f6ff1692a798bed59\AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\b524cd4d6549d124b7eddf6f38a4c1db\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\f2416404c5754dd58566a8b704a51cfb\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\49ab553d7e290fa6561bfc948d6638ab\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\7c6049e9b41faf4b99423336a9828877\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\fb67f568a2517e0e85c5eb2b4de3a411\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\268bd63d23d287f7d08d385e63bedfd0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\68e745f0741fde01946d7d7adb0fb508\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:transition:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\aa71fdd05f2e757022d70238c88fa75a\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\f0fd8ecfa3c2c544fae3e1e4942700a9\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\ffb9ea336c50915db710f76313c04012\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\849849585197d26726fb30aa4b6bfebd\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\4ced6c8a98205f33e7d81f76fd12ceea\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\3ef7d22382bc71ce5d6fd2becab3bdbf\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\78ddbd97d4fc40ea6e806781e2179cd9\AndroidManifest.xml:17:1-22:12
-INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:2:1-27:12
+ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:2:1-26:12
+MERGED from [com.android.support:design:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\9d7e354f47804e835fb0bf17732866a3\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\941d0b2ecb2e951301b364cbd9019559\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\7b9fdb76eda308bd0d4dab0b0d13c4d0\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\07a5e58db090c172a78c02ae6398be22\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\064a9141564f250be57f716779cfb6b4\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\68ec60762fb937488f3fa415a84b37ef\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\bb55c1fd2339f5c1a7afbdf0e7b6d0bf\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\157ac454180c0f0805f166eeceee96db\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\a1c4e786f3a5775708dc890619cb53f9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\194eaf350f7d3e51c1930387a75072ca\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\bc62bf4c9870cf9a034dda2c4656ae04\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\32bb46aeb9745a6fe75edc6aa526342f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\a81b0e42f9a0612094ef8310b3278f7a\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\0f0064a7d99218c45c495431276efe5f\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\9e4599b17ce66e4f3ac5ab0db91c6abd\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\bb57cdb2ae02da85f287ed144f6c177e\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\cdb55d2eb18a1e3c74c14f670fcbef34\AndroidManifest.xml:17:1-22:12
+INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:2:1-26:12
 	package
-		ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:3:5-37
-		INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml
+		ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:3:5-37
+		INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml
-		ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:2:1-27:12
-		INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml
+		ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:2:1-26:12
+		INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml
-		ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:2:1-27:12
-		INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml
+		ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:2:1-26:12
+		INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:5:5-25:19
-MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\958205d7969f5a5f6ff1692a798bed59\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\958205d7969f5a5f6ff1692a798bed59\AndroidManifest.xml:9:5-20
+ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:5:5-24:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\7b9fdb76eda308bd0d4dab0b0d13c4d0\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\7b9fdb76eda308bd0d4dab0b0d13c4d0\AndroidManifest.xml:9:5-20
 	android:supportsRtl
-		ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:9:9-35
 	android:label
-		ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:8:9-38
-	android:roundIcon
-		ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:9:9-54
+		ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:8:9-38
 	android:icon
-		ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:7:9-43
+		ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:7:9-43
 	android:allowBackup
-		ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:6:9-35
+		ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
-		ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:11:9-40
+		ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:10:9-40
 activity#com.example.laura.quiz.Quiz
-ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:12:9-51
+ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:11:9-51
 	android:name
-		ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:12:19-39
+		ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:11:19-39
 activity#com.example.laura.quiz.Menu
-ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:13:9-19:20
+ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:12:9-18:20
 	android:name
-		ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:13:19-39
+		ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:12:19-39
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:14:13-18:29
+ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:13:13-17:29
 action#android.intent.action.MAIN
-ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:15:17-69
+ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:14:17-69
 	android:name
-		ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:15:25-66
+		ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:14:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:17:17-77
+ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:16:17-77
 	android:name
-		ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:17:27-74
+		ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:16:27-74
 activity#com.example.laura.quiz.PantallaPuntuacion
-ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:20:9-65
+ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:19:9-65
 	android:name
-		ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:20:19-53
+		ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:19:19-53
 activity#com.example.laura.quiz.Options
-ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:21:9-24:68
+ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:20:9-23:68
 	android:label
-		ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:23:13-59
+		ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:22:13-59
 	android:theme
-		ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:24:13-56
+		ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:23:13-56
 	android:name
-		ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml:22:13-36
+		ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml:21:13-36
 uses-sdk
-INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml
-INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml
-MERGED from [com.android.support:design:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\c5ab8e43ae2f574d2e3c7a52280c8bc2\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:design:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\c5ab8e43ae2f574d2e3c7a52280c8bc2\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\a20b8380f2bea582b7659e4212e7d563\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\a20b8380f2bea582b7659e4212e7d563\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\958205d7969f5a5f6ff1692a798bed59\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\958205d7969f5a5f6ff1692a798bed59\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\b524cd4d6549d124b7eddf6f38a4c1db\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\b524cd4d6549d124b7eddf6f38a4c1db\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\f2416404c5754dd58566a8b704a51cfb\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\f2416404c5754dd58566a8b704a51cfb\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\49ab553d7e290fa6561bfc948d6638ab\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\49ab553d7e290fa6561bfc948d6638ab\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\7c6049e9b41faf4b99423336a9828877\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\7c6049e9b41faf4b99423336a9828877\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\fb67f568a2517e0e85c5eb2b4de3a411\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\fb67f568a2517e0e85c5eb2b4de3a411\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\268bd63d23d287f7d08d385e63bedfd0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\268bd63d23d287f7d08d385e63bedfd0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\68e745f0741fde01946d7d7adb0fb508\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\68e745f0741fde01946d7d7adb0fb508\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\aa71fdd05f2e757022d70238c88fa75a\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\aa71fdd05f2e757022d70238c88fa75a\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\f0fd8ecfa3c2c544fae3e1e4942700a9\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\f0fd8ecfa3c2c544fae3e1e4942700a9\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\ffb9ea336c50915db710f76313c04012\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\ffb9ea336c50915db710f76313c04012\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\849849585197d26726fb30aa4b6bfebd\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\849849585197d26726fb30aa4b6bfebd\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\4ced6c8a98205f33e7d81f76fd12ceea\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\4ced6c8a98205f33e7d81f76fd12ceea\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\3ef7d22382bc71ce5d6fd2becab3bdbf\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\3ef7d22382bc71ce5d6fd2becab3bdbf\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\78ddbd97d4fc40ea6e806781e2179cd9\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Brisin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\78ddbd97d4fc40ea6e806781e2179cd9\AndroidManifest.xml:20:5-44
-INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml
-INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml
+INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml
+INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:design:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\9d7e354f47804e835fb0bf17732866a3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\9d7e354f47804e835fb0bf17732866a3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\941d0b2ecb2e951301b364cbd9019559\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\941d0b2ecb2e951301b364cbd9019559\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\7b9fdb76eda308bd0d4dab0b0d13c4d0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\7b9fdb76eda308bd0d4dab0b0d13c4d0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\07a5e58db090c172a78c02ae6398be22\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\07a5e58db090c172a78c02ae6398be22\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\064a9141564f250be57f716779cfb6b4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\064a9141564f250be57f716779cfb6b4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\68ec60762fb937488f3fa415a84b37ef\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\68ec60762fb937488f3fa415a84b37ef\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\bb55c1fd2339f5c1a7afbdf0e7b6d0bf\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\bb55c1fd2339f5c1a7afbdf0e7b6d0bf\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\157ac454180c0f0805f166eeceee96db\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\157ac454180c0f0805f166eeceee96db\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\a1c4e786f3a5775708dc890619cb53f9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\a1c4e786f3a5775708dc890619cb53f9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\194eaf350f7d3e51c1930387a75072ca\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\194eaf350f7d3e51c1930387a75072ca\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\bc62bf4c9870cf9a034dda2c4656ae04\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\bc62bf4c9870cf9a034dda2c4656ae04\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\32bb46aeb9745a6fe75edc6aa526342f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\32bb46aeb9745a6fe75edc6aa526342f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\a81b0e42f9a0612094ef8310b3278f7a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\a81b0e42f9a0612094ef8310b3278f7a\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\0f0064a7d99218c45c495431276efe5f\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\0f0064a7d99218c45c495431276efe5f\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\9e4599b17ce66e4f3ac5ab0db91c6abd\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\9e4599b17ce66e4f3ac5ab0db91c6abd\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\bb57cdb2ae02da85f287ed144f6c177e\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\bb57cdb2ae02da85f287ed144f6c177e\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\cdb55d2eb18a1e3c74c14f670fcbef34\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Laura\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\cdb55d2eb18a1e3c74c14f670fcbef34\AndroidManifest.xml:20:5-44
+INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml
+INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml
-		ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml
+		ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml
-		ADDED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Git\Android\p1Android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml
+		ADDED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Laura\Universidad\Juegos para Android\p1Android\app\src\main\AndroidManifest.xml

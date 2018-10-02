@@ -35,33 +35,34 @@ public class Quiz extends AppCompatActivity {
         numPregunta = -1;
         totalPreguntas = Opciones.getNumPreg();
 
-
-        //acierto = Toast.makeText(getApplicationContext(), "¡Has acertado!", Toast.LENGTH_SHORT);
+        //toast de acierto personalizado
         acierto = new Toast(this);
-
         View toast_layout = getLayoutInflater().inflate(R.layout.toast, (ViewGroup) findViewById(R.id.lytLayout));
         acierto.setView(toast_layout);
         acierto.setDuration(Toast.LENGTH_SHORT);
 
+        //inicializamos las que seran las preguntas del juego
         Preguntas.startPreguntas();
 
+        //comenzamos la partida
         SiguientePregunta();
 
     }
 
-    public void SiguientePregunta(){
+    public void SiguientePregunta(){ //cambiamos de pregunta
 
         numPregunta++;
 
-        if(numPregunta <= totalPreguntas-1) {
+        if(numPregunta <= totalPreguntas -1 ) {
 
+            //si el numero actual de pregunta no supera el maximo, la mostramos
             pregActual = Preguntas.GetPregunta(numPregunta);
             render();
 
-        }else{
+        }else{ //si hemos alcanzado el numero maximo de preguntas, terminamos el juego (pantalla de puntuacion)
 
             Intent in = new Intent(this, PantallaPuntuacion.class);
-            in.putExtra("puntuacionFinal", String.valueOf(miPuntuacion));
+            in.putExtra("puntuacionFinal", String.valueOf(miPuntuacion)); //pasamos la puntuacion a la pantalla final
             startActivity(in);
             finish();
 
@@ -69,29 +70,32 @@ public class Quiz extends AppCompatActivity {
 
     }
 
-    public void render(){
+    public void render(){ //mostramos la pregunta y las respuestas en funcion del tipo
 
-        setContentView(pregActual.getLayout());
+        setContentView(pregActual.getLayout()); //Cada tipo de pregunta tiene definido su propio layout
 
+        //encontramos los 4 botones de respuestas en la interfaz
         respuesta1 = (Button) findViewById(R.id.respuesta1);
         respuesta2 = (Button) findViewById(R.id.respuesta2);
         respuesta3 = (Button) findViewById(R.id.respuesta3);
         respuesta4 = (Button) findViewById(R.id.respuesta4);
 
-        ButtonsConfig();
+        ButtonsConfig(); //configuramos el onClick de los botones
 
+        //encontramos el espacio de la pregunta en la interfaz
         pregunta = (TextView) findViewById(R.id.pregunta);
 
+        //encontramos el espacio de la puntuacion en la interfaz
         puntuacion = (TextView) findViewById(R.id.puntuacion);
-
         puntuacion.setText("Puntuación: " + miPuntuacion);
 
+        //renderizamos la pantalla en funcion del tipo de pregunta
         List<Group> renderers = pregActual.render();
 
         for (Group g: renderers) {
 
             switch (g.getTipo()) {
-                case "textview":
+                case "textview": //pregunta de tipo texto
 
                     TextView view = (TextView) findViewById(g.getId());
                     view.setText(g.getValue());
@@ -100,13 +104,12 @@ public class Quiz extends AppCompatActivity {
 
                 case "button":
 
-                    if (g.getId() == R.id.respuesta1) {
+                    if (g.getId() == R.id.respuesta1) { //primera opcion de respuesta
 
-
-                        if(g.getIdImg() != -1) {
+                        if(g.getIdImg() != -1) { // si el id es distinto de -1, la respuesta es de tipo imagen
 
                             respuesta1.setBackgroundResource(g.getIdImg());
-                            respuesta1.setTextSize(0);
+                            respuesta1.setTextSize(0); //escondemos el texto
 
                         }else
 
@@ -114,7 +117,7 @@ public class Quiz extends AppCompatActivity {
 
                         respuesta1.setText(g.getValue());
 
-                    } else if (g.getId() == R.id.respuesta2) {
+                    } else if (g.getId() == R.id.respuesta2) { //Segunda opcion de respuesta
 
                         if(g.getIdImg() != -1) {
 
@@ -127,7 +130,7 @@ public class Quiz extends AppCompatActivity {
 
                         respuesta2.setText(g.getValue());
 
-                    } else if (g.getId() == R.id.respuesta3) {
+                    } else if (g.getId() == R.id.respuesta3) { //tercera opcion de respuesta
 
                         if(g.getIdImg() != -1) {
 
@@ -140,7 +143,7 @@ public class Quiz extends AppCompatActivity {
 
                         respuesta3.setText(g.getValue());
 
-                    } else if (g.getId() == R.id.respuesta4) {
+                    } else if (g.getId() == R.id.respuesta4) { //cuarta opcion de respuesta
 
                         if(g.getIdImg() != -1) {
 
@@ -157,7 +160,7 @@ public class Quiz extends AppCompatActivity {
 
                     break;
 
-                case "imgview":
+                case "imgview": //pregunta de tipo imagen
 
                     ImageView img = (ImageView) findViewById(g.getId());
                     img.setImageResource(g.getIdImg());
@@ -177,13 +180,13 @@ public class Quiz extends AppCompatActivity {
 
                 if(pregActual.getRespuestaCorrecta(respuesta1.getText().toString())){
 
-                    miPuntuacion += 3;
-                    acierto.show();
-                    SiguientePregunta();
+                    miPuntuacion += 3; //sumamos 3 ptos por acierto
+                    acierto.show(); //mostramos el toast personalizado
+                    SiguientePregunta(); //cambiamos de pregunta
 
                 }else {
 
-                    GameOver();
+                    GameOver(); //ha fallado
 
                 }
             }
@@ -254,6 +257,7 @@ public class Quiz extends AppCompatActivity {
 
     public void GameOver(){
 
+        //mostramos alert con opcion de reiniciar la partida o de continuar (se restan 2 ptos)
         final AlertDialog.Builder alerta = new AlertDialog.Builder(Quiz.this);
         alerta
                 .setMessage("¡Has fallado!Puedes volver a empezar o continuar hasta el final.")
@@ -263,8 +267,8 @@ public class Quiz extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
-                                miPuntuacion = miPuntuacion - 2 < 0? 0 : (miPuntuacion - 2);
-                                SiguientePregunta();
+                                miPuntuacion = miPuntuacion - 2 < 0? 0 : (miPuntuacion - 2); //controlamos que la puntuacion no sea negativa
+                                SiguientePregunta(); //continuamos la partida actual
                             }
                         }
                 )
@@ -273,7 +277,7 @@ public class Quiz extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
 
-                                startActivity(new Intent(getApplicationContext(), Quiz.class));
+                                startActivity(new Intent(getApplicationContext(), Quiz.class)); //reiniciamos la partida
                                 finish();
                             }
                         }

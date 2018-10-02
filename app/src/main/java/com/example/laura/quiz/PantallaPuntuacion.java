@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 public class PantallaPuntuacion extends AppCompatActivity {
 
+    //pantalla final del juego
+
     Button reintentar, salir;
     TextView puntuacion;
 
@@ -32,7 +34,7 @@ public class PantallaPuntuacion extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(getApplicationContext(), Menu.class));
+                startActivity(new Intent(getApplicationContext(), Menu.class)); //salimos al menu principal
                 finish();
 
             }
@@ -44,7 +46,7 @@ public class PantallaPuntuacion extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(getApplicationContext(), Quiz.class)); //SALIR AL MENU
+                startActivity(new Intent(getApplicationContext(), Quiz.class)); //iniciamos una nueva partida
                 finish();
 
             }

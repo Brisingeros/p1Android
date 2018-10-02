@@ -1,1 +1,4 @@
-#Thu Sep 27 20:33:14 CEST 2018
+#Tue Oct 02 17:07:38 CEST 2018
+base.0=E\:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\7
+path.0=classes.dex
+renamed.0=classes.dex

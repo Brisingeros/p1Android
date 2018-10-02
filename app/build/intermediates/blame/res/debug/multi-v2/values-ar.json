@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Git\\Android\\p1Android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ar\\values-ar.xml",
+            "outputFile": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ar\\values-ar.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Brisin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\a20b8380f2bea582b7659e4212e7d563\\res\\values-ar\\values-ar.xml",
+                    "source": "C:\\Users\\Laura\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\941d0b2ecb2e951301b364cbd9019559\\res\\values-ar\\values-ar.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Brisin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\ffb9ea336c50915db710f76313c04012\\res\\values-ar\\values-ar.xml",
+                    "source": "C:\\Users\\Laura\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\a81b0e42f9a0612094ef8310b3278f7a\\res\\values-ar\\values-ar.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -12,10 +12,12 @@ import android.widget.Spinner;
 
 public class Options extends AppCompatActivity {
 
-    Spinner spinner;
-    Integer[] items = {5,10,15};
+    //opciones del juego
 
-    CheckBox textoimagen, imagentexto, imagenimagen;
+    Spinner spinner;
+    Integer[] items = {5,10,15}; //opciones de numero de preguntas con las que jugar
+
+    CheckBox textoimagen, imagentexto, imagenimagen; //opciones de tipos de preguntas-respuestas con las que jugar
 
     Button atras, guardar;
 
@@ -36,7 +38,7 @@ public class Options extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Menu.class));
+                startActivity(new Intent(getApplicationContext(), Menu.class)); //salimos al menu sin guardar los cambios que se hayan producido
                 finish();
 
             }
@@ -46,7 +48,7 @@ public class Options extends AppCompatActivity {
         guardar.setOnClickListener(new View.OnClickListener(){
 
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { //guardamos los cambios y salimos al menu
 
                 Opciones.setNumPreg((Integer) spinner.getSelectedItem());
                 Opciones.setTextoimagen(textoimagen.isChecked());
@@ -63,7 +65,7 @@ public class Options extends AppCompatActivity {
 
                 editor.commit();
 
-                startActivity(new Intent(getApplicationContext(), Menu.class));
+                startActivity(new Intent(getApplicationContext(), Menu.class)); //salir al menu
                 finish();
 
             }
@@ -74,11 +76,12 @@ public class Options extends AppCompatActivity {
         int index = 0;
         int numPreg = Opciones.getNumPreg();
 
+        //buscamos la opcion del numero de preguntas que guardo el usuario la ultima vez
         while(index < items.length && items[index] != numPreg){
             index ++;
         }
 
-        if(index < items.length){
+        if(index < items.length){ //si lo ha encontrado (en principio es siempre true) lo definimos como opcion marcada en el spinner
             posDef = index;
         }
 
@@ -90,6 +93,7 @@ public class Options extends AppCompatActivity {
 
         spinner.setSelection(posDef);
 
+        //configuramos los checkbox a su estado de ultimo guardado
         textoimagen.setChecked(Opciones.isTextoimagen());
         imagentexto.setChecked(Opciones.isImagentexto());
         imagenimagen.setChecked(Opciones.isImagenimagen());
