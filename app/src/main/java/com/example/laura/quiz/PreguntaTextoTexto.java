@@ -8,6 +8,8 @@ import java.util.List;
 
 public class PreguntaTextoTexto extends Pregunta {
 
+    //preguntas de tipo texto con respuesta de tippo texto
+
     public PreguntaTextoTexto(String pregunta, String[] respuesta, String s) {
         super(pregunta, respuesta, s);
 

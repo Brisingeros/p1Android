@@ -5,6 +5,8 @@ import java.util.List;
 
 public class PreguntaImagenImagen extends Pregunta{
 
+    //preguntas de tipo imagen con respuestas de tipo imagen
+
     private int imgPregunta;
     private int[] imgResp;
     public PreguntaImagenImagen(String preguntaTexto, int preguntaImagen,String[] respuesta, String s, int[] rutas) {
@@ -12,8 +14,8 @@ public class PreguntaImagenImagen extends Pregunta{
         super(preguntaTexto, respuesta, s);
 
         layout = R.layout.activity_quiz_imagenimagen;
-        imgPregunta = preguntaImagen;
-        imgResp = rutas;
+        imgPregunta = preguntaImagen; //guarda la imagen de la pregunta
+        imgResp = rutas; //guarda las imagenes de las respuestas
 
     }
 

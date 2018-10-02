@@ -189,26 +189,34 @@ public class Preguntas {
 
         quizPreguntas = new ArrayList<>();
 
+        //cogemos las preguntas que se mostraran en la aplicacion en funcion de las opciones seleccionadas por el usuario
         for(int i = 0; i < preguntas.length; i++){
+
             if(tipoPregunta[i] == "textotexto") {
                 quizPreguntas.add(new PreguntaTextoTexto(preguntas[i], respuestas[i], respuestaCorrecta[i]));
             }
+
             if(tipoPregunta[i] == "textoimagen" && Opciones.isTextoimagen()) {
                 quizPreguntas.add(new PreguntaTextoImagen(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
             }
+
             if(tipoPregunta[i] == "imagentexto" && Opciones.isImagentexto()) {
                 quizPreguntas.add(new PreguntaImagenTexto(preguntas[i], respuestas[i], respuestaCorrecta[i], imgPreguntas[i]));
             }
+
             if(tipoPregunta[i] == "imagenimagen" && Opciones.isImagenimagen()) {
                quizPreguntas.add(new PreguntaImagenImagen(preguntas[i], imgPreguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
             }
         }
 
-        desordenar();
+        desordenar(); //desordenamos las preguntas para que sea menos monotono el juego
+
     }
 
     private static void desordenar(){
+
         Collections.shuffle(quizPreguntas);
+
     }
 
     public static Pregunta GetPregunta(int id){

@@ -4,6 +4,8 @@ import java.util.List;
 
 public abstract class Pregunta {
 
+    //clase padre de las preguntas
+
     protected String pregunta;
     protected String[] respuestas;
     protected String respuestaCorrecta;
@@ -13,6 +15,7 @@ public abstract class Pregunta {
     protected  int layout;
 
     public Pregunta(String preg, String[] resp, String correct){
+
         this.pregunta = preg;
         this.respuestas = new String[resp.length];
 
@@ -21,6 +24,7 @@ public abstract class Pregunta {
         }
 
         this.respuestaCorrecta = correct;
+
     }
 
     public String getPregunta() {

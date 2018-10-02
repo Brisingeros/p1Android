@@ -7,6 +7,7 @@ import java.util.List;
 
 public class PreguntaTextoImagen extends Pregunta {
 
+    //pregunta de tipo texto con respuestas de tipo imagen
 
     private int[] imgPreg;
 
@@ -16,7 +17,7 @@ public class PreguntaTextoImagen extends Pregunta {
 
         layout = R.layout.activity_quiz_textoimagen;
 
-        this.imgPreg = rutasImg;
+        this.imgPreg = rutasImg; //guarda las imagenes de las respuestas
 
     }
 
