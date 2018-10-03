@@ -2,6 +2,7 @@ package com.example.laura.quiz;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import java.util.List;
 
@@ -166,6 +168,16 @@ public class Quiz extends AppCompatActivity {
                     img.setImageResource(g.getIdImg());
 
                     break;
+
+                case "video": //pregunta de tipo imagen
+
+                    VideoView video = (VideoView) findViewById(g.getId());
+                    String path = "android.resource://" + getPackageName() + "/" + g.getIdImg();
+                    video.setVideoPath(path);
+                    video.start();
+
+                    break;
+
             }
         }
 

@@ -32,7 +32,10 @@ public class Preguntas {
         "¿Cómo se llama este personaje?",
         "¿Quién es el padre de este personaje?",
         "¿A quién ama este personaje?",
-        "¿Quién es el jefe de este personaje?"
+        "¿Quién es el jefe de este personaje?",
+        "¿Cuál es el mensaje secreto?",
+        "¿Cuál es su prenda favorita?",
+        "¿Qué es lo que no encuentra Homer?"
     };
 
     private static String[][] respuestas = {
@@ -62,7 +65,10 @@ public class Preguntas {
         {"Sherri", "Terri", "Lisa", "Marge"},
         {"imagen1", "imagen2", "imagen3", "imagen4"},
         {"imagen1", "imagen2", "imagen3", "imagen4"},
-        {"imagen1", "imagen2", "imagen3", "imagen4"}
+        {"imagen1", "imagen2", "imagen3", "imagen4"},
+        {"Sadam es bueno","P al cuadrado es Illuminati","Alistate en la marina","Yo soy el Homer malo"},
+        {"Jersey caparazón","Chaleco de gorila","Mocasines","Calzón de bisón"},
+        {"Cuchara","Cuchillo","Tenedor","Bart"}
     };
 
     private static String[] respuestaCorrecta = {
@@ -92,7 +98,11 @@ public class Preguntas {
         "Terri",
         "imagen1",
         "imagen3",
-        "imagen2"
+        "imagen2",
+        "Alistate en la marina",
+        "Chaleco de gorila",
+        "Cuchara"
+
     };
 
     private static String[] tipoPregunta = {
@@ -121,9 +131,44 @@ public class Preguntas {
         "imagentexto",
         "imagenimagen",
         "imagenimagen",
-        "imagenimagen"
+        "imagenimagen",
+        "videotexto",
+        "videotexto",
+        "videotexto"
     };
 
+    private static int[] videoPreguntas = {
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            R.raw.alistate,
+            R.raw.mocasines_saltarines,
+            R.raw.taca
+
+    };
     private static int[] imgPreguntas = {
             -1,
             -1,
@@ -150,7 +195,10 @@ public class Preguntas {
             R.drawable.terri,
             R.drawable.bart,
             R.drawable.milhouse,
-            R.drawable.seymour_skinner_
+            R.drawable.seymour_skinner_,
+            -1,
+            -1,
+            -1
 
     };
     private static int[][] rutasImg = {
@@ -179,7 +227,10 @@ public class Preguntas {
             {-1},
             {R.drawable.homer, R.drawable.bill_gates, R.drawable.mr_muntz, R.drawable.joseph_quimby},
             {R.drawable.terri, R.drawable.gatubela, R.drawable.lisa, R.drawable.fausto},
-            {R.drawable.gatubela, R.drawable.chalmers, R.drawable.bart, R.drawable.fausto}
+            {R.drawable.gatubela, R.drawable.chalmers, R.drawable.bart, R.drawable.fausto},
+            {-1},
+            {-1},
+            {-1}
     };
 
     private static List<Pregunta> quizPreguntas;
@@ -206,6 +257,10 @@ public class Preguntas {
 
             if(tipoPregunta[i] == "imagenimagen" && Opciones.isImagenimagen()) {
                quizPreguntas.add(new PreguntaImagenImagen(preguntas[i], imgPreguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
+            }
+
+            if(tipoPregunta[i] == "videotexto" && Opciones.isVideotexto()) {
+                quizPreguntas.add(new PreguntaVideoTexto(preguntas[i], respuestas[i], respuestaCorrecta[i], videoPreguntas[i]));
             }
         }
 

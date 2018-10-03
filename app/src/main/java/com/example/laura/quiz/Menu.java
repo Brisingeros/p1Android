@@ -23,6 +23,8 @@ public class Menu extends AppCompatActivity {
         Opciones.setImagenimagen(settings.getBoolean("imagenimagen", false));
         Opciones.setImagentexto(settings.getBoolean("imagentexto", false));
         Opciones.setTextoimagen(settings.getBoolean("textoimagen", false));
+        Opciones.setVideotexto(settings.getBoolean("videotexto", false));
+
         Opciones.setNumPreg(settings.getInt("numPreg", 10));
 
         inicio = (Button) findViewById(R.id.play);
