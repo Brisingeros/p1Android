@@ -35,7 +35,8 @@ public class Preguntas {
         "¿Quién es el jefe de este personaje?",
         "¿Cuál es el mensaje secreto?",
         "¿Cuál es su prenda favorita?",
-        "¿Qué es lo que no encuentra Homer?"
+        "¿Qué es lo que no encuentra Homer?",
+        "¿De qué pueblo vienen los Noruegos?"
     };
 
     private static String[][] respuestas = {
@@ -68,7 +69,8 @@ public class Preguntas {
         {"imagen1", "imagen2", "imagen3", "imagen4"},
         {"Sadam es bueno","P al cuadrado es Illuminati","Alistate en la marina","Yo soy el Homer malo"},
         {"Jersey caparazón","Chaleco de gorila","Mocasines","Calzón de bisón"},
-        {"Cuchara","Cuchillo","Tenedor","Bart"}
+        {"Cuchara","Cuchillo","Tenedor","Bart"},
+        {"Mónaco","Shelbyville","Springfield","Ogdenville"}
     };
 
     private static String[] respuestaCorrecta = {
@@ -101,7 +103,8 @@ public class Preguntas {
         "imagen2",
         "Alistate en la marina",
         "Chaleco de gorila",
-        "Cuchara"
+        "Cuchara",
+        "Ogdenville"
 
     };
 
@@ -132,6 +135,7 @@ public class Preguntas {
         "imagenimagen",
         "imagenimagen",
         "imagenimagen",
+        "videotexto",
         "videotexto",
         "videotexto",
         "videotexto"
@@ -166,7 +170,8 @@ public class Preguntas {
             -1,
             R.raw.alistate,
             R.raw.mocasines_saltarines,
-            R.raw.taca
+            R.raw.taca,
+            R.raw.achundarnar
 
     };
     private static int[] imgPreguntas = {
@@ -196,6 +201,7 @@ public class Preguntas {
             R.drawable.bart,
             R.drawable.milhouse,
             R.drawable.seymour_skinner_,
+            -1,
             -1,
             -1,
             -1
@@ -228,6 +234,7 @@ public class Preguntas {
             {R.drawable.homer, R.drawable.bill_gates, R.drawable.mr_muntz, R.drawable.joseph_quimby},
             {R.drawable.terri, R.drawable.gatubela, R.drawable.lisa, R.drawable.fausto},
             {R.drawable.gatubela, R.drawable.chalmers, R.drawable.bart, R.drawable.fausto},
+            {-1},
             {-1},
             {-1},
             {-1}
