@@ -2,10 +2,9 @@ package com.example.laura.quiz;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -13,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
+
+import org.json.JSONException;
 
 import java.util.List;
 
@@ -44,22 +45,32 @@ public class Quiz extends AppCompatActivity {
         acierto.setDuration(Toast.LENGTH_SHORT);
 
         //inicializamos las que seran las preguntas del juego
-        Preguntas.startPreguntas();
+        try {
+            Preguntas.startPreguntas(getApplicationContext());
+            SiguientePregunta();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         //comenzamos la partida
-        SiguientePregunta();
+
 
     }
 
-    public void SiguientePregunta(){ //cambiamos de pregunta
+    public void SiguientePregunta() { //cambiamos de pregunta
 
         numPregunta++;
 
         if(numPregunta <= totalPreguntas -1 ) {
 
             //si el numero actual de pregunta no supera el maximo, la mostramos
-            pregActual = Preguntas.GetPregunta(numPregunta);
-            render();
+            try {
+                pregActual = Preguntas.GetPregunta(numPregunta);
+                render();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
 
         }else{ //si hemos alcanzado el numero maximo de preguntas, terminamos el juego (pantalla de puntuacion)
 

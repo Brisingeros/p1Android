@@ -5,8 +5,6 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-import org.json.JSONObject;
-
 @Entity(tableName = "questions_table")
 public class QuestionEntity {
 
@@ -21,9 +19,9 @@ public class QuestionEntity {
 
     @NonNull
     @ColumnInfo(name="data")
-    private JSONObject data;
+    private String data;
 
-    public QuestionEntity(int id, String type, JSONObject data){
+    public QuestionEntity(int id, String type, String data){
 
         this.id = id;
         this.type = type;
@@ -41,7 +39,7 @@ public class QuestionEntity {
         return type;
     }
 
-    public JSONObject getData() {
+    public String getData() {
         return data;
     }
 

@@ -1,5 +1,10 @@
 package com.example.laura.quiz;
 
+import android.content.Context;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -240,54 +245,70 @@ public class Preguntas {
             {-1}
     };
 
-    private static List<Pregunta> quizPreguntas;
+    private static List<QuestionEntity> preguntasSeleccionadas;
+    private static Context context;
+    public static void startPreguntas(Context cont) throws JSONException { //le pasamos el contexto desde el menu y lo pasamos a cada constructor junto al json
 
-
-    public static void startPreguntas(){ //le pasamos el contexto desde el menu y lo pasamos a cada constructor junto al json
-
+        context = cont;
         //llamamos a la bdd y recuperamos todas las preguntas segun el tipo que hayan marcado los usuarios
+        DataBase db = DataBase.getDataBase(context);
+
+        List<String> tipos = new ArrayList<>();
+        tipos.add("textotexto");
+
+        if(Opciones.isImagenimagen())
+            tipos.add("imagenimagen");
+        if(Opciones.isImagentexto())
+            tipos.add("imagentexto");
+        if(Opciones.isTextoimagen())
+            tipos.add("textoimagen");
+        if(Opciones.isVideotexto())
+            tipos.add("videotexto");
+
+        preguntasSeleccionadas = db.questionDao().getQuestionsByType(tipos);
         //creamos un obj por cada pregunta que tiene tipo y subobjeto(question)
         //hacemos lista con esos objetos y desordenamos
+        desordenar();
         //cuando se llame a siguientePregunta() se coge el obj que toque, se crea la Pregunta y se devuelve
-        quizPreguntas = new ArrayList<>();
 
         //cogemos las preguntas que se mostraran en la aplicacion en funcion de las opciones seleccionadas por el usuario
-        for(int i = 0; i < preguntas.length; i++){
 
-            if(tipoPregunta[i] == "textotexto") {
-                quizPreguntas.add(new PreguntaTextoTexto(preguntas[i], respuestas[i], respuestaCorrecta[i]));
-            }
-
-            if(tipoPregunta[i] == "textoimagen" && Opciones.isTextoimagen()) {
-                quizPreguntas.add(new PreguntaTextoImagen(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
-            }
-
-            if(tipoPregunta[i] == "imagentexto" && Opciones.isImagentexto()) {
-                quizPreguntas.add(new PreguntaImagenTexto(preguntas[i], respuestas[i], respuestaCorrecta[i], imgPreguntas[i]));
-            }
-
-            if(tipoPregunta[i] == "imagenimagen" && Opciones.isImagenimagen()) {
-               quizPreguntas.add(new PreguntaImagenImagen(preguntas[i], imgPreguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
-            }
-
-            if(tipoPregunta[i] == "videotexto" && Opciones.isVideotexto()) {
-                quizPreguntas.add(new PreguntaVideoTexto(preguntas[i], respuestas[i], respuestaCorrecta[i], videoPreguntas[i]));
-            }
-        }
-
-        desordenar(); //desordenamos las preguntas para que sea menos monotono el juego
 
     }
 
     private static void desordenar(){
 
-        Collections.shuffle(quizPreguntas);
+        Collections.shuffle(preguntasSeleccionadas);
 
     }
 
-    public static Pregunta GetPregunta(int id){
+    public static Pregunta GetPregunta(int id) throws JSONException{
 
-        return quizPreguntas.get(id);
+        QuestionEntity q = preguntasSeleccionadas.get(id);
+        JSONObject data = new JSONObject(q.getData());
+        Pregunta pActual = null;
+
+        if(q.getType() == "textotexto") {
+            pActual = new PreguntaTextoTexto(context, data.getString("pregunta"), (String[]) data.get("respuestas"), data.getString("respuesta_correcta"));
+        }
+
+        if(q.getType() == "textoimagen" && Opciones.isTextoimagen()) {
+            pActual = new PreguntaTextoImagen(context, data.getString("pregunta"), (String[]) data.get("respuestas"), data.getString("respuesta_correcta"), (String[]) data.getJSONObject("renderizable").get("img_resp"));
+        }
+
+        if(q.getType() == "imagentexto" && Opciones.isImagentexto()) {
+            pActual = new PreguntaImagenTexto(context, data.getString("pregunta"), (String[]) data.get("respuestas"), data.getString("respuesta_correcta"), data.getJSONObject("renderizable").getString("img_preg"));
+        }
+
+        if(q.getType() == "imagenimagen" && Opciones.isImagenimagen()) {
+            pActual = new PreguntaImagenImagen(context, data.getString("pregunta"), data.getJSONObject("renderizable").getString("img_preg"), (String[]) data.get("respuestas"), data.getString("respuesta_correcta"), (String[]) data.getJSONObject("renderizable").get("img_resp"));
+        }
+
+        if(q.getType() == "videotexto" && Opciones.isVideotexto()) {
+            pActual = new PreguntaVideoTexto(context, data.getString("pregunta"), (String[]) data.get("respuestas"),  data.getString("respuesta_correcta"), data.getJSONObject("renderizable").getString("video_preg"));
+        }
+
+        return pActual;
 
     }
 

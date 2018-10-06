@@ -1,7 +1,5 @@
 package com.example.laura.quiz;
 
-import android.content.Context;
-
 import java.util.List;
 
 public abstract class Pregunta {
@@ -9,12 +7,9 @@ public abstract class Pregunta {
     //clase padre de las preguntas
 
     //PASAMOS EL CONTEXTO A ESTA CLASE
-    protected Context contexto;
     protected String pregunta;
     protected String[] respuestas;
     protected String respuestaCorrecta;
-
-
 
     protected  int layout;
 

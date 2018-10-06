@@ -1,5 +1,7 @@
 package com.example.laura.quiz;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,10 +11,10 @@ public class PreguntaImagenTexto extends Pregunta{
 
     private int rutaImg;
 
-    public  PreguntaImagenTexto(String pregunta, String[] respuesta, String s, int ruta){
+    public  PreguntaImagenTexto(Context c, String pregunta, String[] respuesta, String s, String ruta){
         super(pregunta, respuesta, s);
 
-        rutaImg = ruta; //guarda la imagen de la pregunta
+        rutaImg = c.getResources().getIdentifier(ruta, "drawable", c.getPackageName()); //guarda la imagen de la pregunta
 
         layout = R.layout.activity_quiz_imagentexto;
 

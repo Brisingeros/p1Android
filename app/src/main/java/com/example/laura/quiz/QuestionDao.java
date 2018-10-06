@@ -12,8 +12,8 @@ public interface QuestionDao {
     @Insert
     void insert(QuestionEntity question);
 
-    @Query("SELECT * FROM questions_table WHERE type = :tipos")
-    List<QuestionEntity> getQuestionsByType(String tipos);
+    @Query("SELECT * FROM questions_table WHERE type IN (:tipos)")
+    List<QuestionEntity> getQuestionsByType(List<String> tipos);
 
     @Query("SELECT COUNT(id) FROM questions_table")
     int getQuestionsCount();
