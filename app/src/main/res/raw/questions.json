@@ -1,0 +1,316 @@
+{
+    "questions":[
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Quién disparó al señor Burns?",
+                "respuestas": ["Homer", "Tito Puente", "Maggie", "Lisa"],
+                "respuesta_correcta": "Maggie"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Cuál es el nombre completo de Homer?",
+                "respuestas": ["Homer Josh Simpson", "Homer Guasón Simpson", "Homer Jeff Simpson", "Homer Jay Simpson"],
+                "respuesta_correcta": "Homer Jay Simpson"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿De qué están hechas las barritas energéticas que toma Homer?",
+                "respuestas": ["Pipas y periódicos chinos", "Chicles de menta", "Trocitos de fruta y libros viejos", "Chocolate y espaguettis"],
+                "respuesta_correcta": "Pipas y periódicos chinos"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Quiénes salvan de la quiebra a la compañía de Rasca y Pica?",
+                "respuestas": ["Bart y Lisa", "Lester y Eliza", "Krusty y Bob", "Ralph y Vomitron"],
+                "respuesta_correcta": "Lester y Eliza"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿De qué estado norteamericano es el disfraz que le hace Homer a Lisa?",
+                "respuestas": ["California", "Alabama", "Nevada", "Florida"],
+                "respuesta_correcta": "Florida"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Cuántos dedos tienen los Simpsons?",
+                "respuestas": ["2", "3", "4", "5"],
+                "respuesta_correcta": "4"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Cuál es el precio de Maggie?",
+                "respuestas": ["240.34", "1347.65", "847.63", "76.98"],
+                "respuesta_correcta": "847.63"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Cómo se llama el perro de la familia?",
+                "respuestas": ["Ayudante de Santa", "Ayudante de Satán", "Ayudante de Jesús", "Ayudante de Deadpool"],
+                "respuesta_correcta": "Ayudante de Santa"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Qué edad tiene Bart?",
+                "respuestas": ["11", "12", "13", "10"],
+                "respuesta_correcta": "10"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Cómo se llama la madre de Homer?",
+                "respuestas": ["Mona", "Mino", "Eleine", "Jude"],
+                "respuesta_correcta": "Mona"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Cuál es el verdadero nombre de Snake?",
+                "respuestas": ["Krustofsky", "Hans Moleman", "Joe Quimby", "Chester Turley"],
+                "respuesta_correcta": "Chester Turley"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Quién no tiene ningún hijo?",
+                "respuestas": ["Patty", "Selma", "Apu", "Ned Flanders"],
+                "respuesta_correcta": "Patty"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Cuál de estos famosos nunca ha aparecido en la serie?",
+                "respuestas": ["Ronaldo Nazario", "Cristiano Ronaldo", "Andrés Iniesta", "Leo Messi"],
+                "respuesta_correcta": "Andrés Iniesta"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿A qué se dedicaba Moe antes de tener la taberna?",
+                "respuestas": ["Modelo", "Boxeador", "Tenista", "Actor"],
+                "respuesta_correcta": "Boxeador"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Cómo se llama el cóctel que inventa Homer?",
+                "respuestas": ["El flameado de Moe", "El flameado de Homer", "El flameado de Peter", "El flameado de Apu"],
+                "respuesta_correcta": "El flameado de Moe"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Cuál de los siguientes cantantes no ha aparecido en la serie?",
+                "respuestas": ["Madonna", "Katy Perry", "Lady Gaga", "Britney Spears"],
+                "respuesta_correcta": "Madonna"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Cuál es el nombre de la cocinera del colegio?",
+                "respuestas": ["Anna", "Doris", "Boris", "Trudis"],
+                "respuesta_correcta": "Doris"
+            }
+            
+        },
+        {
+            "tipo": "textoimagen",
+            "question":{
+                "pregunta": "¿Quién es Joe Quimby?",
+                "respuestas": ["imagen1", "imagen2", "imagen3", "imagen4"],
+                "respuesta_correcta": "imagen1",
+                "renderizable":{
+                    "img_resp": ["joseph_quimby", "seymour_skinner_", "mr_muntz", "bill_gates"]
+                }
+            }
+            
+        },
+        {
+            "tipo": "textoimagen",
+            "question":{
+                "pregunta": "¿Quién es Troy Mclure?",
+                "respuestas": ["imagen1", "imagen2", "imagen3", "imagen4"],
+                "respuesta_correcta": "imagen3",
+                "renderizable":{
+                    "img_resp": ["toni_el_gordo", "wiggum", "troy_mcclure", "sii"]
+                }
+            }
+            
+        },
+        {
+            "tipo": "textoimagen",
+            "question":{
+                "pregunta": "¿Quién es Bart Simpson?",
+                "respuestas": ["imagen1", "imagen2", "imagen3", "imagen4"],
+                "respuesta_correcta": "imagen2",
+                "renderizable":{
+                    "img_resp": ["milhouse", "bart", "nelson", "simon"]
+                }
+            }
+            
+        },
+        {
+            "tipo": "imagentexto",
+            "question":{
+                "pregunta": "¿Cómo se llama este personaje?",
+                "respuestas": ["Skinner", "Apu", "Milhouse", "Homer"],
+                "respuesta_correcta": "Milhouse",
+                "renderizable":{
+                    "img_preg": "milhouse"
+                }
+            }
+            
+        },
+        {
+            "tipo": "imagentexto",
+            "question":{
+                "pregunta": "¿Cómo se llama este personaje?",
+                "respuestas": ["Bob", "Fausto el portugués", "Simon", "Krusty"],
+                "respuesta_correcta": "Fausto el portugués",
+                "renderizable":{
+                    "img_preg": "fausto"
+                }
+            }
+            
+        },
+        {
+            "tipo": "imagentexto",
+            "question":{
+                "pregunta": "¿Cómo se llama este personaje?",
+                "respuestas": ["Sherri", "Terri", "Lisa", "Marge"],
+                "respuesta_correcta": "Terri",
+                "renderizable":{
+                    "img_preg": "terri"
+                }
+            }
+            
+        },
+        {
+            "tipo": "imagenimagen",
+            "question":{
+                "pregunta": "¿Quién es el padre de este personaje?",
+                "respuestas": ["imagen1", "imagen2", "imagen3", "imagen4"],
+                "respuesta_correcta": "imagen1",
+                "renderizable":{
+                    "img_resp": ["homer", "bill_gates", "mr_muntz", "joseph_quimby"],
+                    "img_preg": "bart"
+                }
+            }
+            
+        },
+        {
+            "tipo": "imagenimagen",
+            "question":{
+                "pregunta": "¿A quién ama este personaje?",
+                "respuestas": ["imagen1", "imagen2", "imagen3", "imagen4"],
+                "respuesta_correcta": "imagen3",
+                "renderizable":{
+                    "img_resp": ["terri", "gatubela", "lisa", "fausto"],
+                    "img_preg": "milhouse"
+                }
+            }
+            
+        },
+        {
+            "tipo": "imagenimagen",
+            "question":{
+                "pregunta": "¿Quién es el jefe de este personaje?",
+                "respuestas": ["imagen1", "imagen2", "imagen3", "imagen4"],
+                "respuesta_correcta": "imagen2",
+                "renderizable":{
+                    "img_resp": ["gatubela", "chalmers", "bart", "fausto"],
+                    "img_preg": "seymour_skinner_"
+                }
+            }
+            
+        },
+        {
+            "tipo": "videotexto",
+            "question":{
+                "pregunta": "¿Cuál es el mensaje secreto?",
+                "respuestas": ["Sadam es bueno","P al cuadrado es Illuminati","Alistate en la marina","Yo soy el Homer malo"],
+                "respuesta_correcta": "Alistate en la marina",
+                "renderizable":{
+                    "video_preg": "alistate"
+                }
+            }
+            
+        },
+        {
+            "tipo": "videotexto",
+            "question":{
+                "pregunta": "¿Cuál es su prenda favorita?",
+                "respuestas": ["Jersey caparazón","Chaleco de gorila","Mocasines","Calzón de bisón"],
+                "respuesta_correcta": "Chaleco de gorila",
+                "renderizable":{
+                    "video_preg": "mocasines_saltarines"
+                }
+            }
+            
+        },
+        {
+            "tipo": "videotexto",
+            "question":{
+                "pregunta": "¿Qué es lo que no encuentra Homer?",
+                "respuestas": ["Cuchara","Cuchillo","Tenedor","Bart"],
+                "respuesta_correcta": "Cuchara",
+                "renderizable":{
+                    "video_preg": "taca"
+                }
+            }
+            
+        },
+        {
+            "tipo": "videotexto",
+            "question":{
+                "pregunta": "¿De qué pueblo vienen los Noruegos?",
+                "respuestas": ["Mónaco","Shelbyville","Springfield","Ogdenville"],
+                "respuesta_correcta": "Ogdenville",
+                "renderizable":{
+                    "video_preg": "achundarnar"
+                }
+            }
+            
+        }
+    ]
+}
