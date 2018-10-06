@@ -243,8 +243,12 @@ public class Preguntas {
     private static List<Pregunta> quizPreguntas;
 
 
-    public static void startPreguntas(){
+    public static void startPreguntas(){ //le pasamos el contexto desde el menu y lo pasamos a cada constructor junto al json
 
+        //llamamos a la bdd y recuperamos todas las preguntas segun el tipo que hayan marcado los usuarios
+        //creamos un obj por cada pregunta que tiene tipo y subobjeto(question)
+        //hacemos lista con esos objetos y desordenamos
+        //cuando se llame a siguientePregunta() se coge el obj que toque, se crea la Pregunta y se devuelve
         quizPreguntas = new ArrayList<>();
 
         //cogemos las preguntas que se mostraran en la aplicacion en funcion de las opciones seleccionadas por el usuario

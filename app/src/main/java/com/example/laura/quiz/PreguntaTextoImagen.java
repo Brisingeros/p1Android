@@ -9,9 +9,10 @@ public class PreguntaTextoImagen extends Pregunta {
 
     //pregunta de tipo texto con respuestas de tipo imagen
 
+    //menuContext.getResources().getIdentifier("seymour_skinner_", "drawable", menuContext.getPackageName())
     private int[] imgPreg;
 
-    public PreguntaTextoImagen(String pregunta, String[] respuesta, String s, int[] rutasImg) {
+    public PreguntaTextoImagen(String pregunta, String[] respuesta, String s, int[] rutasImg) { //recibe el contexto, se lo pasa a super, parsea el json y pasa lo que corresponda a super
 
         super(pregunta, respuesta, s);
 
