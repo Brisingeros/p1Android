@@ -17,7 +17,7 @@ public class Options extends AppCompatActivity {
     Spinner spinner;
     Integer[] items = {5,10,15}; //opciones de numero de preguntas con las que jugar
 
-    CheckBox textoimagen, imagentexto, imagenimagen; //opciones de tipos de preguntas-respuestas con las que jugar
+    CheckBox textoimagen, imagentexto, imagenimagen,videotexto; //opciones de tipos de preguntas-respuestas con las que jugar
 
     Button atras, guardar;
 
@@ -30,6 +30,7 @@ public class Options extends AppCompatActivity {
         textoimagen = (CheckBox) findViewById(R.id.textoimagen);
         imagentexto = (CheckBox) findViewById(R.id.imagentexto);
         imagenimagen = (CheckBox) findViewById(R.id.imagenimagen);
+        videotexto = (CheckBox) findViewById(R.id.videotexto);
 
         atras = (Button) findViewById(R.id.exit);
         guardar = (Button) findViewById(R.id.save);
@@ -54,6 +55,7 @@ public class Options extends AppCompatActivity {
                 Opciones.setTextoimagen(textoimagen.isChecked());
                 Opciones.setImagentexto(imagentexto.isChecked());
                 Opciones.setImagenimagen(imagenimagen.isChecked());
+                Opciones.setVideotexto(videotexto.isChecked());
 
                 SharedPreferences settings = getSharedPreferences("optionsPreferences",0);
                 SharedPreferences.Editor editor = settings.edit();
@@ -61,6 +63,8 @@ public class Options extends AppCompatActivity {
                 editor.putBoolean("imagenimagen", Opciones.isImagenimagen());
                 editor.putBoolean("imagentexto", Opciones.isImagentexto());
                 editor.putBoolean("textoimagen", Opciones.isTextoimagen());
+                editor.putBoolean("videotexto", Opciones.isVideotexto());
+
                 editor.putInt("numPreg", Opciones.getNumPreg());
 
                 editor.commit();
@@ -97,5 +101,6 @@ public class Options extends AppCompatActivity {
         textoimagen.setChecked(Opciones.isTextoimagen());
         imagentexto.setChecked(Opciones.isImagentexto());
         imagenimagen.setChecked(Opciones.isImagenimagen());
+        videotexto.setChecked(Opciones.isVideotexto());
     }
 }

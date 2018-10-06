@@ -6,6 +6,7 @@ public class Opciones {
     private static boolean textoimagen;
     private static boolean imagentexto;
     private static boolean imagenimagen;
+    private static boolean videotexto;
 
     public static int getNumPreg() {
         return numPreg;
@@ -37,5 +38,13 @@ public class Opciones {
 
     public static void setImagenimagen(boolean imagenimagen) {
         Opciones.imagenimagen = imagenimagen;
+    }
+
+    public static boolean isVideotexto() {
+        return videotexto;
+    }
+
+    public static void setVideotexto(boolean videotexto) {
+        Opciones.videotexto = videotexto;
     }
 }

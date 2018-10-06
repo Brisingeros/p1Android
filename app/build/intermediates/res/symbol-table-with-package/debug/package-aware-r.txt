@@ -1030,6 +1030,8 @@ id transition_transform
 id uniform
 id up
 id useLogo
+id videoPreg
+id videotexto
 id view_offset_helper
 id visible
 id withText
@@ -1079,6 +1081,7 @@ layout activity_quiz_imagenimagen
 layout activity_quiz_imagentexto
 layout activity_quiz_textoimagen
 layout activity_quiz_textotexto
+layout activity_quiz_videotexto
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
@@ -1114,6 +1117,10 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 layout toast
 mipmap ic_launcher
+raw achundarnar
+raw alistate
+raw mocasines_saltarines
+raw taca
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

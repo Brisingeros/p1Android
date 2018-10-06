@@ -14,6 +14,7 @@ public class Group {
         this.value = v;
         this.tipo = t;
         this.idImg = -1;
+
     }
 
     public Group(int i, String v, String t, int r){
@@ -31,6 +32,8 @@ public class Group {
         this.tipo = t;
 
     }
+
+
 
     public int getId() {
         return id;
