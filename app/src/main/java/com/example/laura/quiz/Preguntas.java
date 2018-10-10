@@ -245,7 +245,7 @@ public class Preguntas {
             {-1}
     };
 
-    private static List<QuestionEntity> preguntasSeleccionadas;
+    private static List<QuestionEntity> preguntasSeleccionadas = new ArrayList<>();
     private static Context context;
     public static void startPreguntas(Context cont) throws JSONException { //le pasamos el contexto desde el menu y lo pasamos a cada constructor junto al json
 
@@ -265,7 +265,7 @@ public class Preguntas {
         if(Opciones.isVideotexto())
             tipos.add("videotexto");
 
-        preguntasSeleccionadas = db.questionDao().getQuestionsByType(tipos);
+        preguntasSeleccionadas = db.questionDao().getQuestionsByType().getValue();//tipos
         //creamos un obj por cada pregunta que tiene tipo y subobjeto(question)
         //hacemos lista con esos objetos y desordenamos
         desordenar();

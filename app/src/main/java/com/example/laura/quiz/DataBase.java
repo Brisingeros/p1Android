@@ -12,9 +12,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 @Database(entities = {QuestionEntity.class,PointEntity.class}, version = 1)
 public abstract class DataBase extends RoomDatabase {
@@ -24,7 +24,11 @@ public abstract class DataBase extends RoomDatabase {
 
     private static volatile DataBase INSTANCE;
 
+    private static Context context;
+
     static DataBase getDataBase(final Context c){
+
+        context = c;
 
         if(INSTANCE == null){
 
@@ -36,6 +40,10 @@ public abstract class DataBase extends RoomDatabase {
                             DataBase.class, "quiz_Database")
                             .addCallback(sRoomDatabaseCallback)
                             .build();
+
+                }else{
+
+
                 }
             }
         }
@@ -61,26 +69,49 @@ public abstract class DataBase extends RoomDatabase {
         PopulateDbAsync(DataBase db) {
 
             qDao = db.questionDao();
+            //doInBackground();
 
+        }
+
+        public String readTextFile(InputStream inputStream) {
+
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+            byte buf[] = new byte[1024];
+            int len;
+            try {
+                while ((len = inputStream.read(buf)) != -1) {
+                    outputStream.write(buf, 0, len);
+                }
+                outputStream.close();
+                inputStream.close();
+            } catch (IOException e) {
+
+                System.out.println("Error: " + e.getMessage());
+
+            }
+            return outputStream.toString();
         }
 
         @Override
         protected Void doInBackground(final Void... params) {
 
+            qDao.deleteAll();
             int questionsCountDB = qDao.getQuestionsCount();
             String text = "";
             String line;
 
             try {
 
-                FileReader archivo = new FileReader(new File("../.././res/raw/questions.json"));
-                BufferedReader br = new BufferedReader(archivo);
+                InputStream is = context.getResources().openRawResource(
+                        context.getResources().getIdentifier("questions",
+                                "raw", context.getPackageName()));
 
-                while((line = br.readLine()) != null){
-                    text += line;
-                }
+                String archivo = readTextFile(is);
 
-                JSONObject json = new JSONObject(text);
+                System.out.println("fichero: " + archivo);
+
+                JSONObject json = new JSONObject(archivo);
                 JSONArray questions = (JSONArray) json.get("questions");
 
                 QuestionEntity newQuestion;
@@ -94,10 +125,8 @@ public abstract class DataBase extends RoomDatabase {
 
                 }
 
-            } catch (java.io.IOException e) {
-                e.printStackTrace();
             } catch (JSONException e) {
-                e.printStackTrace();
+                System.out.println("Error: " + e.getMessage());
             }
 
             return null;

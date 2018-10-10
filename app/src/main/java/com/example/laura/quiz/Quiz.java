@@ -34,6 +34,7 @@ public class Quiz extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
 
+        DataBase.getDataBase(getApplicationContext());
         miPuntuacion = 0;
         numPregunta = -1;
         totalPreguntas = Opciones.getNumPreg();
