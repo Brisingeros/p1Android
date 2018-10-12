@@ -1,15 +1,17 @@
 package com.example.laura.quiz;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class PreguntaVideoTexto extends Pregunta{
 
     int rutaVideo;
-    public  PreguntaVideoTexto(String pregunta, String[] respuesta, String s, int ruta){
+    public  PreguntaVideoTexto(Context c, String pregunta, String[] respuesta, String s, String ruta){
         super(pregunta, respuesta, s);
 
-        rutaVideo = ruta; //guarda la imagen de la pregunta
+        rutaVideo = c.getResources().getIdentifier(ruta, "drawable", c.getPackageName()); //guarda la imagen de la pregunta
         layout = R.layout.activity_quiz_videotexto;
 
     }
@@ -20,6 +22,7 @@ public class PreguntaVideoTexto extends Pregunta{
 
     @Override
     public List<Group> render() {
+
         List<Group> renderers = new ArrayList<>();
 
         renderers.add(new Group(R.id.pregunta, pregunta, "textview"));
@@ -32,5 +35,6 @@ public class PreguntaVideoTexto extends Pregunta{
         renderers.add(new Group(R.id.videoPreg, "","video", rutaVideo));
 
         return renderers;
+
     }
 }

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
+            "outputFile": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h720dp-v13\\values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "/home/brisin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/cb541263c9aa8b9977e1151730871f46/res/values-h720dp-v13/values-h720dp-v13.xml",
+                    "source": "C:\\Users\\Laura\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\941d0b2ecb2e951301b364cbd9019559\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

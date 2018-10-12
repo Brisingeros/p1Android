@@ -1,5 +1,7 @@
 package com.example.laura.quiz;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,15 +11,23 @@ public class PreguntaTextoImagen extends Pregunta {
 
     //pregunta de tipo texto con respuestas de tipo imagen
 
+    //menuContext.getResources().getIdentifier("seymour_skinner_", "drawable", menuContext.getPackageName())
     private int[] imgPreg;
 
-    public PreguntaTextoImagen(String pregunta, String[] respuesta, String s, int[] rutasImg) {
+    public PreguntaTextoImagen(Context c, String pregunta, String[] respuesta, String s, String[] rutasImg) { //recibe el contexto, se lo pasa a super, parsea el json y pasa lo que corresponda a super
 
         super(pregunta, respuesta, s);
 
         layout = R.layout.activity_quiz_textoimagen;
 
-        this.imgPreg = rutasImg; //guarda las imagenes de las respuestas
+        this.imgPreg = new int[rutasImg.length];
+        for(int i = 0; i < rutasImg.length; i++){
+
+            this.imgPreg[i] = c.getResources().getIdentifier(rutasImg[i], "drawable", c.getPackageName());
+
+        }
+
+        //this.imgPreg = rutasImg; //guarda las imagenes de las respuestas
 
     }
 

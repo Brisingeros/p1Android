@@ -17,6 +17,7 @@ public class Menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        DataBase.getDataBase(getApplicationContext());
 
         settings = getSharedPreferences("optionsPreferences", 0);
 

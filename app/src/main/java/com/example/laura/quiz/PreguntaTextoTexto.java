@@ -1,7 +1,6 @@
 package com.example.laura.quiz;
 
-import android.widget.Button;
-import android.widget.TextView;
+import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +9,7 @@ public class PreguntaTextoTexto extends Pregunta {
 
     //preguntas de tipo texto con respuesta de tippo texto
 
-    public PreguntaTextoTexto(String pregunta, String[] respuesta, String s) {
+    public PreguntaTextoTexto(Context c, String pregunta, String[] respuesta, String s) {
         super(pregunta, respuesta, s);
 
         layout = R.layout.activity_quiz_textotexto;

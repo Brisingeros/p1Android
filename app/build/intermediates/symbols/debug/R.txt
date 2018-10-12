@@ -1119,7 +1119,8 @@ int mipmap ic_launcher 0x7f0b0000
 int raw achundarnar 0x7f0c0000
 int raw alistate 0x7f0c0001
 int raw mocasines_saltarines 0x7f0c0002
-int raw taca 0x7f0c0003
+int raw questions 0x7f0c0003
+int raw taca 0x7f0c0004
 int string abc_action_bar_home_description 0x7f0d0000
 int string abc_action_bar_up_description 0x7f0d0001
 int string abc_action_menu_overflow_description 0x7f0d0002

@@ -1,5 +1,7 @@
 package com.example.laura.quiz;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,13 +11,19 @@ public class PreguntaImagenImagen extends Pregunta{
 
     private int imgPregunta;
     private int[] imgResp;
-    public PreguntaImagenImagen(String preguntaTexto, int preguntaImagen,String[] respuesta, String s, int[] rutas) {
+    public PreguntaImagenImagen(Context c, String preguntaTexto, String preguntaImagen, String[] respuesta, String s, String[] rutas) {
 
         super(preguntaTexto, respuesta, s);
 
         layout = R.layout.activity_quiz_imagenimagen;
-        imgPregunta = preguntaImagen; //guarda la imagen de la pregunta
-        imgResp = rutas; //guarda las imagenes de las respuestas
+        imgPregunta = c.getResources().getIdentifier(preguntaImagen, "drawable", c.getPackageName()); //guarda la imagen de la pregunta
+
+        imgResp = new int[rutas.length]; //guarda las imagenes de las respuestas
+
+        for(int i = 0; i < rutas.length; i++){
+
+            this.imgResp[i] = c.getResources().getIdentifier(rutas[i], "drawable", c.getPackageName());
+        }
 
     }
 

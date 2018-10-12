@@ -1,5 +1,11 @@
 package com.example.laura.quiz;
 
+import android.content.Context;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -240,51 +246,94 @@ public class Preguntas {
             {-1}
     };
 
-    private static List<Pregunta> quizPreguntas;
+    public static List<QuestionEntity> preguntasSeleccionadas = new ArrayList<>();
+    private static Context context;
 
+    public static void startPreguntas(List<QuestionEntity> questionDaos) { //le pasamos el contexto desde el menu y lo pasamos a cada constructor junto al json
 
-    public static void startPreguntas(){
+        preguntasSeleccionadas = questionDaos;
 
-        quizPreguntas = new ArrayList<>();
+        //System.out.println(preguntasSeleccionadas);
+        desordenar();
 
-        //cogemos las preguntas que se mostraran en la aplicacion en funcion de las opciones seleccionadas por el usuario
-        for(int i = 0; i < preguntas.length; i++){
+    }
 
-            if(tipoPregunta[i] == "textotexto") {
-                quizPreguntas.add(new PreguntaTextoTexto(preguntas[i], respuestas[i], respuestaCorrecta[i]));
-            }
+    public static List<String> getTipos(){ //le pasamos el contexto desde el menu y lo pasamos a cada constructor junto al json
 
-            if(tipoPregunta[i] == "textoimagen" && Opciones.isTextoimagen()) {
-                quizPreguntas.add(new PreguntaTextoImagen(preguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
-            }
+        List<String> tipos = new ArrayList<>();
+        tipos.add("textotexto");
 
-            if(tipoPregunta[i] == "imagentexto" && Opciones.isImagentexto()) {
-                quizPreguntas.add(new PreguntaImagenTexto(preguntas[i], respuestas[i], respuestaCorrecta[i], imgPreguntas[i]));
-            }
+        if(Opciones.isImagenimagen())
+            tipos.add("imagenimagen");
+        if(Opciones.isImagentexto())
+            tipos.add("imagentexto");
+        if(Opciones.isTextoimagen())
+            tipos.add("textoimagen");
+        if(Opciones.isVideotexto())
+            tipos.add("videotexto");
 
-            if(tipoPregunta[i] == "imagenimagen" && Opciones.isImagenimagen()) {
-               quizPreguntas.add(new PreguntaImagenImagen(preguntas[i], imgPreguntas[i], respuestas[i], respuestaCorrecta[i], rutasImg[i]));
-            }
-
-            if(tipoPregunta[i] == "videotexto" && Opciones.isVideotexto()) {
-                quizPreguntas.add(new PreguntaVideoTexto(preguntas[i], respuestas[i], respuestaCorrecta[i], videoPreguntas[i]));
-            }
-        }
-
-        desordenar(); //desordenamos las preguntas para que sea menos monotono el juego
+        return tipos;
 
     }
 
     private static void desordenar(){
 
-        Collections.shuffle(quizPreguntas);
+        Collections.shuffle(preguntasSeleccionadas);
 
     }
 
-    public static Pregunta GetPregunta(int id){
+    public static Pregunta GetPregunta(int id) throws JSONException{
 
-        return quizPreguntas.get(id);
+        QuestionEntity q = preguntasSeleccionadas.get(id);
+        JSONObject data = new JSONObject(q.getData());
+        Pregunta pActual = null;
 
+        System.out.println("data: " + data);
+        if(q.getType().equals("textotexto")) {
+
+            pActual = new PreguntaTextoTexto(context, data.getString("pregunta"), GenerarArray(data.getJSONArray("respuestas")) , data.getString("respuesta_correcta"));
+        }
+
+        if(q.getType().equals("textoimagen") && Opciones.isTextoimagen()) {
+            pActual = new PreguntaTextoImagen(context, data.getString("pregunta"), (String[]) data.get("respuestas"), data.getString("respuesta_correcta"), (String[]) data.getJSONObject("renderizable").get("img_resp"));
+        }
+
+        if(q.getType().equals("imagentexto") && Opciones.isImagentexto()) {
+            pActual = new PreguntaImagenTexto(context, data.getString("pregunta"), (String[]) data.get("respuestas"), data.getString("respuesta_correcta"), data.getJSONObject("renderizable").getString("img_preg"));
+        }
+
+        if(q.getType().equals("imagenimagen") && Opciones.isImagenimagen()) {
+            pActual = new PreguntaImagenImagen(context, data.getString("pregunta"), data.getJSONObject("renderizable").getString("img_preg"), (String[]) data.get("respuestas"), data.getString("respuesta_correcta"), (String[]) data.getJSONObject("renderizable").get("img_resp"));
+        }
+
+        if(q.getType().equals("videotexto") && Opciones.isVideotexto()) {
+            pActual = new PreguntaVideoTexto(context, data.getString("pregunta"), (String[]) data.get("respuestas"),  data.getString("respuesta_correcta"), data.getJSONObject("renderizable").getString("video_preg"));
+        }
+
+        System.out.println(pActual);
+
+        return pActual;
+
+    }
+
+    private static String[] GenerarArray(JSONArray array){
+
+        String[] ret = new String[array.length()];
+
+        for(int i = 0; i < array.length(); i++){
+
+            try {
+
+                ret[i] = array.getString(i);
+
+            } catch (JSONException e) {
+
+                e.printStackTrace();
+
+            }
+        }
+
+        return ret;
     }
 
 }

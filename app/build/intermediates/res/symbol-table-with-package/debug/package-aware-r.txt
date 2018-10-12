@@ -1120,6 +1120,7 @@ mipmap ic_launcher
 raw achundarnar
 raw alistate
 raw mocasines_saltarines
+raw questions
 raw taca
 string abc_action_bar_home_description
 string abc_action_bar_up_description
