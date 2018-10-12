@@ -1,8 +1,10 @@
 package com.example.laura.quiz;
 
+import android.arch.lifecycle.Observer;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -34,7 +36,7 @@ public class Quiz extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
 
-        DataBase.getDataBase(getApplicationContext());
+        DataBase db = DataBase.getDataBase(getApplicationContext());
         miPuntuacion = 0;
         numPregunta = -1;
         totalPreguntas = Opciones.getNumPreg();
@@ -45,13 +47,21 @@ public class Quiz extends AppCompatActivity {
         acierto.setView(toast_layout);
         acierto.setDuration(Toast.LENGTH_SHORT);
 
+
         //inicializamos las que seran las preguntas del juego
-        try {
-            Preguntas.startPreguntas(getApplicationContext());
-            SiguientePregunta();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+
+            List<String> tipos = Preguntas.getTipos();
+            db.questionDao().getQuestionsByType(tipos).observe(this, new Observer<List<QuestionEntity>>() {
+                @Override
+                public void onChanged(@Nullable List<QuestionEntity> questionDaos) {
+
+                    Preguntas.startPreguntas(questionDaos);
+                    SiguientePregunta();
+
+                }
+
+
+            });
 
         //comenzamos la partida
 

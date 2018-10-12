@@ -14,7 +14,7 @@ public class QuestionEntity {
     private int id;
 
     @NonNull
-    @ColumnInfo(name="type")
+    @ColumnInfo(name="tipo")
     private String type;
 
     @NonNull

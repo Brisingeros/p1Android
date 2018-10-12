@@ -15,28 +15,34 @@ import android.arch.persistence.room.util.TableInfo.Index;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 import java.lang.String;
+import java.lang.SuppressWarnings;
 import java.util.HashMap;
 import java.util.HashSet;
 
+@SuppressWarnings("unchecked")
 public class DataBase_Impl extends DataBase {
   private volatile QuestionDao _questionDao;
 
   private volatile PointsDao _pointsDao;
 
+  @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(2) {
+      @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `questions_table` (`id` INTEGER NOT NULL, `type` TEXT NOT NULL, `data` TEXT NOT NULL, PRIMARY KEY(`id`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `questions_table` (`id` INTEGER NOT NULL, `tipo` TEXT NOT NULL, `data` TEXT NOT NULL, PRIMARY KEY(`id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `points_table` (`id` INTEGER NOT NULL, `userName` TEXT NOT NULL, `points` INTEGER NOT NULL, PRIMARY KEY(`id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"74bddcb36f69781883e7114bc6d20a3a\")");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"61b58d7db123000c27e0a25a4e298cd5\")");
       }
 
+      @Override
       public void dropAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("DROP TABLE IF EXISTS `questions_table`");
         _db.execSQL("DROP TABLE IF EXISTS `points_table`");
       }
 
+      @Override
       protected void onCreate(SupportSQLiteDatabase _db) {
         if (mCallbacks != null) {
           for (int _i = 0, _size = mCallbacks.size(); _i < _size; _i++) {
@@ -45,6 +51,7 @@ public class DataBase_Impl extends DataBase {
         }
       }
 
+      @Override
       public void onOpen(SupportSQLiteDatabase _db) {
         mDatabase = _db;
         internalInitInvalidationTracker(_db);
@@ -55,10 +62,11 @@ public class DataBase_Impl extends DataBase {
         }
       }
 
+      @Override
       protected void validateMigration(SupportSQLiteDatabase _db) {
         final HashMap<String, TableInfo.Column> _columnsQuestionsTable = new HashMap<String, TableInfo.Column>(3);
         _columnsQuestionsTable.put("id", new TableInfo.Column("id", "INTEGER", true, 1));
-        _columnsQuestionsTable.put("type", new TableInfo.Column("type", "TEXT", true, 0));
+        _columnsQuestionsTable.put("tipo", new TableInfo.Column("tipo", "TEXT", true, 0));
         _columnsQuestionsTable.put("data", new TableInfo.Column("data", "TEXT", true, 0));
         final HashSet<TableInfo.ForeignKey> _foreignKeysQuestionsTable = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesQuestionsTable = new HashSet<TableInfo.Index>(0);
@@ -83,7 +91,7 @@ public class DataBase_Impl extends DataBase {
                   + " Found:\n" + _existingPointsTable);
         }
       }
-    }, "74bddcb36f69781883e7114bc6d20a3a");
+    }, "61b58d7db123000c27e0a25a4e298cd5", "24f5f359d8acd970564a85c50438cb81");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -95,6 +103,24 @@ public class DataBase_Impl extends DataBase {
   @Override
   protected InvalidationTracker createInvalidationTracker() {
     return new InvalidationTracker(this, "questions_table","points_table");
+  }
+
+  @Override
+  public void clearAllTables() {
+    super.assertNotMainThread();
+    final SupportSQLiteDatabase _db = super.getOpenHelper().getWritableDatabase();
+    try {
+      super.beginTransaction();
+      _db.execSQL("DELETE FROM `questions_table`");
+      _db.execSQL("DELETE FROM `points_table`");
+      super.setTransactionSuccessful();
+    } finally {
+      super.endTransaction();
+      _db.query("PRAGMA wal_checkpoint(FULL)").close();
+      if (!_db.inTransaction()) {
+        _db.execSQL("VACUUM");
+      }
+    }
   }
 
   @Override

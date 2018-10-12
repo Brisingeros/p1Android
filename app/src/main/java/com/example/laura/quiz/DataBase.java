@@ -16,7 +16,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-@Database(entities = {QuestionEntity.class,PointEntity.class}, version = 1)
+@Database(entities = {QuestionEntity.class,PointEntity.class}, version = 2)
 public abstract class DataBase extends RoomDatabase {
 
     public abstract QuestionDao questionDao();
@@ -38,6 +38,7 @@ public abstract class DataBase extends RoomDatabase {
 
                     INSTANCE = Room.databaseBuilder(c,
                             DataBase.class, "quiz_Database")
+                            .fallbackToDestructiveMigration()
                             .addCallback(sRoomDatabaseCallback)
                             .build();
 
@@ -109,7 +110,7 @@ public abstract class DataBase extends RoomDatabase {
 
                 String archivo = readTextFile(is);
 
-                System.out.println("fichero: " + archivo);
+                //System.out.println("fichero: " + archivo);
 
                 JSONObject json = new JSONObject(archivo);
                 JSONArray questions = (JSONArray) json.get("questions");

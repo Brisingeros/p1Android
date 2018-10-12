@@ -2,6 +2,7 @@ package com.example.laura.quiz;
 
 import android.content.Context;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -245,13 +246,19 @@ public class Preguntas {
             {-1}
     };
 
-    private static List<QuestionEntity> preguntasSeleccionadas = new ArrayList<>();
+    public static List<QuestionEntity> preguntasSeleccionadas = new ArrayList<>();
     private static Context context;
-    public static void startPreguntas(Context cont) throws JSONException { //le pasamos el contexto desde el menu y lo pasamos a cada constructor junto al json
 
-        context = cont;
-        //llamamos a la bdd y recuperamos todas las preguntas segun el tipo que hayan marcado los usuarios
-        DataBase db = DataBase.getDataBase(context);
+    public static void startPreguntas(List<QuestionEntity> questionDaos) { //le pasamos el contexto desde el menu y lo pasamos a cada constructor junto al json
+
+        preguntasSeleccionadas = questionDaos;
+
+        //System.out.println(preguntasSeleccionadas);
+        desordenar();
+
+    }
+
+    public static List<String> getTipos(){ //le pasamos el contexto desde el menu y lo pasamos a cada constructor junto al json
 
         List<String> tipos = new ArrayList<>();
         tipos.add("textotexto");
@@ -265,14 +272,7 @@ public class Preguntas {
         if(Opciones.isVideotexto())
             tipos.add("videotexto");
 
-        preguntasSeleccionadas = db.questionDao().getQuestionsByType().getValue();//tipos
-        //creamos un obj por cada pregunta que tiene tipo y subobjeto(question)
-        //hacemos lista con esos objetos y desordenamos
-        desordenar();
-        //cuando se llame a siguientePregunta() se coge el obj que toque, se crea la Pregunta y se devuelve
-
-        //cogemos las preguntas que se mostraran en la aplicacion en funcion de las opciones seleccionadas por el usuario
-
+        return tipos;
 
     }
 
@@ -288,28 +288,52 @@ public class Preguntas {
         JSONObject data = new JSONObject(q.getData());
         Pregunta pActual = null;
 
-        if(q.getType() == "textotexto") {
-            pActual = new PreguntaTextoTexto(context, data.getString("pregunta"), (String[]) data.get("respuestas"), data.getString("respuesta_correcta"));
+        System.out.println("data: " + data);
+        if(q.getType().equals("textotexto")) {
+
+            pActual = new PreguntaTextoTexto(context, data.getString("pregunta"), GenerarArray(data.getJSONArray("respuestas")) , data.getString("respuesta_correcta"));
         }
 
-        if(q.getType() == "textoimagen" && Opciones.isTextoimagen()) {
+        if(q.getType().equals("textoimagen") && Opciones.isTextoimagen()) {
             pActual = new PreguntaTextoImagen(context, data.getString("pregunta"), (String[]) data.get("respuestas"), data.getString("respuesta_correcta"), (String[]) data.getJSONObject("renderizable").get("img_resp"));
         }
 
-        if(q.getType() == "imagentexto" && Opciones.isImagentexto()) {
+        if(q.getType().equals("imagentexto") && Opciones.isImagentexto()) {
             pActual = new PreguntaImagenTexto(context, data.getString("pregunta"), (String[]) data.get("respuestas"), data.getString("respuesta_correcta"), data.getJSONObject("renderizable").getString("img_preg"));
         }
 
-        if(q.getType() == "imagenimagen" && Opciones.isImagenimagen()) {
+        if(q.getType().equals("imagenimagen") && Opciones.isImagenimagen()) {
             pActual = new PreguntaImagenImagen(context, data.getString("pregunta"), data.getJSONObject("renderizable").getString("img_preg"), (String[]) data.get("respuestas"), data.getString("respuesta_correcta"), (String[]) data.getJSONObject("renderizable").get("img_resp"));
         }
 
-        if(q.getType() == "videotexto" && Opciones.isVideotexto()) {
+        if(q.getType().equals("videotexto") && Opciones.isVideotexto()) {
             pActual = new PreguntaVideoTexto(context, data.getString("pregunta"), (String[]) data.get("respuestas"),  data.getString("respuesta_correcta"), data.getJSONObject("renderizable").getString("video_preg"));
         }
 
+        System.out.println(pActual);
+
         return pActual;
 
+    }
+
+    private static String[] GenerarArray(JSONArray array){
+
+        String[] ret = new String[array.length()];
+
+        for(int i = 0; i < array.length(); i++){
+
+            try {
+
+                ret[i] = array.getString(i);
+
+            } catch (JSONException e) {
+
+                e.printStackTrace();
+
+            }
+        }
+
+        return ret;
     }
 
 }
