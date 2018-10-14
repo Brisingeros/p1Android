@@ -11,7 +11,7 @@ import java.util.List;
 public interface PointsDao {
 
     @Insert
-    void insert(PointEntity points);
+    void insert(PointEntity... points);
 
     @Query("DELETE FROM points_table")
     void deleteAll();
@@ -19,4 +19,6 @@ public interface PointsDao {
     @Query("SELECT * FROM points_table ORDER BY points DESC LIMIT 10")
     LiveData<List<PointEntity>> getAllPoints();
 
+    @Query("SELECT * FROM points_table")
+    LiveData<List<PointEntity>> getDebug();
 }

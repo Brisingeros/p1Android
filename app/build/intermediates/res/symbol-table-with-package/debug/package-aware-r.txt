@@ -851,7 +851,6 @@ id barrier
 id beginning
 id blocking
 id bottom
-id button3
 id buttonPanel
 id cancel_action
 id center
@@ -895,6 +894,7 @@ id forever
 id ghost_view
 id gone
 id groups
+id hall
 id home
 id homeAsUp
 id icon
@@ -902,7 +902,9 @@ id icon_group
 id ifRoom
 id image
 id imageView
+id imageView10
 id imageView2
+id imageView3
 id imageView4
 id imageView5
 id imageView6
@@ -963,7 +965,6 @@ id puntos8
 id puntos9
 id puntuacion
 id radio
-id reintentar
 id reintentar2
 id respuesta1
 id respuesta2
@@ -972,8 +973,8 @@ id respuesta4
 id right
 id right_icon
 id right_side
-id salir
 id salir2
+id salirHall
 id save
 id save_image_matrix
 id save_non_transition_alpha
@@ -1093,7 +1094,6 @@ layout abc_tooltip
 layout activity_hall
 layout activity_menu
 layout activity_options
-layout activity_pantallapuntuacion
 layout activity_quiz_imagenimagen
 layout activity_quiz_imagentexto
 layout activity_quiz_textoimagen

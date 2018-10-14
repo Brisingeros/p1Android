@@ -56,7 +56,6 @@ public class Preguntas {
         JSONObject data = new JSONObject(q.getData());
         Pregunta pActual = null;
 
-        System.out.println("TIPO: " + q.getType());
         if(q.getType().equals("textotexto")) {
 
             pActual = new PreguntaTextoTexto(context, data.getString("pregunta"), GenerarArray(data.getJSONArray("respuestas")) , data.getString("respuesta_correcta"));

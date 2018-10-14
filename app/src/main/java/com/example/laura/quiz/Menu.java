@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class Menu extends AppCompatActivity {
 
-    Button inicio, opciones, salir;
+    Button inicio, opciones, salir, hall;
 
     SharedPreferences settings;
 
@@ -31,6 +31,19 @@ public class Menu extends AppCompatActivity {
         inicio = (Button) findViewById(R.id.play);
         opciones = (Button) findViewById(R.id.options);
         salir = (Button) findViewById(R.id.exit);
+        hall = (Button) findViewById(R.id.hall);
+
+        hall.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(getApplicationContext(), Hall.class));
+                finish();
+
+            }
+        });
+
         inicio.setOnClickListener(new View.OnClickListener(){
 
             @Override

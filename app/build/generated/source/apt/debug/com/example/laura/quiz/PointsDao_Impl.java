@@ -54,7 +54,7 @@ public class PointsDao_Impl implements PointsDao {
   }
 
   @Override
-  public void insert(PointEntity points) {
+  public void insert(PointEntity... points) {
     __db.beginTransaction();
     try {
       __insertionAdapterOfPointEntity.insert(points);
@@ -80,6 +80,55 @@ public class PointsDao_Impl implements PointsDao {
   @Override
   public LiveData<List<PointEntity>> getAllPoints() {
     final String _sql = "SELECT * FROM points_table ORDER BY points DESC LIMIT 10";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    return new ComputableLiveData<List<PointEntity>>() {
+      private Observer _observer;
+
+      @Override
+      protected List<PointEntity> compute() {
+        if (_observer == null) {
+          _observer = new Observer("points_table") {
+            @Override
+            public void onInvalidated(@NonNull Set<String> tables) {
+              invalidate();
+            }
+          };
+          __db.getInvalidationTracker().addWeakObserver(_observer);
+        }
+        final Cursor _cursor = __db.query(_statement);
+        try {
+          final int _cursorIndexOfId = _cursor.getColumnIndexOrThrow("id");
+          final int _cursorIndexOfUserName = _cursor.getColumnIndexOrThrow("userName");
+          final int _cursorIndexOfPoints = _cursor.getColumnIndexOrThrow("points");
+          final List<PointEntity> _result = new ArrayList<PointEntity>(_cursor.getCount());
+          while(_cursor.moveToNext()) {
+            final PointEntity _item;
+            final String _tmpUserName;
+            _tmpUserName = _cursor.getString(_cursorIndexOfUserName);
+            final int _tmpPoints;
+            _tmpPoints = _cursor.getInt(_cursorIndexOfPoints);
+            _item = new PointEntity(_tmpUserName,_tmpPoints);
+            final int _tmpId;
+            _tmpId = _cursor.getInt(_cursorIndexOfId);
+            _item.setId(_tmpId);
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+        }
+      }
+
+      @Override
+      protected void finalize() {
+        _statement.release();
+      }
+    }.getLiveData();
+  }
+
+  @Override
+  public LiveData<List<PointEntity>> getDebug() {
+    final String _sql = "SELECT * FROM points_table";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     return new ComputableLiveData<List<PointEntity>>() {
       private Observer _observer;

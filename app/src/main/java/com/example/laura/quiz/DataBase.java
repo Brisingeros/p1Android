@@ -42,9 +42,6 @@ public abstract class DataBase extends RoomDatabase {
                             .addCallback(sRoomDatabaseCallback)
                             .build();
 
-                }else{
-
-
                 }
             }
         }

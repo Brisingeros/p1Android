@@ -1,6 +1,7 @@
 package com.example.laura.quiz;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -64,10 +65,20 @@ public class PantallaPuntuacion extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy(){
-        super.onDestroy();
+    protected void onStop(){
+        super.onStop();
 
-        db.pointsDao().insert(new PointEntity(nombre.getText().toString(), Integer.getInteger(puntos)));
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+
+                System.out.println("Se esta insertando");
+                db.pointsDao().insert(new PointEntity(nombre.getText().toString(), Integer.parseInt(puntos)));
+
+            }
+
+        });
 
     }
 }
