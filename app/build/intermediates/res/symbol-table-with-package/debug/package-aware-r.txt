@@ -851,6 +851,7 @@ id barrier
 id beginning
 id blocking
 id bottom
+id button3
 id buttonPanel
 id cancel_action
 id center
@@ -930,6 +931,7 @@ id mini
 id multiply
 id navigation_header_container
 id never
+id nombrePlayer
 id none
 id normal
 id notification_background
@@ -949,9 +951,20 @@ id pregunta
 id progress_circular
 id progress_horizontal
 id puntos
+id puntos1
+id puntos10
+id puntos2
+id puntos3
+id puntos4
+id puntos5
+id puntos6
+id puntos7
+id puntos8
+id puntos9
 id puntuacion
 id radio
 id reintentar
+id reintentar2
 id respuesta1
 id respuesta2
 id respuesta3
@@ -960,6 +973,7 @@ id right
 id right_icon
 id right_side
 id salir
+id salir2
 id save
 id save_image_matrix
 id save_non_transition_alpha
@@ -1002,12 +1016,14 @@ id status_bar_latest_event_content
 id submenuarrow
 id submit_area
 id tabMode
+id tableLayout
 id tag_transition_group
 id text
 id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textView
+id textView2
 id textView3
 id text_input_password_toggle
 id textinput_counter
@@ -1074,6 +1090,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_hall
 layout activity_menu
 layout activity_options
 layout activity_pantallapuntuacion
@@ -1082,6 +1099,7 @@ layout activity_quiz_imagentexto
 layout activity_quiz_textoimagen
 layout activity_quiz_textotexto
 layout activity_quiz_videotexto
+layout activity_submitpuntuacion
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar

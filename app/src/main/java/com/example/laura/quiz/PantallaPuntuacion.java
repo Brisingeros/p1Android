@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class PantallaPuntuacion extends AppCompatActivity {
@@ -13,19 +14,26 @@ public class PantallaPuntuacion extends AppCompatActivity {
 
     Button reintentar, salir;
     TextView puntuacion;
+    EditText nombre;
+    DataBase db;
+
+    String puntos = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
 
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_pantallapuntuacion);
+        setContentView(R.layout.activity_submitpuntuacion);
         Bundle bundle = getIntent().getExtras();
-        String puntos = bundle.getString("puntuacionFinal");
+        puntos = bundle.getString("puntuacionFinal");
 
-        reintentar = (Button) findViewById(R.id.reintentar);
-        salir = (Button) findViewById(R.id.salir);
+        db = DataBase.getDataBase(getApplicationContext());
+
+        reintentar = (Button) findViewById(R.id.reintentar2);
+        salir = (Button) findViewById(R.id.salir2);
         puntuacion = (TextView) findViewById(R.id.puntos);
+        nombre = (EditText) findViewById(R.id.nombrePlayer);
 
         puntuacion.setText(puntos);
 
@@ -52,6 +60,14 @@ public class PantallaPuntuacion extends AppCompatActivity {
             }
 
         });
+
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+
+        db.pointsDao().insert(new PointEntity(nombre.getText().toString(), Integer.getInteger(puntos)));
 
     }
 }

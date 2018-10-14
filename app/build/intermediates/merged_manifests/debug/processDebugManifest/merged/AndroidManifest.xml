@@ -29,6 +29,7 @@
             android:name="com.example.laura.quiz.Options"
             android:label="@string/title_activity_options"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.example.laura.quiz.Hall" />
     </application>
 
 </manifest>

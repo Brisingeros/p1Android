@@ -1,5 +1,6 @@
 package com.example.laura.quiz;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
@@ -16,6 +17,6 @@ public interface PointsDao {
     void deleteAll();
 
     @Query("SELECT * FROM points_table ORDER BY points DESC LIMIT 10")
-    List<PointEntity> getAllPoints();
+    LiveData<List<PointEntity>> getAllPoints();
 
 }

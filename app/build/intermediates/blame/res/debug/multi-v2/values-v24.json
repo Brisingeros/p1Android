@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
+            "outputFile": "/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Laura\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\32bb46aeb9745a6fe75edc6aa526342f\\res\\values-v24\\values-v24.xml",
+                    "source": "/home/brisin/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/d07acbaa9b2d1245d64b345e9caf007a/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Laura\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\941d0b2ecb2e951301b364cbd9019559\\res\\values-v24\\values-v24.xml",
+                    "source": "/home/brisin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/cb541263c9aa8b9977e1151730871f46/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

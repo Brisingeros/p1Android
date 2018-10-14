@@ -23,6 +23,7 @@ public class PreguntaTextoImagen extends Pregunta {
         this.imgPreg = new int[rutasImg.length];
         for(int i = 0; i < rutasImg.length; i++){
 
+
             this.imgPreg[i] = c.getResources().getIdentifier(rutasImg[i], "drawable", c.getPackageName());
 
         }

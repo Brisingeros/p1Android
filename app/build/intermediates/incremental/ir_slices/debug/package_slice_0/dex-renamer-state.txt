@@ -1,4 +1,4 @@
-#Thu Oct 11 18:23:07 CEST 2018
-base.0=E\:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+#Sun Oct 14 19:30:19 CEST 2018
+base.0=/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex

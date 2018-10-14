@@ -8,7 +8,7 @@ import android.support.annotation.NonNull;
 @Entity(tableName = "points_table")
 public class PointEntity {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @NonNull
     @ColumnInfo(name = "id")
     private int id;
@@ -21,9 +21,9 @@ public class PointEntity {
     @ColumnInfo(name = "points")
     private int points;
 
-    public PointEntity(int id, String userName, int points){
+    public PointEntity(String userName, int points){
 
-        this.id = id;
+        //this.id = id;
         this.userName = userName;
         this.points = points;
 
@@ -42,4 +42,7 @@ public class PointEntity {
     }
 
 
+    public void setId(@NonNull int id) {
+        this.id = id;
+    }
 }
