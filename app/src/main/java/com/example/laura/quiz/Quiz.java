@@ -1,5 +1,6 @@
 package com.example.laura.quiz;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -32,6 +33,8 @@ public class Quiz extends AppCompatActivity {
 
     private Toast acierto;
 
+    private List<QuestionEntity> qDaos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -50,18 +53,24 @@ public class Quiz extends AppCompatActivity {
 
         //inicializamos las que seran las preguntas del juego
 
-            List<String> tipos = Preguntas.getTipos();
-            db.questionDao().getQuestionsByType(tipos).observe(this, new Observer<List<QuestionEntity>>() {
-                @Override
-                public void onChanged(@Nullable List<QuestionEntity> questionDaos) {
+        List<String> tipos = Preguntas.getTipos();
+        final LiveData pregun = db.questionDao().getQuestionsByType(tipos);
+        Observer quesDao = new Observer() {
 
-                    Preguntas.startPreguntas(questionDaos);
+            @Override
+            public void onChanged(@Nullable Object o) {
+
+                //Durante la primera ejecución de la aplicación en toda su vida en una nueva memoria, es probable que no todas las preguntas se hayan subido a la BDD.
+                //Comprobamos esto para evitar un error en el número de preguntas al jugar al quiz.
+                if(((List)pregun.getValue()).size() > totalPreguntas){
+                    pregun.removeObserver(this);
+                    Preguntas.startPreguntas((List<QuestionEntity>) pregun.getValue(), getApplicationContext());
                     SiguientePregunta();
-
                 }
+            }
+        };
 
-
-            });
+        pregun.observe(this, quesDao);
 
         //comenzamos la partida
 

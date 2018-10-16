@@ -27,13 +27,13 @@ public class DataBase_Impl extends DataBase {
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(2) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(3) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `questions_table` (`id` INTEGER NOT NULL, `tipo` TEXT NOT NULL, `data` TEXT NOT NULL, PRIMARY KEY(`id`))");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `points_table` (`id` INTEGER NOT NULL, `userName` TEXT NOT NULL, `points` INTEGER NOT NULL, PRIMARY KEY(`id`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `points_table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userName` TEXT NOT NULL, `points` INTEGER NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"61b58d7db123000c27e0a25a4e298cd5\")");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"eef190d26289f72ff5d043ac591385d7\")");
       }
 
       @Override
@@ -91,7 +91,7 @@ public class DataBase_Impl extends DataBase {
                   + " Found:\n" + _existingPointsTable);
         }
       }
-    }, "61b58d7db123000c27e0a25a4e298cd5", "24f5f359d8acd970564a85c50438cb81");
+    }, "eef190d26289f72ff5d043ac591385d7", "84fcac3a41a40a25c857e65de2f7e587");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

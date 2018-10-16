@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
+            "outputFile": "E:\\Laura\\Universidad\\Curso 4\\Desarrollo de Aplicaciones para Android\\p1Android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Laura\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\941d0b2ecb2e951301b364cbd9019559\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\Laura\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\eaa3f7791d493212aad45cc1a0edbdca\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Laura\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\9d7e354f47804e835fb0bf17732866a3\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\Laura\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\7d72b0fa879e5f6eecf781d4a3f0f026\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
