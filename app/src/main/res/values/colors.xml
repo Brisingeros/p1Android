@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#000f6d</color>
     <color name="colorAccent">#FF4081</color>
     <color name="fondo">#cae8ee2d</color>
-    <color name="fondo2">#caee9e2d</color>
+    <color name="fondo2">#8cee9e2d</color>
     <color name="fondo3">#a4000000</color>
-    <color name="fondo4">#caaca08f</color>
+    <color name="fondo4">#cafffefe</color>
 </resources>

@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".PantallaPuntuacion" />
+        <activity android:name=".Users_list" />
+        <activity android:name=".Nuevo_perfil" />
         <activity
             android:name=".Options"
             android:label="@string/title_activity_options"

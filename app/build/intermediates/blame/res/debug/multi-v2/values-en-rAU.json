@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rAU/values-en-rAU.xml",
+            "outputFile": "E:\\Laura\\Universidad\\Curso 4\\Desarrollo de Aplicaciones para Android\\p1Android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rAU\\values-en-rAU.xml",
             "map": [
                 {
-                    "source": "/home/brisin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/b20cbba6d6df3067b4c85505b6734b79/res/values-en-rAU/values-en-rAU.xml",
+                    "source": "C:\\Users\\Laura\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\eaa3f7791d493212aad45cc1a0edbdca\\res\\values-en-rAU\\values-en-rAU.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/home/brisin/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/69fbdacc8927be7d2afffc3b3e7b0368/res/values-en-rAU/values-en-rAU.xml",
+                    "source": "C:\\Users\\Laura\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\4132f6ec920bd8fa0911026773c68c62\\res\\values-en-rAU\\values-en-rAU.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

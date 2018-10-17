@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/simpsons"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/fondo3"
+        android:text="Crea un nuevo perfil"
+        android:textColor="@android:color/background_light"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/letrero_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/fondo3"
+        android:text="Nombre de usuario"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="130dp"
+        android:textColorHint="@android:color/background_dark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/nickname"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/fondo2"
+            android:hint="nombre"
+            android:inputType="text"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/letrero_imagen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/fondo3"
+        android:text="Selecciona una foto"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+    <ImageButton
+        android:id="@+id/imageCamara"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="88dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/letrero_imagen"
+        app:srcCompat="@drawable/camara" />
+
+    <ImageButton
+        android:id="@+id/imageMarge"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="88dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageCamara"
+        app:srcCompat="@drawable/marge" />
+
+    <ImageButton
+        android:id="@+id/imageHomer"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="88dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toEndOf="@+id/imageCamara"
+        app:layout_constraintTop_toBottomOf="@+id/letrero_imagen"
+        app:srcCompat="@drawable/homer" />
+
+    <ImageButton
+        android:id="@+id/imageMaggi"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="88dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toEndOf="@+id/imageCamara"
+        app:layout_constraintTop_toBottomOf="@+id/imageHomer"
+        app:srcCompat="@drawable/maggie" />
+
+    <ImageButton
+        android:id="@+id/imageLisa"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="88dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toEndOf="@+id/imageHomer"
+        app:layout_constraintTop_toBottomOf="@+id/letrero_imagen"
+        app:srcCompat="@drawable/lisa" />
+
+    <ImageButton
+        android:id="@+id/imageBart"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="88dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toEndOf="@+id/imageMaggi"
+        app:layout_constraintTop_toBottomOf="@+id/imageLisa"
+        app:srcCompat="@drawable/bart" />
+
+    <Button
+        android:id="@+id/guardar_perfil"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/boton"
+        android:text="Guardar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageMarge" />
+
+    <Button
+        android:id="@+id/salir_nuevo_perfil"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/boton"
+        android:text="Salir"
+        app:layout_constraintStart_toEndOf="@+id/guardar_perfil"
+        app:layout_constraintTop_toBottomOf="@+id/imageMaggi" />
+
+</android.support.constraint.ConstraintLayout>

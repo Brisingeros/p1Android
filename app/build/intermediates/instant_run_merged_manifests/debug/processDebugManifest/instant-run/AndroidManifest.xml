@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="26"
+        android:minSdkVersion="25"
         android:targetSdkVersion="27" />
 
     <application
@@ -25,6 +25,8 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.laura.quiz.PantallaPuntuacion" />
+        <activity android:name="com.example.laura.quiz.Users_list" />
+        <activity android:name="com.example.laura.quiz.Nuevo_perfil" />
         <activity
             android:name="com.example.laura.quiz.Options"
             android:label="@string/title_activity_options"
