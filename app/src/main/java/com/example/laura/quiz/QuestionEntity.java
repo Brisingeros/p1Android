@@ -5,42 +5,51 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-@Entity(tableName = "questions_table")
+@Entity(tableName = "question_table")
 public class QuestionEntity {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @NonNull
     @ColumnInfo(name = "id")
     private int id;
 
     @NonNull
-    @ColumnInfo(name="tipo")
-    private String type;
+    @ColumnInfo(name = "difficulty")
+    private String diff;
 
     @NonNull
-    @ColumnInfo(name="data")
+    @ColumnInfo(name = "type")
+    private String tipo;
+
+    @NonNull
+    @ColumnInfo(name = "data")
     private String data;
 
-    public QuestionEntity(int id, String type, String data){
+    public QuestionEntity(String tipo, String diff, String data){
 
-        this.id = id;
-        this.type = type;
+        this.tipo = tipo;
+        this.diff = diff;
         this.data = data;
 
     }
 
-    public int getId(){
-
-        return this.id;
-
+    public int getId() {
+        return id;
     }
 
-    public String getType() {
-        return type;
+    public String getTipo() {
+        return tipo;
+    }
+
+    public String getDiff() {
+        return diff;
     }
 
     public String getData() {
         return data;
     }
 
+    public void setId(@NonNull int id) {
+        this.id = id;
+    }
 }

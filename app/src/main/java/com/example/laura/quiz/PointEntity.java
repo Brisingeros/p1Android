@@ -14,6 +14,10 @@ public class PointEntity {
     private int id;
 
     @NonNull
+    @ColumnInfo(name = "difficulty")
+    private String difficulty;
+
+    @NonNull
     @ColumnInfo(name = "userName")
     private String userName;
 
@@ -21,9 +25,9 @@ public class PointEntity {
     @ColumnInfo(name = "points")
     private int points;
 
-    public PointEntity(String userName, int points){
+    public PointEntity(String difficulty, String userName, int points){
 
-        //this.id = id;
+        this.difficulty = difficulty;
         this.userName = userName;
         this.points = points;
 
@@ -33,6 +37,10 @@ public class PointEntity {
         return id;
     }
 
+    public String getDifficulty() {
+        return difficulty;
+    }
+
     public String getUserName() {
         return userName;
     }
@@ -40,7 +48,6 @@ public class PointEntity {
     public int getPoints() {
         return points;
     }
-
 
     public void setId(@NonNull int id) {
         this.id = id;

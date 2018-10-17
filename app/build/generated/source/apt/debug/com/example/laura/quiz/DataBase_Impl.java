@@ -27,18 +27,18 @@ public class DataBase_Impl extends DataBase {
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(3) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(7) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `questions_table` (`id` INTEGER NOT NULL, `tipo` TEXT NOT NULL, `data` TEXT NOT NULL, PRIMARY KEY(`id`))");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `points_table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userName` TEXT NOT NULL, `points` INTEGER NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `question_table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `difficulty` TEXT NOT NULL, `type` TEXT NOT NULL, `data` TEXT NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `points_table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `difficulty` TEXT NOT NULL, `userName` TEXT NOT NULL, `points` INTEGER NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"eef190d26289f72ff5d043ac591385d7\")");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"14a13a8a7918418d739c53f0f380f49a\")");
       }
 
       @Override
       public void dropAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("DROP TABLE IF EXISTS `questions_table`");
+        _db.execSQL("DROP TABLE IF EXISTS `question_table`");
         _db.execSQL("DROP TABLE IF EXISTS `points_table`");
       }
 
@@ -64,21 +64,23 @@ public class DataBase_Impl extends DataBase {
 
       @Override
       protected void validateMigration(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsQuestionsTable = new HashMap<String, TableInfo.Column>(3);
-        _columnsQuestionsTable.put("id", new TableInfo.Column("id", "INTEGER", true, 1));
-        _columnsQuestionsTable.put("tipo", new TableInfo.Column("tipo", "TEXT", true, 0));
-        _columnsQuestionsTable.put("data", new TableInfo.Column("data", "TEXT", true, 0));
-        final HashSet<TableInfo.ForeignKey> _foreignKeysQuestionsTable = new HashSet<TableInfo.ForeignKey>(0);
-        final HashSet<TableInfo.Index> _indicesQuestionsTable = new HashSet<TableInfo.Index>(0);
-        final TableInfo _infoQuestionsTable = new TableInfo("questions_table", _columnsQuestionsTable, _foreignKeysQuestionsTable, _indicesQuestionsTable);
-        final TableInfo _existingQuestionsTable = TableInfo.read(_db, "questions_table");
-        if (! _infoQuestionsTable.equals(_existingQuestionsTable)) {
-          throw new IllegalStateException("Migration didn't properly handle questions_table(com.example.laura.quiz.QuestionEntity).\n"
-                  + " Expected:\n" + _infoQuestionsTable + "\n"
-                  + " Found:\n" + _existingQuestionsTable);
+        final HashMap<String, TableInfo.Column> _columnsQuestionTable = new HashMap<String, TableInfo.Column>(4);
+        _columnsQuestionTable.put("id", new TableInfo.Column("id", "INTEGER", true, 1));
+        _columnsQuestionTable.put("difficulty", new TableInfo.Column("difficulty", "TEXT", true, 0));
+        _columnsQuestionTable.put("type", new TableInfo.Column("type", "TEXT", true, 0));
+        _columnsQuestionTable.put("data", new TableInfo.Column("data", "TEXT", true, 0));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysQuestionTable = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesQuestionTable = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoQuestionTable = new TableInfo("question_table", _columnsQuestionTable, _foreignKeysQuestionTable, _indicesQuestionTable);
+        final TableInfo _existingQuestionTable = TableInfo.read(_db, "question_table");
+        if (! _infoQuestionTable.equals(_existingQuestionTable)) {
+          throw new IllegalStateException("Migration didn't properly handle question_table(com.example.laura.quiz.QuestionEntity).\n"
+                  + " Expected:\n" + _infoQuestionTable + "\n"
+                  + " Found:\n" + _existingQuestionTable);
         }
-        final HashMap<String, TableInfo.Column> _columnsPointsTable = new HashMap<String, TableInfo.Column>(3);
+        final HashMap<String, TableInfo.Column> _columnsPointsTable = new HashMap<String, TableInfo.Column>(4);
         _columnsPointsTable.put("id", new TableInfo.Column("id", "INTEGER", true, 1));
+        _columnsPointsTable.put("difficulty", new TableInfo.Column("difficulty", "TEXT", true, 0));
         _columnsPointsTable.put("userName", new TableInfo.Column("userName", "TEXT", true, 0));
         _columnsPointsTable.put("points", new TableInfo.Column("points", "INTEGER", true, 0));
         final HashSet<TableInfo.ForeignKey> _foreignKeysPointsTable = new HashSet<TableInfo.ForeignKey>(0);
@@ -91,7 +93,7 @@ public class DataBase_Impl extends DataBase {
                   + " Found:\n" + _existingPointsTable);
         }
       }
-    }, "eef190d26289f72ff5d043ac591385d7", "84fcac3a41a40a25c857e65de2f7e587");
+    }, "14a13a8a7918418d739c53f0f380f49a", "32ccd0e86ea034c3bb5ebabad005ec2e");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -102,7 +104,7 @@ public class DataBase_Impl extends DataBase {
 
   @Override
   protected InvalidationTracker createInvalidationTracker() {
-    return new InvalidationTracker(this, "questions_table","points_table");
+    return new InvalidationTracker(this, "question_table","points_table");
   }
 
   @Override
@@ -111,7 +113,7 @@ public class DataBase_Impl extends DataBase {
     final SupportSQLiteDatabase _db = super.getOpenHelper().getWritableDatabase();
     try {
       super.beginTransaction();
-      _db.execSQL("DELETE FROM `questions_table`");
+      _db.execSQL("DELETE FROM `question_table`");
       _db.execSQL("DELETE FROM `points_table`");
       super.setTransactionSuccessful();
     } finally {

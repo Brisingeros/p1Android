@@ -11,7 +11,7 @@ public class PreguntaVideoTexto extends Pregunta{
     public  PreguntaVideoTexto(Context c, String pregunta, String[] respuesta, String s, String ruta){
         super(pregunta, respuesta, s);
 
-        rutaVideo = c.getResources().getIdentifier(ruta, "drawable", c.getPackageName()); //guarda la imagen de la pregunta
+        rutaVideo = c.getResources().getIdentifier(ruta, "raw", c.getPackageName()); //guarda la imagen de la pregunta
         layout = R.layout.activity_quiz_videotexto;
 
     }

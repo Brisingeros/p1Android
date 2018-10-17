@@ -16,9 +16,7 @@ public interface PointsDao {
     @Query("DELETE FROM points_table")
     void deleteAll();
 
-    @Query("SELECT * FROM points_table ORDER BY points DESC LIMIT 10")
-    LiveData<List<PointEntity>> getAllPoints();
+    @Query("SELECT * FROM points_table WHERE difficulty = :dif ORDER BY points DESC LIMIT 4")
+    LiveData<List<PointEntity>> getAllPoints(String dif);
 
-    @Query("SELECT * FROM points_table")
-    LiveData<List<PointEntity>> getDebug();
 }

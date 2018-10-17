@@ -74,7 +74,7 @@ public class PantallaPuntuacion extends AppCompatActivity {
             public void run() {
 
                 System.out.println("Se esta insertando");
-                db.pointsDao().insert(new PointEntity(nombre.getText().toString(), Integer.parseInt(puntos)));
+                db.pointsDao().insert(new PointEntity(Opciones.getDifficulty(), nombre.getText().toString(), Integer.parseInt(puntos)));
 
             }
 

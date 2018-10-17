@@ -17,14 +17,11 @@ public class Menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        DataBase.getDataBase(getApplicationContext());
+        DataBase db = DataBase.getDataBase(getApplicationContext());
 
         settings = getSharedPreferences("optionsPreferences", 0);
 
-        Opciones.setImagenimagen(settings.getBoolean("imagenimagen", false));
-        Opciones.setImagentexto(settings.getBoolean("imagentexto", false));
-        Opciones.setTextoimagen(settings.getBoolean("textoimagen", false));
-        Opciones.setVideotexto(settings.getBoolean("videotexto", false));
+        Opciones.setDifficulty(settings.getString("dificultad", "easy"));
 
         Opciones.setNumPreg(settings.getInt("numPreg", 10));
 

@@ -1,14 +1,5 @@
 {
-    "questions":[
-        {
-            "tipo": "textotexto",
-            "question":{
-                "pregunta": "¿Quién disparó al señor Burns?",
-                "respuestas": ["Homer", "Tito Puente", "Maggie", "Lisa"],
-                "respuesta_correcta": "Maggie"
-            }
-            
-        },
+    "questions_easy":[
         {
             "tipo": "textotexto",
             "question":{
@@ -33,15 +24,6 @@
                 "pregunta": "¿Quiénes salvan de la quiebra a la compañía de Rasca y Pica?",
                 "respuestas": ["Bart y Lisa", "Lester y Eliza", "Krusty y Bob", "Ralph y Vomitron"],
                 "respuesta_correcta": "Lester y Eliza"
-            }
-            
-        },
-        {
-            "tipo": "textotexto",
-            "question":{
-                "pregunta": "¿De qué estado norteamericano es el disfraz que le hace Homer a Lisa?",
-                "respuestas": ["California", "Alabama", "Nevada", "Florida"],
-                "respuesta_correcta": "Florida"
             }
             
         },
@@ -87,60 +69,6 @@
                 "pregunta": "¿Cómo se llama la madre de Homer?",
                 "respuestas": ["Mona", "Mino", "Eleine", "Jude"],
                 "respuesta_correcta": "Mona"
-            }
-            
-        },
-        {
-            "tipo": "textotexto",
-            "question":{
-                "pregunta": "¿Cuál es el verdadero nombre de Snake?",
-                "respuestas": ["Krustofsky", "Hans Moleman", "Joe Quimby", "Chester Turley"],
-                "respuesta_correcta": "Chester Turley"
-            }
-            
-        },
-        {
-            "tipo": "textotexto",
-            "question":{
-                "pregunta": "¿Quién no tiene ningún hijo?",
-                "respuestas": ["Patty", "Selma", "Apu", "Ned Flanders"],
-                "respuesta_correcta": "Patty"
-            }
-            
-        },
-        {
-            "tipo": "textotexto",
-            "question":{
-                "pregunta": "¿Cuál de estos famosos nunca ha aparecido en la serie?",
-                "respuestas": ["Ronaldo Nazario", "Cristiano Ronaldo", "Andrés Iniesta", "Leo Messi"],
-                "respuesta_correcta": "Andrés Iniesta"
-            }
-            
-        },
-        {
-            "tipo": "textotexto",
-            "question":{
-                "pregunta": "¿A qué se dedicaba Moe antes de tener la taberna?",
-                "respuestas": ["Modelo", "Boxeador", "Tenista", "Actor"],
-                "respuesta_correcta": "Boxeador"
-            }
-            
-        },
-        {
-            "tipo": "textotexto",
-            "question":{
-                "pregunta": "¿Cómo se llama el cóctel que inventa Homer?",
-                "respuestas": ["El flameado de Moe", "El flameado de Homer", "El flameado de Peter", "El flameado de Apu"],
-                "respuesta_correcta": "El flameado de Moe"
-            }
-            
-        },
-        {
-            "tipo": "textotexto",
-            "question":{
-                "pregunta": "¿Cuál de los siguientes cantantes no ha aparecido en la serie?",
-                "respuestas": ["Madonna", "Katy Perry", "Lady Gaga", "Britney Spears"],
-                "respuesta_correcta": "Madonna"
             }
             
         },
@@ -197,30 +125,6 @@
                 "respuesta_correcta": "Milhouse",
                 "renderizable":{
                     "img_preg": "milhouse"
-                }
-            }
-            
-        },
-        {
-            "tipo": "imagentexto",
-            "question":{
-                "pregunta": "¿Cómo se llama este personaje?",
-                "respuestas": ["Bob", "Fausto el portugués", "Simon", "Krusty"],
-                "respuesta_correcta": "Fausto el portugués",
-                "renderizable":{
-                    "img_preg": "fausto"
-                }
-            }
-            
-        },
-        {
-            "tipo": "imagentexto",
-            "question":{
-                "pregunta": "¿Cómo se llama este personaje?",
-                "respuestas": ["Sherri", "Terri", "Lisa", "Marge"],
-                "respuesta_correcta": "Terri",
-                "renderizable":{
-                    "img_preg": "terri"
                 }
             }
             
@@ -287,6 +191,18 @@
                 }
             }
             
+        }
+    ],
+
+    "questions_medium": [
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Quién disparó al señor Burns?",
+                "respuestas": ["Homer", "Tito Puente", "Maggie", "Lisa"],
+                "respuesta_correcta": "Maggie"
+            }
+            
         },
         {
             "tipo": "videotexto",
@@ -301,6 +217,69 @@
             
         },
         {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Cómo se llama el cóctel que inventa Homer?",
+                "respuestas": ["El flameado de Moe", "El flameado de Homer", "El flameado de Peter", "El flameado de Apu"],
+                "respuesta_correcta": "El flameado de Moe"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Cuál de los siguientes cantantes no ha aparecido en la serie?",
+                "respuestas": ["Madonna", "Katy Perry", "Lady Gaga", "Britney Spears"],
+                "respuesta_correcta": "Madonna"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Cuál de estos famosos nunca ha aparecido en la serie?",
+                "respuestas": ["Ronaldo Nazario", "Cristiano Ronaldo", "Andrés Iniesta", "Leo Messi"],
+                "respuesta_correcta": "Andrés Iniesta"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿A qué se dedicaba Moe antes de tener la taberna?",
+                "respuestas": ["Modelo", "Boxeador", "Tenista", "Actor"],
+                "respuesta_correcta": "Boxeador"
+            }
+            
+        }
+    ],
+
+    "questions_hard": [
+        {
+            "tipo": "imagentexto",
+            "question":{
+                "pregunta": "¿Cómo se llama este personaje?",
+                "respuestas": ["Sherri", "Terri", "Lisa", "Marge"],
+                "respuesta_correcta": "Terri",
+                "renderizable":{
+                    "img_preg": "terri"
+                }
+            }
+            
+        },
+        {
+            "tipo": "imagentexto",
+            "question":{
+                "pregunta": "¿Cómo se llama este personaje?",
+                "respuestas": ["Bob", "Fausto el portugués", "Simon", "Krusty"],
+                "respuesta_correcta": "Fausto el portugués",
+                "renderizable":{
+                    "img_preg": "fausto"
+                }
+            }
+            
+        },
+        {
             "tipo": "videotexto",
             "question":{
                 "pregunta": "¿De qué pueblo vienen los Noruegos?",
@@ -309,6 +288,33 @@
                 "renderizable":{
                     "video_preg": "achundarnar"
                 }
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Cuál es el verdadero nombre de Snake?",
+                "respuestas": ["Krustofsky", "Hans Moleman", "Joe Quimby", "Chester Turley"],
+                "respuesta_correcta": "Chester Turley"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Quién no tiene ningún hijo?",
+                "respuestas": ["Patty", "Selma", "Apu", "Ned Flanders"],
+                "respuesta_correcta": "Patty"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿De qué estado norteamericano es el disfraz que le hace Homer a Lisa?",
+                "respuestas": ["California", "Alabama", "Nevada", "Florida"],
+                "respuesta_correcta": "Florida"
             }
             
         }

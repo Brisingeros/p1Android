@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 public class Options extends AppCompatActivity {
@@ -17,7 +19,7 @@ public class Options extends AppCompatActivity {
     Spinner spinner;
     Integer[] items = {5,10,15}; //opciones de numero de preguntas con las que jugar
 
-    CheckBox textoimagen, imagentexto, imagenimagen,videotexto; //opciones de tipos de preguntas-respuestas con las que jugar
+    RadioGroup dificultad; //opciones de tipos de preguntas-respuestas con las que jugar
 
     Button atras, guardar;
 
@@ -27,10 +29,7 @@ public class Options extends AppCompatActivity {
         setContentView(R.layout.activity_options);
 
         spinner = (Spinner) findViewById(R.id.numPreg);
-        textoimagen = (CheckBox) findViewById(R.id.textoimagen);
-        imagentexto = (CheckBox) findViewById(R.id.imagentexto);
-        imagenimagen = (CheckBox) findViewById(R.id.imagenimagen);
-        videotexto = (CheckBox) findViewById(R.id.videotexto);
+        dificultad = (RadioGroup) findViewById(R.id.difficultyRadio);
 
         atras = (Button) findViewById(R.id.exit);
         guardar = (Button) findViewById(R.id.save);
@@ -51,19 +50,15 @@ public class Options extends AppCompatActivity {
             @Override
             public void onClick(View view) { //guardamos los cambios y salimos al menu
 
+                RadioButton pulsado = (RadioButton) findViewById(dificultad.getCheckedRadioButtonId());
+
                 Opciones.setNumPreg((Integer) spinner.getSelectedItem());
-                Opciones.setTextoimagen(textoimagen.isChecked());
-                Opciones.setImagentexto(imagentexto.isChecked());
-                Opciones.setImagenimagen(imagenimagen.isChecked());
-                Opciones.setVideotexto(videotexto.isChecked());
+                Opciones.setDifficulty(pulsado.getText().toString().toLowerCase());
 
                 SharedPreferences settings = getSharedPreferences("optionsPreferences",0);
                 SharedPreferences.Editor editor = settings.edit();
 
-                editor.putBoolean("imagenimagen", Opciones.isImagenimagen());
-                editor.putBoolean("imagentexto", Opciones.isImagentexto());
-                editor.putBoolean("textoimagen", Opciones.isTextoimagen());
-                editor.putBoolean("videotexto", Opciones.isVideotexto());
+                editor.putString("dificultad", Opciones.getDifficulty());
 
                 editor.putInt("numPreg", Opciones.getNumPreg());
 
@@ -98,9 +93,7 @@ public class Options extends AppCompatActivity {
         spinner.setSelection(posDef);
 
         //configuramos los checkbox a su estado de ultimo guardado
-        textoimagen.setChecked(Opciones.isTextoimagen());
-        imagentexto.setChecked(Opciones.isImagentexto());
-        imagenimagen.setChecked(Opciones.isImagenimagen());
-        videotexto.setChecked(Opciones.isVideotexto());
+        int idChecked = getResources().getIdentifier(Opciones.getDifficulty(), "id", getPackageName());
+        dificultad.check(idChecked);
     }
 }

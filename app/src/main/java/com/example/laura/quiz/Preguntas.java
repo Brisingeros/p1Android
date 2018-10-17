@@ -26,24 +26,6 @@ public class Preguntas {
 
     }
 
-    public static List<String> getTipos(){ //le pasamos el contexto desde el menu y lo pasamos a cada constructor junto al json
-
-        List<String> tipos = new ArrayList<>();
-        tipos.add("textotexto");
-
-        if(Opciones.isImagenimagen())
-            tipos.add("imagenimagen");
-        if(Opciones.isImagentexto())
-            tipos.add("imagentexto");
-        if(Opciones.isTextoimagen())
-            tipos.add("textoimagen");
-        if(Opciones.isVideotexto())
-            tipos.add("videotexto");
-
-        return tipos;
-
-    }
-
     private static void desordenar(){
 
         Collections.shuffle(preguntasSeleccionadas);
@@ -56,28 +38,28 @@ public class Preguntas {
         JSONObject data = new JSONObject(q.getData());
         Pregunta pActual = null;
 
-        if(q.getType().equals("textotexto")) {
+        System.out.println("En Preguntas: " + q.getTipo());
+
+        if(q.getTipo().equals("textotexto")) {
 
             pActual = new PreguntaTextoTexto(context, data.getString("pregunta"), GenerarArray(data.getJSONArray("respuestas")) , data.getString("respuesta_correcta"));
         }
 
-        if(q.getType().equals("textoimagen") && Opciones.isTextoimagen()) {
+        if(q.getTipo().equals("textoimagen")) {
             pActual = new PreguntaTextoImagen(context, data.getString("pregunta"), GenerarArray(data.getJSONArray("respuestas")), data.getString("respuesta_correcta"), GenerarArray(data.getJSONObject("renderizable").getJSONArray("img_resp")));
         }
 
-        if(q.getType().equals("imagentexto") && Opciones.isImagentexto()) {
+        if(q.getTipo().equals("imagentexto")) {
             pActual = new PreguntaImagenTexto(context, data.getString("pregunta"), GenerarArray(data.getJSONArray("respuestas")), data.getString("respuesta_correcta"), data.getJSONObject("renderizable").getString("img_preg"));
         }
 
-        if(q.getType().equals("imagenimagen") && Opciones.isImagenimagen()) {
+        if(q.getTipo().equals("imagenimagen")) {
             pActual = new PreguntaImagenImagen(context, data.getString("pregunta"), data.getJSONObject("renderizable").getString("img_preg"), GenerarArray(data.getJSONArray("respuestas")), data.getString("respuesta_correcta"), GenerarArray(data.getJSONObject("renderizable").getJSONArray("img_resp")));
         }
 
-        if(q.getType().equals("videotexto") && Opciones.isVideotexto()) {
+        if(q.getTipo().equals("videotexto")) {
             pActual = new PreguntaVideoTexto(context, data.getString("pregunta"), GenerarArray(data.getJSONArray("respuestas")),  data.getString("respuesta_correcta"), data.getJSONObject("renderizable").getString("video_preg"));
         }
-
-        System.out.println(pActual);
 
         return pActual;
 

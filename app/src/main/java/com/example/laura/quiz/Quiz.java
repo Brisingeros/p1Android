@@ -16,8 +16,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Quiz extends AppCompatActivity {
@@ -32,8 +38,6 @@ public class Quiz extends AppCompatActivity {
     private Pregunta pregActual;
 
     private Toast acierto;
-
-    private List<QuestionEntity> qDaos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -53,8 +57,8 @@ public class Quiz extends AppCompatActivity {
 
         //inicializamos las que seran las preguntas del juego
 
-        List<String> tipos = Preguntas.getTipos();
-        final LiveData pregun = db.questionDao().getQuestionsByType(tipos);
+        String diffSelected = Opciones.getDifficulty();
+        final LiveData pregun = db.questionDao().getQuestionsByDiff(diffSelected);
         Observer quesDao = new Observer() {
 
             @Override
@@ -71,6 +75,7 @@ public class Quiz extends AppCompatActivity {
         };
 
         pregun.observe(this, quesDao);
+
 
         //comenzamos la partida
 

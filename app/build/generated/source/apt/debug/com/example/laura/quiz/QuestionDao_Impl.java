@@ -8,12 +8,10 @@ import android.arch.persistence.room.InvalidationTracker.Observer;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.RoomSQLiteQuery;
 import android.arch.persistence.room.SharedSQLiteStatement;
-import android.arch.persistence.room.util.StringUtil;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
 import java.lang.Override;
 import java.lang.String;
-import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,38 +30,43 @@ public class QuestionDao_Impl implements QuestionDao {
     this.__insertionAdapterOfQuestionEntity = new EntityInsertionAdapter<QuestionEntity>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `questions_table`(`id`,`tipo`,`data`) VALUES (?,?,?)";
+        return "INSERT OR ABORT INTO `question_table`(`id`,`difficulty`,`type`,`data`) VALUES (nullif(?, 0),?,?,?)";
       }
 
       @Override
       public void bind(SupportSQLiteStatement stmt, QuestionEntity value) {
         stmt.bindLong(1, value.getId());
-        if (value.getType() == null) {
+        if (value.getDiff() == null) {
           stmt.bindNull(2);
         } else {
-          stmt.bindString(2, value.getType());
+          stmt.bindString(2, value.getDiff());
         }
-        if (value.getData() == null) {
+        if (value.getTipo() == null) {
           stmt.bindNull(3);
         } else {
-          stmt.bindString(3, value.getData());
+          stmt.bindString(3, value.getTipo());
+        }
+        if (value.getData() == null) {
+          stmt.bindNull(4);
+        } else {
+          stmt.bindString(4, value.getData());
         }
       }
     };
     this.__preparedStmtOfDeleteAll = new SharedSQLiteStatement(__db) {
       @Override
       public String createQuery() {
-        final String _query = "DELETE FROM questions_table";
+        final String _query = "DELETE FROM question_table";
         return _query;
       }
     };
   }
 
   @Override
-  public void insert(QuestionEntity question) {
+  public void insert(QuestionEntity... points) {
     __db.beginTransaction();
     try {
-      __insertionAdapterOfQuestionEntity.insert(question);
+      __insertionAdapterOfQuestionEntity.insert(points);
       __db.setTransactionSuccessful();
     } finally {
       __db.endTransaction();
@@ -84,23 +87,14 @@ public class QuestionDao_Impl implements QuestionDao {
   }
 
   @Override
-  public LiveData<List<QuestionEntity>> getQuestionsByType(List<String> tipos) {
-    StringBuilder _stringBuilder = StringUtil.newStringBuilder();
-    _stringBuilder.append("SELECT * FROM questions_table WHERE tipo IN (");
-    final int _inputSize = tipos.size();
-    StringUtil.appendPlaceholders(_stringBuilder, _inputSize);
-    _stringBuilder.append(")");
-    final String _sql = _stringBuilder.toString();
-    final int _argCount = 0 + _inputSize;
-    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, _argCount);
+  public LiveData<List<QuestionEntity>> getQuestionsByDiff(String diffSelected) {
+    final String _sql = "SELECT * FROM question_table WHERE difficulty = ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
-    for (String _item : tipos) {
-      if (_item == null) {
-        _statement.bindNull(_argIndex);
-      } else {
-        _statement.bindString(_argIndex, _item);
-      }
-      _argIndex ++;
+    if (diffSelected == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, diffSelected);
     }
     return new ComputableLiveData<List<QuestionEntity>>() {
       private Observer _observer;
@@ -108,7 +102,7 @@ public class QuestionDao_Impl implements QuestionDao {
       @Override
       protected List<QuestionEntity> compute() {
         if (_observer == null) {
-          _observer = new Observer("questions_table") {
+          _observer = new Observer("question_table") {
             @Override
             public void onInvalidated(@NonNull Set<String> tables) {
               invalidate();
@@ -119,19 +113,23 @@ public class QuestionDao_Impl implements QuestionDao {
         final Cursor _cursor = __db.query(_statement);
         try {
           final int _cursorIndexOfId = _cursor.getColumnIndexOrThrow("id");
-          final int _cursorIndexOfType = _cursor.getColumnIndexOrThrow("tipo");
+          final int _cursorIndexOfDiff = _cursor.getColumnIndexOrThrow("difficulty");
+          final int _cursorIndexOfTipo = _cursor.getColumnIndexOrThrow("type");
           final int _cursorIndexOfData = _cursor.getColumnIndexOrThrow("data");
           final List<QuestionEntity> _result = new ArrayList<QuestionEntity>(_cursor.getCount());
           while(_cursor.moveToNext()) {
-            final QuestionEntity _item_1;
-            final int _tmpId;
-            _tmpId = _cursor.getInt(_cursorIndexOfId);
-            final String _tmpType;
-            _tmpType = _cursor.getString(_cursorIndexOfType);
+            final QuestionEntity _item;
+            final String _tmpDiff;
+            _tmpDiff = _cursor.getString(_cursorIndexOfDiff);
+            final String _tmpTipo;
+            _tmpTipo = _cursor.getString(_cursorIndexOfTipo);
             final String _tmpData;
             _tmpData = _cursor.getString(_cursorIndexOfData);
-            _item_1 = new QuestionEntity(_tmpId,_tmpType,_tmpData);
-            _result.add(_item_1);
+            _item = new QuestionEntity(_tmpTipo,_tmpDiff,_tmpData);
+            final int _tmpId;
+            _tmpId = _cursor.getInt(_cursorIndexOfId);
+            _item.setId(_tmpId);
+            _result.add(_item);
           }
           return _result;
         } finally {
@@ -144,24 +142,5 @@ public class QuestionDao_Impl implements QuestionDao {
         _statement.release();
       }
     }.getLiveData();
-  }
-
-  @Override
-  public int getQuestionsCount() {
-    final String _sql = "SELECT COUNT(id) FROM questions_table";
-    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
-    final Cursor _cursor = __db.query(_statement);
-    try {
-      final int _result;
-      if(_cursor.moveToFirst()) {
-        _result = _cursor.getInt(0);
-      } else {
-        _result = 0;
-      }
-      return _result;
-    } finally {
-      _cursor.close();
-      _statement.release();
-    }
   }
 }
