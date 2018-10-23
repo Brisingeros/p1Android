@@ -48,7 +48,8 @@ public class Menu extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
             jugador = (UserEntity) bundle.getSerializable("jugador");
-            mostrarMenu();
+            if(jugador != null)
+                mostrarMenu();
         }
 
         hall.setOnClickListener(new View.OnClickListener(){

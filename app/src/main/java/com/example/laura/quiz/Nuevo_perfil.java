@@ -354,7 +354,7 @@ public class Nuevo_perfil extends AppCompatActivity implements java.io.Serializa
         try{
 
             FileOutputStream out = new FileOutputStream(file);
-            Bitmap resizedImage = Bitmap.createScaledBitmap(finalBitmap, 256, 256, false);
+            Bitmap resizedImage = Bitmap.createScaledBitmap(finalBitmap, finalBitmap.getWidth()/10, finalBitmap.getHeight()/10, false);
             resizedImage.compress(Bitmap.CompressFormat.JPEG, 90, out);
             imgPath = file.getAbsolutePath();
 
