@@ -354,14 +354,14 @@ public class Nuevo_perfil extends AppCompatActivity implements java.io.Serializa
         try{
 
             FileOutputStream out = new FileOutputStream(file);
-            Bitmap resizedImage = Bitmap.createScaledBitmap(finalBitmap, finalBitmap.getWidth()/10, finalBitmap.getHeight()/10, false);
-            resizedImage.compress(Bitmap.CompressFormat.JPEG, 90, out);
+            //Bitmap resizedImage = Bitmap.createScaledBitmap(finalBitmap, (finalBitmap.getWidth()/2), (finalBitmap.getHeight()/2), false);
+            finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
             imgPath = file.getAbsolutePath();
 
             out.flush();
             out.close();
 
-            this.userImage.setImageBitmap(resizedImage);
+            this.userImage.setImageBitmap(finalBitmap);
 
         } catch (FileNotFoundException e) {
 
