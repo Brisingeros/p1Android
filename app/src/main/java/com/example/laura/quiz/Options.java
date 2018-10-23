@@ -41,7 +41,9 @@ public class Options extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Menu.class)); //salimos al menu sin guardar los cambios que se hayan producido
+                Intent i = new Intent(getApplicationContext(), Menu.class);
+                i.putExtra("jugador",jugador);
+                startActivity(i); //salir al menu
                 finish();
 
             }

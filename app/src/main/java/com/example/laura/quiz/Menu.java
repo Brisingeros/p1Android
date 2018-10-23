@@ -48,6 +48,7 @@ public class Menu extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
             jugador = (UserEntity) bundle.getSerializable("jugador");
+            System.out.println(jugador);
             if(jugador != null)
                 mostrarMenu();
         }
