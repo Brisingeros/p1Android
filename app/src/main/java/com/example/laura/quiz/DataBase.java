@@ -16,11 +16,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-@Database(entities = {QuestionEntity.class, PointEntity.class}, version = 7)
+@Database(entities = {QuestionEntity.class, PointEntity.class, UserEntity.class}, version = 8)
 public abstract class DataBase extends RoomDatabase {
 
     public abstract QuestionDao questionDao();
     public abstract PointsDao pointsDao();
+    public abstract UserDao UserDao();
 
     private static volatile DataBase INSTANCE;
 

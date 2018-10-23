@@ -484,6 +484,7 @@ color dim_foreground_disabled_material_light
 color dim_foreground_material_dark
 color dim_foreground_material_light
 color error_color_material
+color focus
 color fondo
 color fondo2
 color fondo3
@@ -794,6 +795,7 @@ drawable maggie
 drawable marge
 drawable milhouse
 drawable mr_muntz
+drawable mr_x
 drawable navigation_empty_icon
 drawable nelson
 drawable notification_action_background
@@ -853,6 +855,7 @@ id auto
 id barrier
 id beginning
 id blocking
+id borrar_perfil
 id bottom
 id buttonPanel
 id cancel_action
@@ -883,10 +886,13 @@ id direct
 id disableHome
 id easy
 id edit_query
+id editar_perfil
 id end
 id end_padder
 id enterAlways
 id enterAlwaysCollapsed
+id err_img
+id err_user
 id exit
 id exitUntilCollapsed
 id expand_activities_button
@@ -926,6 +932,7 @@ id imageView8
 id imageView9
 id imagen
 id imagenPreg
+id imagenUser
 id info
 id invisible
 id italic
@@ -943,6 +950,7 @@ id lytLayout
 id masked
 id media_actions
 id medium
+id mens_eliminar
 id message
 id middle
 id mini
@@ -951,7 +959,6 @@ id navigation_header_container
 id never
 id nickname
 id nombre
-id nombrePlayer
 id none
 id normal
 id notification_background
@@ -966,6 +973,7 @@ id parallax
 id parent
 id parentPanel
 id parent_matrix
+id partida_anonima
 id percent
 id pin
 id play
@@ -998,6 +1006,7 @@ id right_icon
 id right_side
 id salir2
 id salirHall
+id salir_borrar
 id salir_nuevo_perfil
 id salir_perfiles
 id save
@@ -1020,6 +1029,7 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id seleccion_perfil
 id select_dialog_listview
 id shortcut
 id showCustom
@@ -1072,6 +1082,8 @@ id ult_partida
 id uniform
 id up
 id useLogo
+id userImage
+id userName
 id videoPreg
 id view_offset_helper
 id visible
@@ -1649,3 +1661,4 @@ styleable Toolbar android_gravity android_minHeight buttonGravity collapseConten
 styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewStubCompat android_id android_layout android_inflatedId
+xml provider_paths

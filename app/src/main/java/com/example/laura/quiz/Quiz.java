@@ -34,7 +34,7 @@ public class Quiz extends AppCompatActivity {
     private int miPuntuacion;
     private int numPregunta;
     private int totalPreguntas;
-
+    private UserEntity jugador = null;
     private Pregunta pregActual;
 
     private Toast acierto;
@@ -54,6 +54,8 @@ public class Quiz extends AppCompatActivity {
         acierto.setView(toast_layout);
         acierto.setDuration(Toast.LENGTH_SHORT);
 
+        Bundle bundle = getIntent().getExtras();
+        this.jugador = (UserEntity) bundle.getSerializable("jugador");
 
         //inicializamos las que seran las preguntas del juego
 
@@ -101,6 +103,7 @@ public class Quiz extends AppCompatActivity {
 
             Intent in = new Intent(this, PantallaPuntuacion.class);
             in.putExtra("puntuacionFinal", String.valueOf(miPuntuacion)); //pasamos la puntuacion a la pantalla final
+            in.putExtra("jugador", this.jugador);
             startActivity(in);
             finish();
 

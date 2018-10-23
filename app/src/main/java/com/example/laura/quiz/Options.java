@@ -19,6 +19,7 @@ public class Options extends AppCompatActivity {
     Spinner spinner;
     Integer[] items = {5,10,15}; //opciones de numero de preguntas con las que jugar
 
+    UserEntity jugador;
     RadioGroup dificultad; //opciones de tipos de preguntas-respuestas con las que jugar
 
     Button atras, guardar;
@@ -28,6 +29,8 @@ public class Options extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options);
 
+        Bundle bundle = getIntent().getExtras();
+        jugador = (UserEntity) bundle.getSerializable("jugador");
         spinner = (Spinner) findViewById(R.id.numPreg);
         dificultad = (RadioGroup) findViewById(R.id.difficultyRadio);
 
@@ -64,7 +67,9 @@ public class Options extends AppCompatActivity {
 
                 editor.commit();
 
-                startActivity(new Intent(getApplicationContext(), Menu.class)); //salir al menu
+                Intent i = new Intent(getApplicationContext(), Menu.class);
+                i.putExtra("jugador",jugador);
+                startActivity(i); //salir al menu
                 finish();
 
             }

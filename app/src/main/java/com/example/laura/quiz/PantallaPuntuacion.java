@@ -4,10 +4,14 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.sql.Date;
+import java.time.Instant;
 
 public class PantallaPuntuacion extends AppCompatActivity {
 
@@ -15,8 +19,8 @@ public class PantallaPuntuacion extends AppCompatActivity {
 
     Button reintentar, salir;
     TextView puntuacion;
-    EditText nombre;
     DataBase db;
+    UserEntity jugador = null;
 
     String puntos = "";
 
@@ -28,13 +32,12 @@ public class PantallaPuntuacion extends AppCompatActivity {
         setContentView(R.layout.activity_submitpuntuacion);
         Bundle bundle = getIntent().getExtras();
         puntos = bundle.getString("puntuacionFinal");
-
+        jugador = (UserEntity) bundle.getSerializable("jugador");
         db = DataBase.getDataBase(getApplicationContext());
 
         reintentar = (Button) findViewById(R.id.reintentar2);
         salir = (Button) findViewById(R.id.salir2);
         puntuacion = (TextView) findViewById(R.id.puntos);
-        nombre = (EditText) findViewById(R.id.nombrePlayer);
 
         puntuacion.setText(puntos);
 
@@ -43,7 +46,9 @@ public class PantallaPuntuacion extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(getApplicationContext(), Menu.class)); //salimos al menu principal
+                Intent i = new Intent(getApplicationContext(), Menu.class);
+                i.putExtra("jugador", jugador);
+                startActivity(i); //salimos al menu principal
                 finish();
 
             }
@@ -68,13 +73,31 @@ public class PantallaPuntuacion extends AppCompatActivity {
     protected void onStop(){
         super.onStop();
 
+        java.util.Date d = new java.util.Date();
+        CharSequence s = DateFormat.format("MMMM d, yyyy ", d.getTime());
+        jugador.setUlt_partida(s.toString());
+        if(Integer.valueOf(puntos) > jugador.getPunt_max()){
+
+            jugador.setPunt_max(Integer.valueOf(puntos));
+
+        }
         AsyncTask.execute(new Runnable() {
 
             @Override
             public void run() {
 
-                System.out.println("Se esta insertando");
-                db.pointsDao().insert(new PointEntity(Opciones.getDifficulty(), nombre.getText().toString(), Integer.parseInt(puntos)));
+                db.pointsDao().insert(new PointEntity(Opciones.getDifficulty(), jugador.getNombre(), Integer.parseInt(puntos)));
+
+            }
+
+        });
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+
+                db.UserDao().updatePartida(jugador.getPunt_max(),jugador.getUlt_partida(),jugador.getId());
 
             }
 

@@ -17,7 +17,7 @@ public class Hall extends AppCompatActivity {
 
     List<TextView> rankingsHard, rankingsMedium, rankingsEasy;
     Button salir;
-
+    UserEntity jugador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +28,17 @@ public class Hall extends AppCompatActivity {
 
         salir = (Button) findViewById(R.id.salirHall);
 
+        Bundle bundle = getIntent().getExtras();
+        jugador = (UserEntity) bundle.getSerializable("jugador");
+
         salir.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(getApplicationContext(), Menu.class)); //iniciamos una nueva partida
+                Intent i = new Intent(getApplicationContext(), Menu.class);
+                i.putExtra("jugador", jugador);
+                startActivity(i);
                 finish();
 
             }

@@ -9,10 +9,7 @@
         android:targetSdkVersion="27" />
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="true" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -22,6 +19,16 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.laura.quiz.com.example.laura.quiz.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
         <activity android:name="com.example.laura.quiz.Quiz" />
         <activity android:name="com.example.laura.quiz.Menu" >
             <intent-filter>
@@ -33,10 +40,7 @@
         <activity android:name="com.example.laura.quiz.PantallaPuntuacion" />
         <activity android:name="com.example.laura.quiz.Users_list" />
         <activity android:name="com.example.laura.quiz.Nuevo_perfil" />
-        <activity
-            android:name="com.example.laura.quiz.Options"
-            android:label="@string/title_activity_options"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.example.laura.quiz.Options" />
         <activity android:name="com.example.laura.quiz.Hall" />
 
         <provider

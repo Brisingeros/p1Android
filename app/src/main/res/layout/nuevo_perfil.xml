@@ -46,17 +46,17 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/textInputLayout"
-        android:layout_width="220dp"
+        android:layout_width="219dp"
         android:layout_height="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="120dp"
         android:textColorHint="@android:color/background_dark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/nickname"
-            android:layout_width="match_parent"
+            android:layout_width="158dp"
             android:layout_height="40dp"
             android:background="@color/fondo2"
             android:hint="nombre"
@@ -70,7 +70,7 @@
         android:id="@+id/letrero_imagen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:background="@color/fondo3"
         android:text="Selecciona una foto"
@@ -81,75 +81,79 @@
 
     <ImageButton
         android:id="@+id/imageCamara"
-        style="@style/Widget.AppCompat.ImageButton"
+        style="@android:style/Widget.ImageButton"
         android:layout_width="88dp"
         android:layout_height="81dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:scaleType="centerInside"
+        android:scaleType="centerCrop"
+        android:src="@drawable/camara"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/letrero_imagen"
-        app:srcCompat="@drawable/camara" />
+        app:layout_constraintTop_toBottomOf="@+id/letrero_imagen" />
 
     <ImageButton
         android:id="@+id/imageMarge"
-        style="@style/Widget.AppCompat.ImageButton"
+        style="@android:style/Widget.ImageButton"
         android:layout_width="88dp"
         android:layout_height="81dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+
         android:scaleType="centerInside"
+        android:src="@drawable/marge"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageCamara"
-        app:srcCompat="@drawable/marge" />
+        app:layout_constraintTop_toBottomOf="@+id/imageCamara" />
 
     <ImageButton
         android:id="@+id/imageHomer"
-        style="@style/Widget.AppCompat.ImageButton"
+        style="@android:style/Widget.ImageButton"
         android:layout_width="88dp"
         android:layout_height="81dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
+
         android:scaleType="centerInside"
+        android:src="@drawable/homer"
         app:layout_constraintStart_toEndOf="@+id/imageCamara"
-        app:layout_constraintTop_toBottomOf="@+id/letrero_imagen"
-        app:srcCompat="@drawable/homer" />
+        app:layout_constraintTop_toBottomOf="@+id/letrero_imagen" />
 
     <ImageButton
         android:id="@+id/imageMaggi"
-        style="@style/Widget.AppCompat.ImageButton"
+        style="@android:style/Widget.ImageButton"
         android:layout_width="88dp"
         android:layout_height="81dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:scaleType="centerInside"
+        android:src="@drawable/maggie"
         app:layout_constraintStart_toEndOf="@+id/imageCamara"
-        app:layout_constraintTop_toBottomOf="@+id/imageHomer"
-        app:srcCompat="@drawable/maggie" />
+        app:layout_constraintTop_toBottomOf="@+id/imageHomer" />
 
     <ImageButton
         android:id="@+id/imageLisa"
-        style="@style/Widget.AppCompat.ImageButton"
+        style="@android:style/Widget.ImageButton"
         android:layout_width="88dp"
         android:layout_height="81dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
+
         android:scaleType="centerInside"
+        android:src="@drawable/lisa"
         app:layout_constraintStart_toEndOf="@+id/imageHomer"
-        app:layout_constraintTop_toBottomOf="@+id/letrero_imagen"
-        app:srcCompat="@drawable/lisa" />
+        app:layout_constraintTop_toBottomOf="@+id/letrero_imagen" />
 
     <ImageButton
         android:id="@+id/imageBart"
-        style="@style/Widget.AppCompat.ImageButton"
+        style="@android:style/Widget.ImageButton"
         android:layout_width="88dp"
         android:layout_height="81dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+
         android:scaleType="centerInside"
+        android:src="@drawable/bart"
         app:layout_constraintStart_toEndOf="@+id/imageMaggi"
-        app:layout_constraintTop_toBottomOf="@+id/imageLisa"
-        app:srcCompat="@drawable/bart" />
+        app:layout_constraintTop_toBottomOf="@+id/imageLisa" />
 
     <Button
         android:id="@+id/guardar_perfil"
@@ -172,5 +176,37 @@
         android:text="Salir"
         app:layout_constraintStart_toEndOf="@+id/guardar_perfil"
         app:layout_constraintTop_toBottomOf="@+id/imageMaggi" />
+
+    <TextView
+        android:id="@+id/err_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="* Campo obligatorio"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/letrero_nickname"
+        tools:layout_editor_absoluteX="52dp" />
+
+    <TextView
+        android:id="@+id/err_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="* Campo obligatorio"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/letrero_imagen"
+        tools:layout_editor_absoluteX="46dp" />
+
+    <ImageView
+        android:id="@+id/imagenUser"
+        android:layout_width="131dp"
+        android:layout_height="105dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="76dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:color/darker_gray" />
 
 </android.support.constraint.ConstraintLayout>

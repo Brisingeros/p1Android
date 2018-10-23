@@ -25,21 +25,25 @@ public class DataBase_Impl extends DataBase {
 
   private volatile PointsDao _pointsDao;
 
+  private volatile UserDao _userDao;
+
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(7) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(8) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `question_table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `difficulty` TEXT NOT NULL, `type` TEXT NOT NULL, `data` TEXT NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `points_table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `difficulty` TEXT NOT NULL, `userName` TEXT NOT NULL, `points` INTEGER NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `user_table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userName` TEXT NOT NULL, `puntuacion_max` INTEGER NOT NULL, `num_partidas` INTEGER NOT NULL, `ult_part` TEXT NOT NULL, `foto` TEXT NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"14a13a8a7918418d739c53f0f380f49a\")");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"8b406a35cf276c391291b39325117adb\")");
       }
 
       @Override
       public void dropAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("DROP TABLE IF EXISTS `question_table`");
         _db.execSQL("DROP TABLE IF EXISTS `points_table`");
+        _db.execSQL("DROP TABLE IF EXISTS `user_table`");
       }
 
       @Override
@@ -92,8 +96,24 @@ public class DataBase_Impl extends DataBase {
                   + " Expected:\n" + _infoPointsTable + "\n"
                   + " Found:\n" + _existingPointsTable);
         }
+        final HashMap<String, TableInfo.Column> _columnsUserTable = new HashMap<String, TableInfo.Column>(6);
+        _columnsUserTable.put("id", new TableInfo.Column("id", "INTEGER", true, 1));
+        _columnsUserTable.put("userName", new TableInfo.Column("userName", "TEXT", true, 0));
+        _columnsUserTable.put("puntuacion_max", new TableInfo.Column("puntuacion_max", "INTEGER", true, 0));
+        _columnsUserTable.put("num_partidas", new TableInfo.Column("num_partidas", "INTEGER", true, 0));
+        _columnsUserTable.put("ult_part", new TableInfo.Column("ult_part", "TEXT", true, 0));
+        _columnsUserTable.put("foto", new TableInfo.Column("foto", "TEXT", true, 0));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysUserTable = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesUserTable = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoUserTable = new TableInfo("user_table", _columnsUserTable, _foreignKeysUserTable, _indicesUserTable);
+        final TableInfo _existingUserTable = TableInfo.read(_db, "user_table");
+        if (! _infoUserTable.equals(_existingUserTable)) {
+          throw new IllegalStateException("Migration didn't properly handle user_table(com.example.laura.quiz.UserEntity).\n"
+                  + " Expected:\n" + _infoUserTable + "\n"
+                  + " Found:\n" + _existingUserTable);
+        }
       }
-    }, "14a13a8a7918418d739c53f0f380f49a", "32ccd0e86ea034c3bb5ebabad005ec2e");
+    }, "8b406a35cf276c391291b39325117adb", "d778f29536f93cd26869aec8d6c786b7");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -104,7 +124,7 @@ public class DataBase_Impl extends DataBase {
 
   @Override
   protected InvalidationTracker createInvalidationTracker() {
-    return new InvalidationTracker(this, "question_table","points_table");
+    return new InvalidationTracker(this, "question_table","points_table","user_table");
   }
 
   @Override
@@ -115,6 +135,7 @@ public class DataBase_Impl extends DataBase {
       super.beginTransaction();
       _db.execSQL("DELETE FROM `question_table`");
       _db.execSQL("DELETE FROM `points_table`");
+      _db.execSQL("DELETE FROM `user_table`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();
@@ -149,6 +170,20 @@ public class DataBase_Impl extends DataBase {
           _pointsDao = new PointsDao_Impl(this);
         }
         return _pointsDao;
+      }
+    }
+  }
+
+  @Override
+  public UserDao UserDao() {
+    if (_userDao != null) {
+      return _userDao;
+    } else {
+      synchronized(this) {
+        if(_userDao == null) {
+          _userDao = new UserDao_Impl(this);
+        }
+        return _userDao;
       }
     }
   }
