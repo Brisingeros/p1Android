@@ -11,15 +11,12 @@ import java.util.List;
 public interface QuestionDao {
 
     @Insert
-    void insert(QuestionEntity question);
+    void insert(QuestionEntity... points);
 
-    @Query("DELETE FROM questions_table")
+    @Query("DELETE FROM question_table")
     void deleteAll();
 
-    @Query("SELECT * FROM questions_table WHERE tipo IN (:tipos)") // WHERE type IN (:tipos)
-    LiveData<List<QuestionEntity>> getQuestionsByType(List<String> tipos); //List<String> tipos
-
-    @Query("SELECT COUNT(id) FROM questions_table")
-    int getQuestionsCount();
+    @Query("SELECT * FROM question_table WHERE difficulty = :diffSelected")
+    LiveData<List<QuestionEntity>> getQuestionsByDiff(String diffSelected);
 
 }

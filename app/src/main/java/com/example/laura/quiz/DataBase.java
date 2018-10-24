@@ -16,11 +16,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-@Database(entities = {QuestionEntity.class,PointEntity.class}, version = 3)
+@Database(entities = {QuestionEntity.class, PointEntity.class, UserEntity.class}, version = 8)
 public abstract class DataBase extends RoomDatabase {
 
     public abstract QuestionDao questionDao();
     public abstract PointsDao pointsDao();
+    public abstract UserDao UserDao();
 
     private static volatile DataBase INSTANCE;
 
@@ -93,33 +94,67 @@ public abstract class DataBase extends RoomDatabase {
         @Override
         protected Void doInBackground(final Void... params) {
 
-            qDao.deleteAll();
-            int questionsCountDB = qDao.getQuestionsCount();
+            //qDao.deleteAll();
+            //int questionsCountDB = qDao.getQuestionsCount();
 
             try {
 
                 InputStream is = context.getResources().openRawResource(
-                        context.getResources().getIdentifier("questions",
+                        context.getResources().getIdentifier("update",
                                 "raw", context.getPackageName()));
 
                 String archivo = readTextFile(is);
-
                 JSONObject json = new JSONObject(archivo);
-                JSONArray questions = (JSONArray) json.get("questions");
+
+                if(!json.getBoolean("update"))
+                    return null;
+
+                ///////////////////////////////////////////////////////////////////////////////////
+                //HACER QUE UPDATE PASE A FALSE
+                qDao.deleteAll();
+
+                is = context.getResources().openRawResource(
+                        context.getResources().getIdentifier("questions",
+                                "raw", context.getPackageName()));
+
+                archivo = readTextFile(is);
+
+                json = new JSONObject(archivo);
 
                 QuestionEntity newQuestion;
                 JSONObject question;
+                JSONArray questions =  json.getJSONArray("questions_easy");
 
-                for (int i = questionsCountDB; i < questions.length(); i++) { //si hay mas preguntas en el json que en la DB, se añaden a ésta
+                for (int i = 0; i < questions.length(); i++) {
 
                     question = questions.getJSONObject(i);
-                    newQuestion = new QuestionEntity(i, question.get("tipo").toString(), question.getJSONObject("question").toString());
+                    newQuestion = new QuestionEntity(question.getString("tipo"), "easy", question.getJSONObject("question").toString());
+                    qDao.insert(newQuestion);
+
+                }
+
+                questions = json.getJSONArray("questions_medium");
+
+                for (int i = 0; i < questions.length(); i++) {
+
+                    question = questions.getJSONObject(i);
+                    newQuestion = new QuestionEntity(question.getString("tipo"), "medium", question.getJSONObject("question").toString());
+                    qDao.insert(newQuestion);
+
+                }
+
+                questions = json.getJSONArray("questions_hard");
+
+                for (int i = 0; i < questions.length(); i++) {
+
+                    question = questions.getJSONObject(i);
+                    newQuestion = new QuestionEntity(question.getString("tipo"), "hard", question.getJSONObject("question").toString());
                     qDao.insert(newQuestion);
 
                 }
 
             } catch (JSONException e) {
-                System.out.println("Error: " + e.getMessage());
+                System.out.println("Error on doInBackground: " + e.getMessage());
             }
 
             return null;
