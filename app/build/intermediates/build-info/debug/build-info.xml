@@ -5,81 +5,71 @@
     build-mode="COLD"
     density="420dpi"
     format="10"
-    ir-eligibility="COMPATIBLE"
     plugin-version="3.2.1"
-    timestamp="1540328773508"
-    token="-1693665812193788758"
+    timestamp="1540591760704"
+    token="2096883252776872603"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="3987" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="51" />
+        duration="0" />
     <task
         name="verifier"
-        duration="38" />
-
-    <artifact
-        location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
-        type="SPLIT" />
+        duration="0" />
 
     <build
         build-mode="FULL"
-        timestamp="1540328673622"
+        timestamp="1540591713778"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
+            location="/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            location="/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            location="/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            location="/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            location="/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            location="/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            location="/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            location="/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            location="/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            location="/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            location="/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            location="/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+            location="/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
             type="SPLIT_MAIN" />
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1540328773508"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="E:\Laura\Universidad\Juegos para Android\p1Android\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
-            type="SPLIT" />
-    </build>
+        timestamp="1540591760704"
+        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>
