@@ -4,40 +4,44 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Quiz extends AppCompatActivity {
 
     Button respuesta1, respuesta2, respuesta3, respuesta4;
-    TextView puntuacion, pregunta;
-    ImageView imagenPregunta;
+    TextView puntuacion, pregunta, pregActText, aciertos_fallos;
+    Chronometer cronometro;
+
     private int miPuntuacion;
     private int numPregunta;
     private int totalPreguntas;
+    private int aciertos;
+    private int fallos;
+    private int segundos;
+    private long initTime;
     private UserEntity jugador = null;
     private Pregunta pregActual;
-
     private Toast acierto;
+    private Toast fallo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -46,6 +50,9 @@ public class Quiz extends AppCompatActivity {
         DataBase db = DataBase.getDataBase(getApplicationContext());
         miPuntuacion = 0;
         numPregunta = -1;
+        aciertos = 0;
+        fallos = 0;
+        segundos = 0;
         totalPreguntas = Opciones.getNumPreg();
 
         //toast de acierto personalizado
@@ -53,6 +60,12 @@ public class Quiz extends AppCompatActivity {
         View toast_layout = getLayoutInflater().inflate(R.layout.toast, (ViewGroup) findViewById(R.id.lytLayout));
         acierto.setView(toast_layout);
         acierto.setDuration(Toast.LENGTH_SHORT);
+
+        //toast de fallo personalizado
+        fallo = new Toast(this);
+        View toast_fallo = getLayoutInflater().inflate(R.layout.toast_fallo, (ViewGroup) findViewById(R.id.lytLayout));
+        fallo.setView(toast_fallo);
+        fallo.setDuration(Toast.LENGTH_SHORT);
 
         Bundle bundle = getIntent().getExtras();
         this.jugador = (UserEntity) bundle.getSerializable("jugador");
@@ -71,6 +84,7 @@ public class Quiz extends AppCompatActivity {
                 if(((List)pregun.getValue()).size() > totalPreguntas){
                     pregun.removeObserver(this);
                     Preguntas.startPreguntas((List<QuestionEntity>) pregun.getValue(), getApplicationContext());
+                    initTime = SystemClock.elapsedRealtime();
                     SiguientePregunta();
                 }
             }
@@ -101,9 +115,13 @@ public class Quiz extends AppCompatActivity {
 
         }else{ //si hemos alcanzado el numero maximo de preguntas, terminamos el juego (pantalla de puntuacion)
 
+            System.out.println(segundos);
+            miPuntuacion -= (segundos/30);
+
             Intent in = new Intent(this, PantallaPuntuacion.class);
             in.putExtra("puntuacionFinal", String.valueOf(miPuntuacion)); //pasamos la puntuacion a la pantalla final
             in.putExtra("jugador", this.jugador);
+            in.putExtra("totalTime", this.cronometro.getText());
             startActivity(in);
             finish();
 
@@ -129,6 +147,22 @@ public class Quiz extends AppCompatActivity {
         //encontramos el espacio de la puntuacion en la interfaz
         puntuacion = (TextView) findViewById(R.id.puntuacion);
         puntuacion.setText("Puntuación: " + miPuntuacion);
+
+        pregActText = (TextView) findViewById(R.id.pregActText);
+        pregActText.setText("Pregunta: " + (numPregunta+1) + "/" + totalPreguntas);
+
+        aciertos_fallos = (TextView) findViewById(R.id.aciertos_fallos);
+        aciertos_fallos.setText("Aciertos/Fallos: " + aciertos + "/" + fallos);
+
+        cronometro = (Chronometer) findViewById(R.id.cronom);
+        cronometro.setBase(initTime);
+        cronometro.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+            @Override
+            public void onChronometerTick(Chronometer chronometer) {
+                segundos++;
+            }
+        });
+        cronometro.start();
 
         //renderizamos la pantalla en funcion del tipo de pregunta
         List<Group> renderers = pregActual.render();
@@ -232,12 +266,15 @@ public class Quiz extends AppCompatActivity {
                 if(pregActual.getRespuestaCorrecta(respuesta1.getText().toString())){
 
                     miPuntuacion += 3; //sumamos 3 ptos por acierto
+                    aciertos++;
                     acierto.show(); //mostramos el toast personalizado
                     SiguientePregunta(); //cambiamos de pregunta
 
                 }else {
 
-                    GameOver(); //ha fallado
+                    fallos++;
+                    fallo.show(); //mostramos el toast personalizado
+                    SiguientePregunta(); //cambiamos de pregunta
 
                 }
             }
@@ -252,12 +289,15 @@ public class Quiz extends AppCompatActivity {
                 if(pregActual.getRespuestaCorrecta(respuesta2.getText().toString())){
 
                     miPuntuacion += 3;
+                    aciertos++;
                     acierto.show();
                     SiguientePregunta();
 
                 }else {
 
-                    GameOver();
+                    fallos++;
+                    fallo.show();
+                    SiguientePregunta();
 
                 }
             }
@@ -272,12 +312,15 @@ public class Quiz extends AppCompatActivity {
                 if(pregActual.getRespuestaCorrecta(respuesta3.getText().toString())){
 
                     miPuntuacion += 3;
+                    aciertos++;
                     acierto.show();
                     SiguientePregunta();
 
                 }else {
 
-                    GameOver();
+                    fallos++;
+                    fallo.show();
+                    SiguientePregunta();
 
                 }
             }
@@ -292,50 +335,19 @@ public class Quiz extends AppCompatActivity {
                 if(pregActual.getRespuestaCorrecta(respuesta4.getText().toString())){
 
                     miPuntuacion += 3;
+                    aciertos++;
                     acierto.show();
                     SiguientePregunta();
 
                 }else {
 
-                    GameOver();
+                    fallos++;
+                    fallo.show();
+                    SiguientePregunta();
 
                 }
             }
 
         });
     }
-
-
-    public void GameOver(){
-
-        //mostramos alert con opcion de reiniciar la partida o de continuar (se restan 2 ptos)
-        final AlertDialog.Builder alerta = new AlertDialog.Builder(Quiz.this);
-        alerta
-                .setMessage("¡Has fallado!Puedes volver a empezar o continuar hasta el final.")
-                .setCancelable(false)
-                .setPositiveButton("Continuar",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
-                                miPuntuacion = miPuntuacion - 2 < 0? 0 : (miPuntuacion - 2); //controlamos que la puntuacion no sea negativa
-                                SiguientePregunta(); //continuamos la partida actual
-                            }
-                        }
-                )
-                .setNegativeButton("Reintentar",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-
-                                startActivity(new Intent(getApplicationContext(), Quiz.class)); //reiniciamos la partida
-                                finish();
-                            }
-                        }
-                );
-
-        AlertDialog dialogo = alerta.create();
-        dialogo.show();
-    }
-
 }

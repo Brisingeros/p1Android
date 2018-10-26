@@ -15,6 +15,7 @@ import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 
 @Database(entities = {QuestionEntity.class, PointEntity.class, UserEntity.class}, version = 8)
 public abstract class DataBase extends RoomDatabase {
@@ -97,7 +98,9 @@ public abstract class DataBase extends RoomDatabase {
             //qDao.deleteAll();
             //int questionsCountDB = qDao.getQuestionsCount();
 
+
             try {
+
 
                 InputStream is = context.getResources().openRawResource(
                         context.getResources().getIdentifier("update",
@@ -106,11 +109,10 @@ public abstract class DataBase extends RoomDatabase {
                 String archivo = readTextFile(is);
                 JSONObject json = new JSONObject(archivo);
 
-                if(!json.getBoolean("update"))
+                if(!json.getBoolean("update")){
                     return null;
+                }
 
-                ///////////////////////////////////////////////////////////////////////////////////
-                //HACER QUE UPDATE PASE A FALSE
                 qDao.deleteAll();
 
                 is = context.getResources().openRawResource(

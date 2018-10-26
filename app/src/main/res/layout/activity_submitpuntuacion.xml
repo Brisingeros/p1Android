@@ -11,7 +11,7 @@
         android:layout_width="154dp"
         android:layout_height="71dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="140dp"
         android:background="@drawable/boton"
         android:text="salir al menú"
         android:textAlignment="center"
@@ -23,7 +23,7 @@
         android:layout_width="154dp"
         android:layout_height="71dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="140dp"
         android:background="@drawable/boton"
         android:text="reintentar"
         app:layout_constraintEnd_toStartOf="@+id/salir2"
@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="120dp"
         android:layout_marginStart="120dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="40dp"
         android:background="@color/fondo4"
         android:gravity="center"
         android:text="15"
@@ -73,5 +73,20 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/texto" />
+
+    <TextView
+        android:id="@+id/tiempofinal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/background_light"
+        android:text="Tiempo:"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/puntos" />
 
 </android.support.constraint.ConstraintLayout>

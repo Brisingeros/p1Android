@@ -18,11 +18,11 @@ public class PantallaPuntuacion extends AppCompatActivity {
     //pantalla final del juego
 
     Button reintentar, salir;
-    TextView puntuacion;
+    TextView puntuacion, tiempo;
     DataBase db;
     UserEntity jugador = null;
 
-    String puntos = "";
+    String puntos, totalSec = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -32,14 +32,17 @@ public class PantallaPuntuacion extends AppCompatActivity {
         setContentView(R.layout.activity_submitpuntuacion);
         Bundle bundle = getIntent().getExtras();
         puntos = bundle.getString("puntuacionFinal");
+        totalSec = bundle.getString("totalTime");
         jugador = (UserEntity) bundle.getSerializable("jugador");
         db = DataBase.getDataBase(getApplicationContext());
 
         reintentar = (Button) findViewById(R.id.reintentar2);
         salir = (Button) findViewById(R.id.salir2);
         puntuacion = (TextView) findViewById(R.id.puntos);
+        tiempo = (TextView) findViewById(R.id.tiempofinal);
 
         puntuacion.setText(puntos);
+        tiempo.setText("Tiempo: " + totalSec);
 
         salir.setOnClickListener(new View.OnClickListener(){
 
