@@ -1,4 +1,4 @@
-#Fri Oct 26 23:55:35 CEST 2018
-base.0=/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/transforms/dexMerger/debug/8
+#Sat Oct 27 12:51:26 CEST 2018
+base.0=E\:\\Laura\\Universidad\\Curso 4\\Desarrollo de Aplicaciones para Android\\p1Android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\8
 path.0=classes.dex
 renamed.0=classes.dex
