@@ -47,22 +47,27 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="219dp"
-        android:layout_height="40dp"
+        android:layout_height="43dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="120dp"
         android:textColorHint="@android:color/background_dark"
+        app:hintTextAppearance="@android:style/TextAppearance.Widget.TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/nickname"
             android:layout_width="158dp"
-            android:layout_height="40dp"
+            android:layout_height="match_parent"
             android:background="@color/fondo2"
             android:hint="nombre"
             android:inputType="text"
-            android:textColor="@android:color/background_dark"
-            android:textSize="18sp" />
+            android:singleLine="false"
+            android:text="grgthrt"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textColorHint="@android:color/background_dark"
+            android:textSize="14sp"
+            android:typeface="normal" />
 
     </android.support.design.widget.TextInputLayout>
 

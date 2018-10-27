@@ -205,9 +205,20 @@ public class Menu extends AppCompatActivity {
 
                             }
                         }
+                )
+                .setNeutralButton("Cancelar",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                                dialogInterface.dismiss();
+
+                            }
+                        }
                 );
 
         AlertDialog dialogo = alerta.create();
+
         dialogo.show();
     }
 }

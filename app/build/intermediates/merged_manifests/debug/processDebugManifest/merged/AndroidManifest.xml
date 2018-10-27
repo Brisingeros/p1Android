@@ -17,6 +17,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="Simpsons Quiz"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <provider
             android:name="android.support.v4.content.FileProvider"
