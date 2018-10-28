@@ -12,15 +12,6 @@
         {
             "tipo": "textotexto",
             "question":{
-                "pregunta": "¿De qué están hechas las barritas energéticas que toma Homer?",
-                "respuestas": ["Pipas y periódicos chinos", "Chicles de menta", "Trocitos de fruta y libros viejos", "Chocolate y espaguettis"],
-                "respuesta_correcta": "Pipas y periódicos chinos"
-            }
-            
-        },
-        {
-            "tipo": "textotexto",
-            "question":{
                 "pregunta": "¿Quiénes salvan de la quiebra a la compañía de Rasca y Pica?",
                 "respuestas": ["Bart y Lisa", "Lester y Eliza", "Krusty y Bob", "Ralph y Vomitron"],
                 "respuesta_correcta": "Lester y Eliza"
@@ -251,6 +242,106 @@
                 "respuesta_correcta": "Boxeador"
             }
             
+        },
+        {
+            "tipo": "videotexto",
+            "question":{
+                "pregunta": "¿Cuál es el nombre de este grupo?",
+                "respuestas": ["Verduleros","Babuinos","Canteros","Illuminatis"],
+                "respuesta_correcta": "Canteros",
+                "renderizable":{
+                    "video_preg": "canteros"
+                }
+            }
+            
+        },
+        {
+            "tipo": "videotexto",
+            "question":{
+                "pregunta": "¿Cuál es el nombre de este grupo?",
+                "respuestas": ["Solfamidas","Beatles","Homers","No Homers"],
+                "respuesta_correcta": "Solfamidas",
+                "renderizable":{
+                    "video_preg": "solfamidas"
+                }
+            }
+            
+        },
+        {
+            "tipo": "videotexto",
+            "question":{
+                "pregunta": "¿Cómo se llama el osito de peluche?",
+                "respuestas": ["Baobab","Baba","Bebe","Bobo"],
+                "respuesta_correcta": "Bobo",
+                "renderizable":{
+                    "video_preg": "kentucky"
+                }
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿De qué están hechas las barritas energéticas que toma Homer?",
+                "respuestas": ["Pipas y periódicos chinos", "Chicles de menta", "Trocitos de fruta y libros viejos", "Chocolate y espaguettis"],
+                "respuesta_correcta": "Pipas y periódicos chinos"
+            }
+            
+        },
+        {
+            "tipo": "imagenimagen",
+            "question":{
+                "pregunta": "¿Quién es el padre de este personaje?",
+                "respuestas": ["imagen1", "imagen2", "imagen3", "imagen4"],
+                "respuesta_correcta": "imagen2",
+                "renderizable":{
+                    "img_resp": ["homer", "mr_muntz", "sii", "joseph_quimby"],
+                    "img_preg": "nelson"
+                }
+            }
+            
+        },
+        {
+            "tipo": "imagentexto",
+            "question":{
+                "pregunta": "¿Cómo se llama este personaje?",
+                "respuestas": ["Simon", "Bart", "Milhouse", "Lenny"],
+                "respuesta_correcta": "Simon",
+                "renderizable":{
+                    "img_preg": "simon"
+                }
+            }
+            
+        },
+        {
+            "tipo": "imagentexto",
+            "question":{
+                "pregunta": "¿Cómo se llama este personaje?",
+                "respuestas": ["Carl", "Rainier Wolfcastle", "Milhouse", "Lenny"],
+                "respuesta_correcta": "Rainier Wolfcastle",
+                "renderizable":{
+                    "img_preg": "rainier"
+                }
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Los únicos personajes que han sido dibujados con 5 dedos son?",
+                "respuestas": ["Dios y Jesucristo", "Bart y Homer", "Lady Gaga y Madonna", "Lisa y Bart"],
+                "respuesta_correcta": "Dios y Jesucristo"
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Cómo se llama el creador de la serie?",
+                "respuestas": ["George Lucas", "Rambo", "Matt Groening", "Sam Simon"],
+                "respuesta_correcta": "Matt Groening"
+            }
+            
         }
     ],
 
@@ -315,6 +406,105 @@
                 "pregunta": "¿De qué estado norteamericano es el disfraz que le hace Homer a Lisa?",
                 "respuestas": ["California", "Alabama", "Nevada", "Florida"],
                 "respuesta_correcta": "Florida"
+            }
+            
+        },
+        {
+            "tipo": "videotexto",
+            "question":{
+                "pregunta": "¿Por qué está Homer en huelga de hambre?",
+                "respuestas": ["Quieren trasladar a los Isótopos","Los Isótopos pierden todos los partidos","Han robado un árbol del parque","Nos gobiernan extraterrestres"],
+                "respuesta_correcta": "Quieren trasladar a los Isótopos",
+                "renderizable":{
+                    "video_preg": "bailohambre"
+                }
+            }
+            
+        },
+        {
+            "tipo": "videotexto",
+            "question":{
+                "pregunta": "¿De quién era la cama elástica?",
+                "respuestas": ["Wiggum","Otto","Skinner","Krusty"],
+                "respuesta_correcta": "Krusty",
+                "renderizable":{
+                    "video_preg": "elastica"
+                }
+            }
+            
+        },
+        {
+            "tipo": "videotexto",
+            "question":{
+                "pregunta": "¿Cómo consiguió Lisa el melocotonero?",
+                "respuestas": ["Regalo de Budha","Se lo trajo Papa Noel","Creció en el jardín","Regalo de cumpleaños y navidad"],
+                "respuesta_correcta": "Regalo de cumpleaños y navidad",
+                "renderizable":{
+                    "video_preg": "melocotonero"
+                }
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Cómo se llama realmente Skinner?",
+                "respuestas": ["Armin Tanzadian", "Rambo", "Matt Groening", "Lion"],
+                "respuesta_correcta": "Armin Tanzadian"
+            }
+            
+        },
+        {
+            "tipo": "textoimagen",
+            "question":{
+                "pregunta": "¿Quién ha ganado un Pulitzer?",
+                "respuestas": ["imagen1", "imagen2", "imagen3", "imagen4"],
+                "respuesta_correcta": "imagen3",
+                "renderizable":{
+                    "img_resp": ["bill_gates", "bart", "sii", "simon"]
+                }
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿Qué personaje fue elegido como 'persona influyente'?",
+                "respuestas": ["Bart", "Homer", "Marge", "Lisa"],
+                "respuesta_correcta": "Bart"
+            }
+            
+        },
+        {
+            "tipo": "imagentexto",
+            "question":{
+                "pregunta": "¿El segundo nombre de Milhouse es...?",
+                "respuestas": ["Hitler", "Stalin", "Mussolini", "Franco"],
+                "respuesta_correcta": "Mussolini",
+                "renderizable":{
+                    "img_preg": "milhouse"
+                }
+            }
+            
+        },
+        {
+            "tipo": "textotexto",
+            "question":{
+                "pregunta": "¿El compositor de la melodía de la serie se llama...?",
+                "respuestas": ["J.H. Abrams", "Danny Elfman", "Matt Groening", "Lion"],
+                "respuesta_correcta": "Danny Elfman"
+            }
+            
+        },
+        {
+            "tipo": "imagentexto",
+            "question":{
+                "pregunta": "¿A qué se dedica este personaje?",
+                "respuestas": ["Pescador", "Borracho", "Traficante", "Boxeador"],
+                "respuesta_correcta": "Traficante",
+                "renderizable":{
+                    "img_preg": "fausto"
+                }
             }
             
         }
