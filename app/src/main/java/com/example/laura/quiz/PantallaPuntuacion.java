@@ -63,7 +63,9 @@ public class PantallaPuntuacion extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(getApplicationContext(), Quiz.class)); //iniciamos una nueva partida
+                Intent i = new Intent(getApplicationContext(), Quiz.class);
+                i.putExtra("jugador", jugador);
+                startActivity(i); //reiniciamos partida
                 finish();
 
             }
