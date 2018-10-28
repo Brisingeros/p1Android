@@ -1,6 +1,7 @@
 package com.example.laura.quiz;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,7 +21,6 @@ public class PantallaPuntuacion extends AppCompatActivity {
     Button reintentar, salir;
     TextView puntuacion, tiempo;
     DataBase db;
-    UserEntity jugador = null;
 
     String puntos, totalSec = "";
 
@@ -33,7 +33,6 @@ public class PantallaPuntuacion extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         puntos = bundle.getString("puntuacionFinal");
         totalSec = bundle.getString("totalTime");
-        jugador = (UserEntity) bundle.getSerializable("jugador");
         db = DataBase.getDataBase(getApplicationContext());
 
         reintentar = (Button) findViewById(R.id.reintentar2);
@@ -50,7 +49,6 @@ public class PantallaPuntuacion extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent i = new Intent(getApplicationContext(), Menu.class);
-                i.putExtra("jugador", jugador);
                 startActivity(i); //salimos al menu principal
                 finish();
 
@@ -64,7 +62,6 @@ public class PantallaPuntuacion extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent i = new Intent(getApplicationContext(), Quiz.class);
-                i.putExtra("jugador", jugador);
                 startActivity(i); //reiniciamos partida
                 finish();
 
@@ -79,19 +76,19 @@ public class PantallaPuntuacion extends AppCompatActivity {
         super.onStop();
 
         java.util.Date d = new java.util.Date();
-        CharSequence s = DateFormat.format("MMMM d, yyyy ", d.getTime());
-        jugador.setUlt_partida(s.toString());
-        if(Integer.valueOf(puntos) > jugador.getPunt_max()){
+        final CharSequence s = DateFormat.format("MMMM d, yyyy ", d.getTime());
 
-            jugador.setPunt_max(Integer.valueOf(puntos));
+        SharedPreferences setting = getSharedPreferences("optionsPreferences", 0);
 
-        }
+        final String nombreJugador = setting.getString("user_name", "Anónimo");
+        final int id = setting.getInt("id", -2);
+
         AsyncTask.execute(new Runnable() {
 
             @Override
             public void run() {
 
-                db.pointsDao().insert(new PointEntity(Opciones.getDifficulty(), jugador.getNombre(), Integer.parseInt(puntos)));
+                db.pointsDao().insert(new PointEntity(Opciones.getDifficulty(), nombreJugador, Integer.parseInt(puntos)));
 
             }
 
@@ -102,7 +99,7 @@ public class PantallaPuntuacion extends AppCompatActivity {
             @Override
             public void run() {
 
-                db.UserDao().updatePartida(jugador.getPunt_max(),jugador.getUlt_partida(),jugador.getId());
+                db.UserDao().updatePartida(Integer.parseInt(puntos),s.toString(),id);
 
             }
 

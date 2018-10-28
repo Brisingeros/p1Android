@@ -67,6 +67,7 @@ public class UserEntity implements Serializable{
 
     public UserEntity() {
 
+        this.id = -1;
         this.nombre = "Anónimo";
         this.punt_max = 0;
         this.num_partidas = 0;

@@ -22,12 +22,13 @@ public interface UserDao {
     @Query("UPDATE user_table SET foto = :newPath WHERE id = :id")
     void updateUser(String newPath, int id);
 
-    @Query("UPDATE user_table SET puntuacion_max = :ptos,ult_part = :ult_partida,num_partidas = num_partidas+1 WHERE id = :id")
+    @Query("UPDATE user_table SET puntuacion_max = CASE WHEN :ptos > puntuacion_max THEN :ptos ELSE puntuacion_max END,ult_part = :ult_partida,num_partidas = num_partidas+1 WHERE id = :id")
     void updatePartida(int ptos, String ult_partida,int id);
 
     @Query("SELECT * FROM user_table")
     LiveData<List<UserEntity>> getUsers();
-    /*@Query("SELECT * FROM user_table WHERE difficulty = :diffSelected")
-    LiveData<List<QuestionEntity>> getQuestionsByDiff(String diffSelected);*/
+
+    @Query("SELECT * FROM user_table WHERE id = :id")
+    LiveData<UserEntity> getUserById(int id);
 
 }

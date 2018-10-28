@@ -85,7 +85,7 @@ public class UserDao_Impl implements UserDao {
     this.__preparedStmtOfUpdatePartida = new SharedSQLiteStatement(__db) {
       @Override
       public String createQuery() {
-        final String _query = "UPDATE user_table SET puntuacion_max = ?,ult_part = ?,num_partidas = num_partidas+1 WHERE id = ?";
+        final String _query = "UPDATE user_table SET puntuacion_max = CASE WHEN ? > puntuacion_max THEN ? ELSE puntuacion_max END,ult_part = ?,num_partidas = num_partidas+1 WHERE id = ?";
         return _query;
       }
     };
@@ -163,12 +163,14 @@ public class UserDao_Impl implements UserDao {
       int _argIndex = 1;
       _stmt.bindLong(_argIndex, ptos);
       _argIndex = 2;
+      _stmt.bindLong(_argIndex, ptos);
+      _argIndex = 3;
       if (ult_partida == null) {
         _stmt.bindNull(_argIndex);
       } else {
         _stmt.bindString(_argIndex, ult_partida);
       }
-      _argIndex = 3;
+      _argIndex = 4;
       _stmt.bindLong(_argIndex, id);
       _stmt.executeUpdateDelete();
       __db.setTransactionSuccessful();
@@ -227,6 +229,71 @@ public class UserDao_Impl implements UserDao {
             _tmpPath_foto = _cursor.getString(_cursorIndexOfPathFoto);
             _item.setPath_foto(_tmpPath_foto);
             _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+        }
+      }
+
+      @Override
+      protected void finalize() {
+        _statement.release();
+      }
+    }.getLiveData();
+  }
+
+  @Override
+  public LiveData<UserEntity> getUserById(int id) {
+    final String _sql = "SELECT * FROM user_table WHERE id = ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    _statement.bindLong(_argIndex, id);
+    return new ComputableLiveData<UserEntity>() {
+      private Observer _observer;
+
+      @Override
+      protected UserEntity compute() {
+        if (_observer == null) {
+          _observer = new Observer("user_table") {
+            @Override
+            public void onInvalidated(@NonNull Set<String> tables) {
+              invalidate();
+            }
+          };
+          __db.getInvalidationTracker().addWeakObserver(_observer);
+        }
+        final Cursor _cursor = __db.query(_statement);
+        try {
+          final int _cursorIndexOfId = _cursor.getColumnIndexOrThrow("id");
+          final int _cursorIndexOfNombre = _cursor.getColumnIndexOrThrow("userName");
+          final int _cursorIndexOfPuntMax = _cursor.getColumnIndexOrThrow("puntuacion_max");
+          final int _cursorIndexOfNumPartidas = _cursor.getColumnIndexOrThrow("num_partidas");
+          final int _cursorIndexOfUltPartida = _cursor.getColumnIndexOrThrow("ult_part");
+          final int _cursorIndexOfPathFoto = _cursor.getColumnIndexOrThrow("foto");
+          final UserEntity _result;
+          if(_cursor.moveToFirst()) {
+            _result = new UserEntity();
+            final int _tmpId;
+            _tmpId = _cursor.getInt(_cursorIndexOfId);
+            _result.setId(_tmpId);
+            final String _tmpNombre;
+            _tmpNombre = _cursor.getString(_cursorIndexOfNombre);
+            _result.setNombre(_tmpNombre);
+            final int _tmpPunt_max;
+            _tmpPunt_max = _cursor.getInt(_cursorIndexOfPuntMax);
+            _result.setPunt_max(_tmpPunt_max);
+            final int _tmpNum_partidas;
+            _tmpNum_partidas = _cursor.getInt(_cursorIndexOfNumPartidas);
+            _result.setNum_partidas(_tmpNum_partidas);
+            final String _tmpUlt_partida;
+            _tmpUlt_partida = _cursor.getString(_cursorIndexOfUltPartida);
+            _result.setUlt_partida(_tmpUlt_partida);
+            final String _tmpPath_foto;
+            _tmpPath_foto = _cursor.getString(_cursorIndexOfPathFoto);
+            _result.setPath_foto(_tmpPath_foto);
+          } else {
+            _result = null;
           }
           return _result;
         } finally {

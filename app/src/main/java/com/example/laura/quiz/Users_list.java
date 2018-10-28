@@ -4,6 +4,7 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -158,15 +159,19 @@ public class Users_list extends AppCompatActivity {
                 }else{
 
                     //LOGIN
-                    UserEntity usuario = seleccion == null?new UserEntity():seleccion;
+
+                    SharedPreferences setting = getSharedPreferences("optionsPreferences", 0);
+                    SharedPreferences.Editor editor = setting.edit();
+
+                    editor.putInt("id", seleccion.getId());
+                    editor.putString("user_name", seleccion.getNombre());
+                    editor.commit();
+
                     Intent in = new Intent(getApplicationContext(), Menu.class);
-                    in.putExtra("jugador", usuario);
                     startActivity(in);
                     finish();
 
                 }
-
-                System.out.println(seleccion.getNombre());
 
             }
         });

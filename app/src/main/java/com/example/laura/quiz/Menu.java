@@ -1,5 +1,7 @@
 package com.example.laura.quiz;
 
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.Observer;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.os.AsyncTask;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +17,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class Menu extends AppCompatActivity {
 
@@ -23,6 +28,35 @@ public class Menu extends AppCompatActivity {
     UserEntity jugador = null;
     SharedPreferences settings;
 
+    void getJugador(){
+
+        int id = this.settings.getInt("id",-2); //recuperamos el ultimo perfil con el que se ha jugado
+
+        if(id > -1) { //existe un perfil y no es anonimo
+
+            final LiveData user = DataBase.getDataBase(getApplicationContext()).UserDao().getUserById(id);
+
+            Observer jugadorDao = new Observer() {
+
+                @Override
+                public void onChanged(@Nullable Object o) {
+
+                    jugador = (UserEntity) user.getValue();
+                    mostrarMenu();
+                }
+            };
+
+            user.observe(this, jugadorDao);
+
+        }else if(id == -1){ //perfil anonimo
+
+            this.jugador = new UserEntity();
+            mostrarMenu();
+
+        }
+
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,13 +79,7 @@ public class Menu extends AppCompatActivity {
         select_perfil = (Button) findViewById(R.id.seleccion_perfil);
         anonimo = (Button) findViewById(R.id.partida_anonima);
 
-        Bundle bundle = getIntent().getExtras();
-        if(bundle != null) {
-            jugador = (UserEntity) bundle.getSerializable("jugador");
-            System.out.println(jugador);
-            if(jugador != null)
-                mostrarMenu();
-        }
+        this.getJugador();
 
         hall.setOnClickListener(new View.OnClickListener(){
 
@@ -59,7 +87,6 @@ public class Menu extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent i = new Intent(getApplicationContext(), Hall.class);
-                i.putExtra("jugador", jugador);
                 startActivity(i);
                 finish();
 
@@ -83,6 +110,12 @@ public class Menu extends AppCompatActivity {
             public void onClick(View view) {
 
                 jugador = new UserEntity();
+
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putInt("id", jugador.getId());
+                editor.putString("user_name", "Anónimo");
+                editor.commit();
+
                 mostrarMenu();
 
             }
@@ -94,7 +127,6 @@ public class Menu extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent i = new Intent(getApplicationContext(), Quiz.class);
-                i.putExtra("jugador",jugador);
                 startActivity(i);
                 finish();
 
@@ -107,7 +139,6 @@ public class Menu extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent i = new Intent(getApplicationContext(), Options.class);
-                i.putExtra("jugador", jugador);
                 startActivity(i);
                 finish();
 
@@ -220,5 +251,6 @@ public class Menu extends AppCompatActivity {
         AlertDialog dialogo = alerta.create();
 
         dialogo.show();
+
     }
 }
