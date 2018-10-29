@@ -3650,16 +3650,17 @@ public final class R {
     public static final int notification_template_icon_low_bg=0x7f07007f;
     public static final int notification_tile_bg=0x7f070080;
     public static final int notify_panel_notification_icon_bg=0x7f070081;
-    public static final int seymour_skinner_=0x7f070082;
-    public static final int sii=0x7f070083;
-    public static final int simon=0x7f070084;
-    public static final int simpsons=0x7f070085;
-    public static final int terri=0x7f070086;
-    public static final int toni_el_gordo=0x7f070087;
-    public static final int tooltip_frame_dark=0x7f070088;
-    public static final int tooltip_frame_light=0x7f070089;
-    public static final int troy_mcclure=0x7f07008a;
-    public static final int wiggum=0x7f07008b;
+    public static final int rainier=0x7f070082;
+    public static final int seymour_skinner_=0x7f070083;
+    public static final int sii=0x7f070084;
+    public static final int simon=0x7f070085;
+    public static final int simpsons=0x7f070086;
+    public static final int terri=0x7f070087;
+    public static final int toni_el_gordo=0x7f070088;
+    public static final int tooltip_frame_dark=0x7f070089;
+    public static final int tooltip_frame_light=0x7f07008a;
+    public static final int troy_mcclure=0x7f07008b;
+    public static final int wiggum=0x7f07008c;
   }
   public static final class id {
     public static final int ALT=0x7f080000;
@@ -4031,10 +4032,15 @@ public final class R {
   public static final class raw {
     public static final int achundarnar=0x7f0c0000;
     public static final int alistate=0x7f0c0001;
-    public static final int mocasines_saltarines=0x7f0c0002;
-    public static final int questions=0x7f0c0003;
-    public static final int taca=0x7f0c0004;
-    public static final int update=0x7f0c0005;
+    public static final int bailohambre=0x7f0c0002;
+    public static final int canteros=0x7f0c0003;
+    public static final int elastica=0x7f0c0004;
+    public static final int kentucky=0x7f0c0005;
+    public static final int melocotonero=0x7f0c0006;
+    public static final int mocasines_saltarines=0x7f0c0007;
+    public static final int questions=0x7f0c0008;
+    public static final int solfamidas=0x7f0c0009;
+    public static final int taca=0x7f0c000a;
   }
   public static final class string {
     public static final int abc_action_bar_home_description=0x7f0d0000;

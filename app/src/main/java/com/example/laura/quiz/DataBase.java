@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-@Database(entities = {QuestionEntity.class, PointEntity.class, UserEntity.class}, version = 8)
+@Database(entities = {QuestionEntity.class, PointEntity.class, UserEntity.class}, version = 10)
 public abstract class DataBase extends RoomDatabase {
 
     public abstract QuestionDao questionDao();
@@ -101,27 +101,15 @@ public abstract class DataBase extends RoomDatabase {
 
             try {
 
-
-                InputStream is = context.getResources().openRawResource(
-                        context.getResources().getIdentifier("update",
-                                "raw", context.getPackageName()));
-
-                String archivo = readTextFile(is);
-                JSONObject json = new JSONObject(archivo);
-
-                if(!json.getBoolean("update")){
-                    return null;
-                }
-
                 qDao.deleteAll();
 
-                is = context.getResources().openRawResource(
+                InputStream is = context.getResources().openRawResource(
                         context.getResources().getIdentifier("questions",
                                 "raw", context.getPackageName()));
 
-                archivo = readTextFile(is);
+                String archivo = readTextFile(is);
 
-                json = new JSONObject(archivo);
+                JSONObject json = new JSONObject(archivo);
 
                 QuestionEntity newQuestion;
                 JSONObject question;

@@ -78,7 +78,7 @@ public class Quiz extends AppCompatActivity {
 
                 //Durante la primera ejecución de la aplicación en toda su vida en una nueva memoria, es probable que no todas las preguntas se hayan subido a la BDD.
                 //Comprobamos esto para evitar un error en el número de preguntas al jugar al quiz.
-                if(((List)pregun.getValue()).size() > totalPreguntas){
+                if(((List)pregun.getValue()).size() >= totalPreguntas){
                     pregun.removeObserver(this);
                     Preguntas.startPreguntas((List<QuestionEntity>) pregun.getValue(), getApplicationContext());
                     initTime = SystemClock.elapsedRealtime();

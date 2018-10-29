@@ -810,6 +810,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable rainier
 drawable seymour_skinner_
 drawable sii
 drawable simon
@@ -1181,10 +1182,15 @@ layout toast_fallo
 mipmap ic_launcher
 raw achundarnar
 raw alistate
+raw bailohambre
+raw canteros
+raw elastica
+raw kentucky
+raw melocotonero
 raw mocasines_saltarines
 raw questions
+raw solfamidas
 raw taca
-raw update
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
