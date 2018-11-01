@@ -36,8 +36,8 @@ public class Quiz extends AppCompatActivity {
     private int totalPreguntas;
     private int aciertos;
     private int fallos;
-    private int segundos;
     private long initTime;
+    private long tiempoInicio;
     private Pregunta pregActual;
     private Toast acierto;
     private Toast fallo;
@@ -51,7 +51,6 @@ public class Quiz extends AppCompatActivity {
         numPregunta = -1;
         aciertos = 0;
         fallos = 0;
-        segundos = 0;
         totalPreguntas = Opciones.getNumPreg();
 
         //toast de acierto personalizado
@@ -82,6 +81,7 @@ public class Quiz extends AppCompatActivity {
                     pregun.removeObserver(this);
                     Preguntas.startPreguntas((List<QuestionEntity>) pregun.getValue(), getApplicationContext());
                     initTime = SystemClock.elapsedRealtime();
+                    tiempoInicio = System.currentTimeMillis();
                     SiguientePregunta();
                 }
             }
@@ -112,8 +112,8 @@ public class Quiz extends AppCompatActivity {
 
         }else{ //si hemos alcanzado el numero maximo de preguntas, terminamos el juego (pantalla de puntuacion)
 
-            System.out.println(segundos);
-            miPuntuacion -= (segundos/30);
+            int segundos = (int)(System.currentTimeMillis() - tiempoInicio) / 1000;
+            miPuntuacion -= (segundos / 30);
 
             Intent in = new Intent(this, PantallaPuntuacion.class);
             in.putExtra("puntuacionFinal", String.valueOf(miPuntuacion)); //pasamos la puntuacion a la pantalla final
@@ -152,12 +152,6 @@ public class Quiz extends AppCompatActivity {
 
         cronometro = (Chronometer) findViewById(R.id.cronom);
         cronometro.setBase(initTime);
-        cronometro.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
-            @Override
-            public void onChronometerTick(Chronometer chronometer) {
-                segundos++;
-            }
-        });
         cronometro.start();
 
         //renderizamos la pantalla en funcion del tipo de pregunta
