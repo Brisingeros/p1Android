@@ -787,7 +787,6 @@ drawable fausto
 drawable gatubela
 drawable homer
 drawable ic_launcher_background
-drawable ic_launcher_foreground
 drawable joseph_quimby
 drawable large
 drawable lisa
@@ -1180,6 +1179,8 @@ layout support_simple_spinner_dropdown_item
 layout toast
 layout toast_fallo
 mipmap ic_launcher
+mipmap ic_launcher_foreground
+mipmap ic_launcher_round
 raw achundarnar
 raw alistate
 raw bailohambre
