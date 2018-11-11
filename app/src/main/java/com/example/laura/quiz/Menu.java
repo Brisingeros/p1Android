@@ -34,19 +34,26 @@ public class Menu extends AppCompatActivity {
 
         if(!name.equals("Anónimo")) { //existe un perfil y no es anonimo
 
-            final LiveData user = DataBase.getDataBase(getApplicationContext()).UserDao().getUserByName(name);
+            if(name.equals("Undefined")) {
 
-            Observer jugadorDao = new Observer() {
+                cambiarPerfil();
 
-                @Override
-                public void onChanged(@Nullable Object o) {
+            }else {
 
-                    jugador = (UserEntity) user.getValue();
-                    mostrarMenu();
-                }
-            };
+                final LiveData user = DataBase.getDataBase(getApplicationContext()).UserDao().getUserByName(name);
 
-            user.observe(this, jugadorDao);
+                Observer jugadorDao = new Observer() {
+
+                    @Override
+                    public void onChanged(@Nullable Object o) {
+
+                        jugador = (UserEntity) user.getValue();
+                        mostrarMenu();
+                    }
+                };
+
+                user.observe(this, jugadorDao);
+            }
 
         }else { //perfil anonimo
 
