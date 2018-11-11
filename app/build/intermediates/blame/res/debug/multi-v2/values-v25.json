@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Laura\\Universidad\\Curso 4\\Desarrollo de Aplicaciones para Android\\p1Android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v25\\values-v25.xml",
+            "outputFile": "/home/brisin/RepositoriosClase/p1Android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v25/values-v25.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Laura\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\eaa3f7791d493212aad45cc1a0edbdca\\res\\values-v25\\values-v25.xml",
+                    "source": "/home/brisin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/b20cbba6d6df3067b4c85505b6734b79/res/values-v25/values-v25.xml",
                     "from": {
                         "startLines": "2,3,4,6",
                         "startColumns": "4,4,4,4",

@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-@Database(entities = {QuestionEntity.class, PointEntity.class, UserEntity.class}, version = 10)
+@Database(entities = {QuestionEntity.class, PointEntity.class, UserEntity.class}, version = 12)
 public abstract class DataBase extends RoomDatabase {
 
     public abstract QuestionDao questionDao();

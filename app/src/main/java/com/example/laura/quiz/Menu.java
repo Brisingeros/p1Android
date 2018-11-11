@@ -30,11 +30,11 @@ public class Menu extends AppCompatActivity {
 
     void getJugador(){
 
-        int id = this.settings.getInt("id",-2); //recuperamos el ultimo perfil con el que se ha jugado
+        String name = this.settings.getString("user_name", "Anónimo"); //recuperamos el ultimo perfil con el que se ha jugado
 
-        if(id > -1) { //existe un perfil y no es anonimo
+        if(!name.equals("Anónimo")) { //existe un perfil y no es anonimo
 
-            final LiveData user = DataBase.getDataBase(getApplicationContext()).UserDao().getUserById(id);
+            final LiveData user = DataBase.getDataBase(getApplicationContext()).UserDao().getUserByName(name);
 
             Observer jugadorDao = new Observer() {
 
@@ -48,7 +48,7 @@ public class Menu extends AppCompatActivity {
 
             user.observe(this, jugadorDao);
 
-        }else if(id == -1){ //perfil anonimo
+        }else { //perfil anonimo
 
             this.jugador = new UserEntity();
             mostrarMenu();
@@ -112,7 +112,6 @@ public class Menu extends AppCompatActivity {
                 jugador = new UserEntity();
 
                 SharedPreferences.Editor editor = settings.edit();
-                editor.putInt("id", jugador.getId());
                 editor.putString("user_name", "Anónimo");
                 editor.commit();
 

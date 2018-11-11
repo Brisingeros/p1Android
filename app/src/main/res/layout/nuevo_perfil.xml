@@ -63,7 +63,6 @@
             android:hint="nombre"
             android:inputType="text"
             android:singleLine="false"
-            android:text="grgthrt"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textColorHint="@android:color/background_dark"
             android:textSize="14sp"

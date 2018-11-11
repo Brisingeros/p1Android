@@ -27,37 +27,36 @@ public class UserDao_Impl implements UserDao {
 
   private final SharedSQLiteStatement __preparedStmtOfDeleteUser;
 
-  private final SharedSQLiteStatement __preparedStmtOfUpdateUser;
+  private final SharedSQLiteStatement __preparedStmtOfUpdateUserByName;
 
-  private final SharedSQLiteStatement __preparedStmtOfUpdatePartida;
+  private final SharedSQLiteStatement __preparedStmtOfUpdatePartidaByName;
 
   public UserDao_Impl(RoomDatabase __db) {
     this.__db = __db;
     this.__insertionAdapterOfUserEntity = new EntityInsertionAdapter<UserEntity>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `user_table`(`id`,`userName`,`puntuacion_max`,`num_partidas`,`ult_part`,`foto`) VALUES (nullif(?, 0),?,?,?,?,?)";
+        return "INSERT OR ABORT INTO `user_table`(`userName`,`puntuacion_max`,`num_partidas`,`ult_part`,`foto`) VALUES (?,?,?,?,?)";
       }
 
       @Override
       public void bind(SupportSQLiteStatement stmt, UserEntity value) {
-        stmt.bindLong(1, value.getId());
         if (value.getNombre() == null) {
-          stmt.bindNull(2);
+          stmt.bindNull(1);
         } else {
-          stmt.bindString(2, value.getNombre());
+          stmt.bindString(1, value.getNombre());
         }
-        stmt.bindLong(3, value.getPunt_max());
-        stmt.bindLong(4, value.getNum_partidas());
+        stmt.bindLong(2, value.getPunt_max());
+        stmt.bindLong(3, value.getNum_partidas());
         if (value.getUlt_partida() == null) {
-          stmt.bindNull(5);
+          stmt.bindNull(4);
         } else {
-          stmt.bindString(5, value.getUlt_partida());
+          stmt.bindString(4, value.getUlt_partida());
         }
         if (value.getPath_foto() == null) {
-          stmt.bindNull(6);
+          stmt.bindNull(5);
         } else {
-          stmt.bindString(6, value.getPath_foto());
+          stmt.bindString(5, value.getPath_foto());
         }
       }
     };
@@ -75,17 +74,17 @@ public class UserDao_Impl implements UserDao {
         return _query;
       }
     };
-    this.__preparedStmtOfUpdateUser = new SharedSQLiteStatement(__db) {
+    this.__preparedStmtOfUpdateUserByName = new SharedSQLiteStatement(__db) {
       @Override
       public String createQuery() {
-        final String _query = "UPDATE user_table SET foto = ? WHERE id = ?";
+        final String _query = "UPDATE user_table SET foto = ? WHERE userName = ?";
         return _query;
       }
     };
-    this.__preparedStmtOfUpdatePartida = new SharedSQLiteStatement(__db) {
+    this.__preparedStmtOfUpdatePartidaByName = new SharedSQLiteStatement(__db) {
       @Override
       public String createQuery() {
-        final String _query = "UPDATE user_table SET puntuacion_max = CASE WHEN ? > puntuacion_max THEN ? ELSE puntuacion_max END,ult_part = ?,num_partidas = num_partidas+1 WHERE id = ?";
+        final String _query = "UPDATE user_table SET puntuacion_max = CASE WHEN ? > puntuacion_max THEN ? ELSE puntuacion_max END,ult_part = ?,num_partidas = num_partidas+1 WHERE userName = ?";
         return _query;
       }
     };
@@ -135,8 +134,8 @@ public class UserDao_Impl implements UserDao {
   }
 
   @Override
-  public void updateUser(String newPath, int id) {
-    final SupportSQLiteStatement _stmt = __preparedStmtOfUpdateUser.acquire();
+  public void updateUserByName(String newPath, String name) {
+    final SupportSQLiteStatement _stmt = __preparedStmtOfUpdateUserByName.acquire();
     __db.beginTransaction();
     try {
       int _argIndex = 1;
@@ -146,18 +145,22 @@ public class UserDao_Impl implements UserDao {
         _stmt.bindString(_argIndex, newPath);
       }
       _argIndex = 2;
-      _stmt.bindLong(_argIndex, id);
+      if (name == null) {
+        _stmt.bindNull(_argIndex);
+      } else {
+        _stmt.bindString(_argIndex, name);
+      }
       _stmt.executeUpdateDelete();
       __db.setTransactionSuccessful();
     } finally {
       __db.endTransaction();
-      __preparedStmtOfUpdateUser.release(_stmt);
+      __preparedStmtOfUpdateUserByName.release(_stmt);
     }
   }
 
   @Override
-  public void updatePartida(int ptos, String ult_partida, int id) {
-    final SupportSQLiteStatement _stmt = __preparedStmtOfUpdatePartida.acquire();
+  public void updatePartidaByName(int ptos, String ult_partida, String name) {
+    final SupportSQLiteStatement _stmt = __preparedStmtOfUpdatePartidaByName.acquire();
     __db.beginTransaction();
     try {
       int _argIndex = 1;
@@ -171,12 +174,16 @@ public class UserDao_Impl implements UserDao {
         _stmt.bindString(_argIndex, ult_partida);
       }
       _argIndex = 4;
-      _stmt.bindLong(_argIndex, id);
+      if (name == null) {
+        _stmt.bindNull(_argIndex);
+      } else {
+        _stmt.bindString(_argIndex, name);
+      }
       _stmt.executeUpdateDelete();
       __db.setTransactionSuccessful();
     } finally {
       __db.endTransaction();
-      __preparedStmtOfUpdatePartida.release(_stmt);
+      __preparedStmtOfUpdatePartidaByName.release(_stmt);
     }
   }
 
@@ -200,7 +207,6 @@ public class UserDao_Impl implements UserDao {
         }
         final Cursor _cursor = __db.query(_statement);
         try {
-          final int _cursorIndexOfId = _cursor.getColumnIndexOrThrow("id");
           final int _cursorIndexOfNombre = _cursor.getColumnIndexOrThrow("userName");
           final int _cursorIndexOfPuntMax = _cursor.getColumnIndexOrThrow("puntuacion_max");
           final int _cursorIndexOfNumPartidas = _cursor.getColumnIndexOrThrow("num_partidas");
@@ -210,9 +216,6 @@ public class UserDao_Impl implements UserDao {
           while(_cursor.moveToNext()) {
             final UserEntity _item;
             _item = new UserEntity();
-            final int _tmpId;
-            _tmpId = _cursor.getInt(_cursorIndexOfId);
-            _item.setId(_tmpId);
             final String _tmpNombre;
             _tmpNombre = _cursor.getString(_cursorIndexOfNombre);
             _item.setNombre(_tmpNombre);
@@ -244,11 +247,15 @@ public class UserDao_Impl implements UserDao {
   }
 
   @Override
-  public LiveData<UserEntity> getUserById(int id) {
-    final String _sql = "SELECT * FROM user_table WHERE id = ?";
+  public LiveData<UserEntity> getUserByName(String name) {
+    final String _sql = "SELECT * FROM user_table WHERE userName = ?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
-    _statement.bindLong(_argIndex, id);
+    if (name == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, name);
+    }
     return new ComputableLiveData<UserEntity>() {
       private Observer _observer;
 
@@ -265,7 +272,6 @@ public class UserDao_Impl implements UserDao {
         }
         final Cursor _cursor = __db.query(_statement);
         try {
-          final int _cursorIndexOfId = _cursor.getColumnIndexOrThrow("id");
           final int _cursorIndexOfNombre = _cursor.getColumnIndexOrThrow("userName");
           final int _cursorIndexOfPuntMax = _cursor.getColumnIndexOrThrow("puntuacion_max");
           final int _cursorIndexOfNumPartidas = _cursor.getColumnIndexOrThrow("num_partidas");
@@ -274,9 +280,6 @@ public class UserDao_Impl implements UserDao {
           final UserEntity _result;
           if(_cursor.moveToFirst()) {
             _result = new UserEntity();
-            final int _tmpId;
-            _tmpId = _cursor.getInt(_cursorIndexOfId);
-            _result.setId(_tmpId);
             final String _tmpNombre;
             _tmpNombre = _cursor.getString(_cursorIndexOfNombre);
             _result.setNombre(_tmpNombre);

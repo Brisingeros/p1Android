@@ -81,7 +81,7 @@ public class PantallaPuntuacion extends AppCompatActivity {
         SharedPreferences setting = getSharedPreferences("optionsPreferences", 0);
 
         final String nombreJugador = setting.getString("user_name", "Anónimo");
-        final int id = setting.getInt("id", -2);
+        final String name = setting.getString("user_name", "Anónimo");
 
         AsyncTask.execute(new Runnable() {
 
@@ -99,7 +99,7 @@ public class PantallaPuntuacion extends AppCompatActivity {
             @Override
             public void run() {
 
-                db.UserDao().updatePartida(Integer.parseInt(puntos),s.toString(),id);
+                db.UserDao().updatePartidaByName(Integer.parseInt(puntos),s.toString(),name);
 
             }
 

@@ -10,11 +10,7 @@ import java.io.Serializable;
 @Entity(tableName = "user_table")
 public class UserEntity implements Serializable{
 
-    @PrimaryKey(autoGenerate = true)
-    @NonNull
-    @ColumnInfo(name = "id")
-    private int id;
-
+    @PrimaryKey
     @NonNull
     @ColumnInfo(name = "userName")
     private String nombre;
@@ -67,18 +63,12 @@ public class UserEntity implements Serializable{
 
     public UserEntity() {
 
-        this.id = -1;
         this.nombre = "Anónimo";
         this.punt_max = 0;
         this.num_partidas = 0;
         this.ult_partida = "";
         this.path_foto = "mr_x";
 
-    }
-
-    @NonNull
-    public int getId() {
-        return id;
     }
 
     @NonNull
@@ -106,7 +96,4 @@ public class UserEntity implements Serializable{
         return path_foto;
     }
 
-    public void setId(@NonNull int id) {
-        this.id = id;
-    }
 }

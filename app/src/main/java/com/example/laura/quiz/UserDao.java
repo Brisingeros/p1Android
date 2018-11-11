@@ -19,16 +19,16 @@ public interface UserDao {
     @Query("DELETE FROM user_table WHERE userName = :name")
     void deleteUser(String name);
 
-    @Query("UPDATE user_table SET foto = :newPath WHERE id = :id")
-    void updateUser(String newPath, int id);
+    @Query("UPDATE user_table SET foto = :newPath WHERE userName = :name")
+    void updateUserByName(String newPath, String name);
 
-    @Query("UPDATE user_table SET puntuacion_max = CASE WHEN :ptos > puntuacion_max THEN :ptos ELSE puntuacion_max END,ult_part = :ult_partida,num_partidas = num_partidas+1 WHERE id = :id")
-    void updatePartida(int ptos, String ult_partida,int id);
+    @Query("UPDATE user_table SET puntuacion_max = CASE WHEN :ptos > puntuacion_max THEN :ptos ELSE puntuacion_max END,ult_part = :ult_partida,num_partidas = num_partidas+1 WHERE userName = :name")
+    void updatePartidaByName(int ptos, String ult_partida,String name);
 
     @Query("SELECT * FROM user_table")
     LiveData<List<UserEntity>> getUsers();
 
-    @Query("SELECT * FROM user_table WHERE id = :id")
-    LiveData<UserEntity> getUserById(int id);
+    @Query("SELECT * FROM user_table WHERE userName = :name")
+    LiveData<UserEntity> getUserByName(String name);
 
 }

@@ -29,14 +29,14 @@ public class DataBase_Impl extends DataBase {
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(10) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(12) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `question_table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `difficulty` TEXT NOT NULL, `type` TEXT NOT NULL, `data` TEXT NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `points_table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `difficulty` TEXT NOT NULL, `userName` TEXT NOT NULL, `points` INTEGER NOT NULL)");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `user_table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userName` TEXT NOT NULL, `puntuacion_max` INTEGER NOT NULL, `num_partidas` INTEGER NOT NULL, `ult_part` TEXT NOT NULL, `foto` TEXT NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `user_table` (`userName` TEXT NOT NULL, `puntuacion_max` INTEGER NOT NULL, `num_partidas` INTEGER NOT NULL, `ult_part` TEXT NOT NULL, `foto` TEXT NOT NULL, PRIMARY KEY(`userName`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"8b406a35cf276c391291b39325117adb\")");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"7f86fabeab21df1c6a57a84f2aaec2a4\")");
       }
 
       @Override
@@ -96,9 +96,8 @@ public class DataBase_Impl extends DataBase {
                   + " Expected:\n" + _infoPointsTable + "\n"
                   + " Found:\n" + _existingPointsTable);
         }
-        final HashMap<String, TableInfo.Column> _columnsUserTable = new HashMap<String, TableInfo.Column>(6);
-        _columnsUserTable.put("id", new TableInfo.Column("id", "INTEGER", true, 1));
-        _columnsUserTable.put("userName", new TableInfo.Column("userName", "TEXT", true, 0));
+        final HashMap<String, TableInfo.Column> _columnsUserTable = new HashMap<String, TableInfo.Column>(5);
+        _columnsUserTable.put("userName", new TableInfo.Column("userName", "TEXT", true, 1));
         _columnsUserTable.put("puntuacion_max", new TableInfo.Column("puntuacion_max", "INTEGER", true, 0));
         _columnsUserTable.put("num_partidas", new TableInfo.Column("num_partidas", "INTEGER", true, 0));
         _columnsUserTable.put("ult_part", new TableInfo.Column("ult_part", "TEXT", true, 0));
@@ -113,7 +112,7 @@ public class DataBase_Impl extends DataBase {
                   + " Found:\n" + _existingUserTable);
         }
       }
-    }, "8b406a35cf276c391291b39325117adb", "d778f29536f93cd26869aec8d6c786b7");
+    }, "7f86fabeab21df1c6a57a84f2aaec2a4", "4f719408286b582b7726b9e811500240");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

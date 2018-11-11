@@ -27,6 +27,8 @@ public class Users_list extends AppCompatActivity {
     ArrayList<String> nombres;
     UserEntity editado = null;
 
+    SharedPreferences settings;
+
     RecyclerView listaRenderizable;
     TextView info_borrar;
     Button nuevoPerfil, salir, terminar_borrado, borrar, editar;
@@ -38,6 +40,8 @@ public class Users_list extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recycler_view_item);
+
+        settings = getSharedPreferences("optionsPreferences", 0);
 
         this.info_borrar = (TextView) findViewById(R.id.mens_eliminar);
         this.nuevoPerfil = (Button) findViewById(R.id.nuevo_perfil);
@@ -163,7 +167,6 @@ public class Users_list extends AppCompatActivity {
                     SharedPreferences setting = getSharedPreferences("optionsPreferences", 0);
                     SharedPreferences.Editor editor = setting.edit();
 
-                    editor.putInt("id", seleccion.getId());
                     editor.putString("user_name", seleccion.getNombre());
                     editor.commit();
 
@@ -214,6 +217,15 @@ public class Users_list extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
+
+                                String userNameAct = settings.getString("user_name", "Anónimo");
+
+                                if(userNameAct.equals(user.getNombre())){
+                                    SharedPreferences.Editor editor = settings.edit();
+                                    editor.putString("user_name", "Anónimo");
+                                    editor.commit();
+                                }
+
                                 usuarios.remove(user);
                                 setAdaptador();
                                 AsyncTask.execute(new Runnable() {

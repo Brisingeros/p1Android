@@ -134,7 +134,7 @@ public class Nuevo_perfil extends AppCompatActivity implements java.io.Serializa
                         @Override
                         public void run() {
 
-                            DataBase.getDataBase(getApplicationContext()).UserDao().updateUser(imgPath, editado.getId());
+                            DataBase.getDataBase(getApplicationContext()).UserDao().updateUserByName(imgPath, editado.getNombre());
 
                         }
 
