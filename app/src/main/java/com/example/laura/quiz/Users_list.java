@@ -222,7 +222,7 @@ public class Users_list extends AppCompatActivity {
 
                                 if(userNameAct.equals(user.getNombre())){
                                     SharedPreferences.Editor editor = settings.edit();
-                                    editor.putString("user_name", "Anónimo");
+                                    editor.putString("user_name", "Undefined");
                                     editor.commit();
                                 }
 
