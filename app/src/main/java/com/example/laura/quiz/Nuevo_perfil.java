@@ -64,6 +64,7 @@ public class Nuevo_perfil extends AppCompatActivity implements java.io.Serializa
             this.userImage.setImageResource(img);
         }
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -354,7 +355,6 @@ public class Nuevo_perfil extends AppCompatActivity implements java.io.Serializa
         try{
 
             FileOutputStream out = new FileOutputStream(file);
-            //Bitmap resizedImage = Bitmap.createScaledBitmap(finalBitmap, (finalBitmap.getWidth()/2), (finalBitmap.getHeight()/2), false);
             finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
             imgPath = file.getAbsolutePath();
 

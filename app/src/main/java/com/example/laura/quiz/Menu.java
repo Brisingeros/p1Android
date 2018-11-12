@@ -34,11 +34,11 @@ public class Menu extends AppCompatActivity {
 
         if(!name.equals("Anónimo")) { //existe un perfil y no es anonimo
 
-            if(name.equals("Undefined")) {
+            if(name.equals("Undefined")) { //no se ha seleccionado ningun perfil
 
                 cambiarPerfil();
 
-            }else {
+            }else { //habia un perfil seleccionado, recogemos sus datos de la bdd
 
                 final LiveData user = DataBase.getDataBase(getApplicationContext()).UserDao().getUserByName(name);
 
@@ -91,7 +91,7 @@ public class Menu extends AppCompatActivity {
         hall.setOnClickListener(new View.OnClickListener(){
 
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { //puntuacion
 
                 Intent i = new Intent(getApplicationContext(), Hall.class);
                 startActivity(i);
@@ -103,7 +103,7 @@ public class Menu extends AppCompatActivity {
         select_perfil.setOnClickListener(new View.OnClickListener(){
 
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { //seleccionar perfil
 
                 startActivity(new Intent(getApplicationContext(), Users_list.class));
                 finish();
@@ -114,7 +114,7 @@ public class Menu extends AppCompatActivity {
         anonimo.setOnClickListener(new View.OnClickListener(){
 
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { //perfil anonimo
 
                 jugador = new UserEntity();
 
@@ -130,7 +130,7 @@ public class Menu extends AppCompatActivity {
         inicio.setOnClickListener(new View.OnClickListener(){
 
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { //iniciar juego
 
                 Intent i = new Intent(getApplicationContext(), Quiz.class);
                 startActivity(i);
@@ -142,7 +142,7 @@ public class Menu extends AppCompatActivity {
         opciones.setOnClickListener(new View.OnClickListener(){
 
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { //opciones
 
                 Intent i = new Intent(getApplicationContext(), Options.class);
                 startActivity(i);
@@ -154,7 +154,7 @@ public class Menu extends AppCompatActivity {
         salir.setOnClickListener(new View.OnClickListener(){
 
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { //Salir de la app
 
                 salir();
 
@@ -163,7 +163,7 @@ public class Menu extends AppCompatActivity {
 
     }
 
-    private void mostrarMenu(){
+    private void mostrarMenu(){ //mostramos el menu principal
 
         userName.setText(jugador.getNombre());
         userName.setVisibility(View.VISIBLE);
@@ -180,7 +180,7 @@ public class Menu extends AppCompatActivity {
 
     }
 
-    private void setImage(String path){
+    private void setImage(String path){ //mostramos la imagen asociada al perfil seleccionado
 
         int img = getApplicationContext().getResources().getIdentifier(path, "drawable", getApplicationContext().getPackageName());
 
@@ -212,7 +212,7 @@ public class Menu extends AppCompatActivity {
 
     }
 
-    private void salir(){
+    private void salir(){ //modal de salir
 
         final AlertDialog.Builder alerta = new AlertDialog.Builder(Menu.this);
         alerta
