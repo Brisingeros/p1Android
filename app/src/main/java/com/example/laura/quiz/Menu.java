@@ -30,7 +30,7 @@ public class Menu extends AppCompatActivity {
 
     void getJugador(){
 
-        String name = this.settings.getString("user_name", "Anónimo"); //recuperamos el ultimo perfil con el que se ha jugado
+        String name = this.settings.getString("user_name", "Undefined"); //recuperamos el ultimo perfil con el que se ha jugado
 
         if(!name.equals("Anónimo")) { //existe un perfil y no es anonimo
 

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "E:\\Laura\\Universidad\\Curso 4\\Desarrollo de Aplicaciones para Android\\p1Android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Laura\\.gradle\\caches\\transforms-1\\files-1.1\\constraint-layout-1.1.3.aar\\372db64ca7f63b696b4b5eb3a6bc76dd\\res\\values\\values.xml",
@@ -23,24 +23,24 @@
                     }
                 },
                 {
-                    "source": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "E:\\Laura\\Universidad\\Curso 4\\Desarrollo de Aplicaciones para Android\\p1Android\\app\\src\\main\\res\\values\\colors.xml",
                     "from": {
-                        "startLines": "1,2",
-                        "startColumns": "4,4",
-                        "startOffsets": "17,60",
-                        "endColumns": "41,58",
-                        "endOffsets": "54,114"
+                        "startLines": "4,2,3,9,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "157,57,105,379,204,247,291,335",
+                        "endColumns": "45,46,50,41,41,42,42,42",
+                        "endOffsets": "198,99,151,416,241,285,329,373"
                     },
                     "to": {
-                        "startLines": "812,823",
-                        "startColumns": "4,4",
-                        "startOffsets": "67058,68392",
-                        "endColumns": "41,58",
-                        "endOffsets": "67095,68446"
+                        "startLines": "154,155,156,171,172,173,174,175",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "7827,7873,7920,8938,8980,9022,9065,9108",
+                        "endColumns": "45,46,50,41,41,42,42,42",
+                        "endOffsets": "7868,7915,7966,8975,9017,9060,9103,9146"
                     }
                 },
                 {
-                    "source": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "E:\\Laura\\Universidad\\Curso 4\\Desarrollo de Aplicaciones para Android\\p1Android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
                         "startLines": "3,15,10,17",
                         "startColumns": "4,4,4,4",
@@ -59,20 +59,20 @@
                     }
                 },
                 {
-                    "source": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\src\\main\\res\\values\\colors.xml",
+                    "source": "E:\\Laura\\Universidad\\Curso 4\\Desarrollo de Aplicaciones para Android\\p1Android\\app\\src\\main\\res\\values\\dimens.xml",
                     "from": {
-                        "startLines": "4,2,3,9,5,6,7,8",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "157,57,105,379,204,247,291,335",
-                        "endColumns": "45,46,50,41,41,42,42,42",
-                        "endOffsets": "198,99,151,416,241,285,329,373"
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "17",
+                        "endColumns": "41",
+                        "endOffsets": "54"
                     },
                     "to": {
-                        "startLines": "154,155,156,171,172,173,174,175",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "7827,7873,7920,8938,8980,9022,9065,9108",
-                        "endColumns": "45,46,50,41,41,42,42,42",
-                        "endOffsets": "7868,7915,7966,8975,9017,9060,9103,9146"
+                        "startLines": "705",
+                        "startColumns": "4",
+                        "startOffsets": "60364",
+                        "endColumns": "41",
+                        "endOffsets": "60401"
                     }
                 },
                 {
@@ -107,6 +107,23 @@
                         "startOffsets": "43951,60406,60465,60513,61180,61255,61331,63261",
                         "endColumns": "629,58,47,55,74,75,71,65",
                         "endOffsets": "44576,60460,60508,60564,61250,61326,61398,63322"
+                    }
+                },
+                {
+                    "source": "E:\\Laura\\Universidad\\Curso 4\\Desarrollo de Aplicaciones para Android\\p1Android\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "1,2",
+                        "startColumns": "4,4",
+                        "startOffsets": "17,60",
+                        "endColumns": "41,58",
+                        "endOffsets": "54,114"
+                    },
+                    "to": {
+                        "startLines": "812,823",
+                        "startColumns": "4,4",
+                        "startOffsets": "67058,68392",
+                        "endColumns": "41,58",
+                        "endOffsets": "67095,68446"
                     }
                 },
                 {
@@ -183,23 +200,6 @@
                         "endLines": "15,368,430,2421",
                         "endColumns": "60,169,35,12",
                         "endOffsets": "765,34378,36579,175980"
-                    }
-                },
-                {
-                    "source": "E:\\Laura\\Universidad\\Juegos para Android\\p1Android\\app\\src\\main\\res\\values\\dimens.xml",
-                    "from": {
-                        "startLines": "1",
-                        "startColumns": "4",
-                        "startOffsets": "17",
-                        "endColumns": "41",
-                        "endOffsets": "54"
-                    },
-                    "to": {
-                        "startLines": "705",
-                        "startColumns": "4",
-                        "startOffsets": "60364",
-                        "endColumns": "41",
-                        "endOffsets": "60401"
                     }
                 },
                 {
